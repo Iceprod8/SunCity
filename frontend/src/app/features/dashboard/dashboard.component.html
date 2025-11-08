@@ -1,0 +1,47 @@
+<ng-container *ngIf="user(); else notLogged">
+  <div class="bg-white border-b">
+    <div class="page-container flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-brand-600 text-white grid place-items-center font-semibold">
+        {{ initials() }}
+      </div>
+      <div class="flex-1">Bonjour, <span class="font-medium">{{ user()?.displayName }}</span></div>
+      <a [routerLink]="['/profile', user()?.id]" class="px-3 py-2 rounded-md border hover:bg-gray-50">Mon profil</a>
+      <button class="px-3 py-2 rounded-md bg-gray-100 hover:bg-gray-200" (click)="logout()">Se déconnecter</button>
+    </div>
+  </div>
+
+  <section class="page-container grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-4">
+    <div class="bg-white border rounded-xl shadow-sm p-4">
+      <h3 class="text-lg font-semibold mb-2">Météo (aperçu)</h3>
+      <p *ngIf="weather.length; else noWeather">
+        {{ weather[0].date }} – {{ weather[0].condition }} ({{ weather[0].min }}° / {{ weather[0].max }}°)
+      </p>
+      <ng-template #noWeather><p class="text-gray-500">Pas de données météo.</p></ng-template>
+    </div>
+
+    <div class="bg-white border rounded-xl shadow-sm p-4">
+      <h3 class="text-lg font-semibold mb-2">Actualités ({{ articles.length }})</h3>
+      <ul class="space-y-1">
+        <li *ngFor="let a of articles" class="flex items-center justify-between">
+          <span class="truncate mr-2">{{ a.title }}</span>
+          <span class="text-sm text-gray-500">{{ a.publisher }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="bg-white border rounded-xl shadow-sm p-4">
+      <h3 class="text-lg font-semibold mb-2">Activités ({{ activities.length }})</h3>
+      <ul class="space-y-1">
+        <li *ngFor="let x of activities" class="flex items-center justify-between">
+          <span>{{ x.name }}</span>
+          <span class="text-sm text-gray-500">{{ x.distanceKm }} km</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+</ng-container>
+
+<ng-template #notLogged>
+  <p class="page-container">Vous n’êtes pas connecté. <a routerLink="/login" class="text-brand-700 hover:underline">Se connecter</a></p>
+</ng-template>
+

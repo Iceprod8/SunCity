@@ -1,0 +1,44 @@
+<div class="max-w-lg mx-auto">
+  <div class="bg-white border rounded-xl shadow-sm p-6">
+    <h2 class="text-xl font-semibold mb-4">Inscription</h2>
+    <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
+      <label class="block">
+        <span class="block text-sm font-medium text-gray-700">Email</span>
+        <input type="email" formControlName="email" placeholder="ex: jean@exemple.com"
+               class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" />
+      </label>
+
+      <label class="block">
+        <span class="block text-sm font-medium text-gray-700">Username</span>
+        <input type="username" formControlName="username" placeholder="Jean Dupont"
+               class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" />
+      </label>
+
+      <label class="block">
+        <span class="block text-sm font-medium text-gray-700">Mot de passe</span>
+        <input type="password" formControlName="password" placeholder="••••"
+               class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" />
+      </label>
+
+      <label class="block">
+        <span class="block text-sm font-medium text-gray-700">Confirmer le mot de passe</span>
+        <input type="password" formControlName="confirmPassword" placeholder="••••"
+               class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" />
+      </label>
+
+      <p class="text-sm text-red-600" *ngIf="form.hasError('passwordMismatch')">
+        Les mots de passe ne correspondent pas
+      </p>
+
+      <p class="text-sm text-red-600" *ngIf="error">{{ error }}</p>
+
+      <div class="pt-2 flex items-center gap-3">
+        <button type="submit" class="inline-flex items-center justify-center rounded-md bg-brand-600 px-4 py-2 text-white hover:bg-brand-700">
+          Créer le compte
+        </button>
+        <a routerLink="/login" class="text-brand-700 hover:underline">Se connecter</a>
+      </div>
+    </form>
+  </div>
+</div>
+

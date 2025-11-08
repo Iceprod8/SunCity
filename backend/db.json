@@ -1,0 +1,65 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "demo@suncity.local",
+      "password": "demo",
+      "displayName": "Demo User",
+      "city": "Paris"
+    },
+    {
+      "id": "dff3",
+      "email": "samochval.nathan@gmail.com",
+      "username": "test",
+      "password": "test"
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "title": "Breaking: Soleil au zénith",
+      "publisher": "Le Quotidien",
+      "date": "2025-11-08",
+      "excerpt": "Une journée radieuse s'annonce."
+    },
+    {
+      "id": 2,
+      "title": "Culture: Expo de peinture",
+      "publisher": "Arts & Co",
+      "date": "2025-11-07",
+      "excerpt": "Couleurs et émotions au rendez-vous."
+    }
+  ],
+  "activities": [
+    {
+      "id": 1,
+      "name": "Parc Montsouris",
+      "type": "parc",
+      "distanceKm": 1.2,
+      "popularity": 4.7
+    },
+    {
+      "id": 2,
+      "name": "Musée d'Orsay",
+      "type": "musée",
+      "distanceKm": 3.8,
+      "popularity": 4.9
+    }
+  ],
+  "weather": [
+    {
+      "id": 1,
+      "date": "2025-11-08",
+      "condition": "sunny",
+      "min": 12,
+      "max": 21
+    },
+    {
+      "id": 2,
+      "date": "2025-11-09",
+      "condition": "cloudy",
+      "min": 10,
+      "max": 18
+    }
+  ]
+}
