@@ -5,7 +5,6 @@
         {{ initials() }}
       </div>
       <div class="flex-1">Bonjour, <span class="font-medium">{{ user()?.displayName }}</span></div>
-      <a [routerLink]="['/profile', user()?.id]" class="px-3 py-2 rounded-md border hover:bg-gray-50">Mon profil</a>
       <button class="px-3 py-2 rounded-md bg-gray-100 hover:bg-gray-200" (click)="logout()">Se déconnecter</button>
     </div>
   </div>
@@ -42,6 +41,6 @@
 </ng-container>
 
 <ng-template #notLogged>
-  <p class="page-container">Vous n’êtes pas connecté. <a routerLink="/login" class="text-brand-700 hover:underline">Se connecter</a></p>
+  <p class="page-container">Vous n'êtes pas connecté. <a routerLink="/login" class="text-brand-700 hover:underline">Se connecter</a></p>
 </ng-template>
 

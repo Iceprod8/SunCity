@@ -20,9 +20,5 @@ export const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent
   },
-  {
-    path: 'profile/:id',
-    loadComponent: () => import('./features/profile/profile.component').then(m => m.ProfileComponent)
-  },
   { path: '**', redirectTo: 'login' }
 ];

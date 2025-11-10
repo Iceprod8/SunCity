@@ -5,7 +5,6 @@ import { tap, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ApiService } from '../../shared/services/api.service';
 import { User } from '../../shared/models/user.model';
-import { StorageService } from '../../shared/services/storage.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -16,14 +15,8 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private api: ApiService,
-    private storage: StorageService,
     private router: Router
-  ) {
-    const saved = this.storage.load<User>();
-    if (saved) {
-      this.currentUserSignal.set(saved);
-    }
-  }
+  ) { }
 
   login(email: string, password: string): Observable<User> {
     return this.http
@@ -45,13 +38,11 @@ export class AuthService {
 
   logout() {
     this.currentUserSignal.set(null);
-    this.storage.clear();
     this.router.navigate(['/login']);
   }
 
   private setUser(user: User) {
     this.currentUserSignal.set(user);
-    this.storage.save(user);
   }
 }
 
