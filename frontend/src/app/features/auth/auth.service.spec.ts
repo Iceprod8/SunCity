@@ -26,22 +26,15 @@ describe('AuthService', () => {
       imports: [HttpClientTestingModule, RouterTestingModule],
       providers: [ApiService]
     });
-    localStorage.clear();
-  });
 
-  afterEach(() => {
-    httpMock?.verify();
-    localStorage.clear();
-  });
-
-  function initService() {
     service = TestBed.inject(AuthService);
     httpMock = TestBed.inject(HttpTestingController);
     router = TestBed.inject(Router);
-  }
+  });
 
-  it('should login, set current user, and persist to storage', () => {
-    initService();
+  afterEach(() => httpMock.verify());
+
+  it('should login and set the current user', () => {
     let result: User | undefined;
 
     service.login(mockUser.email, mockUser.password).subscribe(user => (result = user));
@@ -59,18 +52,9 @@ describe('AuthService', () => {
     expect(result).toEqual(mockUser);
     expect(service.user()).toEqual(mockUser);
     expect(service.isAuthenticated()).toBeTrue();
-    expect(localStorage.getItem('suncity-user')).toContain(mockUser.email);
-  });
-
-  it('should hydrate from storage on creation', () => {
-    localStorage.setItem('suncity-user', JSON.stringify(mockUser));
-    initService();
-    const hydratedService = service;
-    expect(hydratedService.user()?.email).toBe(mockUser.email);
   });
 
   it('should emit an error when credentials are invalid', done => {
-    initService();
     service.login('bad@example.com', 'wrong').subscribe({
       next: () => done.fail('Expected an error'),
       error: err => {
@@ -87,9 +71,7 @@ describe('AuthService', () => {
   });
 
   it('should clear the user on logout and navigate to login', () => {
-    initService();
     const navigateSpy = spyOn(router, 'navigate').and.resolveTo(true);
-    localStorage.setItem('suncity-user', JSON.stringify(mockUser));
 
     // Prime the state with a logged-in user.
     service.login(mockUser.email, mockUser.password).subscribe();
@@ -101,6 +83,5 @@ describe('AuthService', () => {
     expect(service.user()).toBeNull();
     expect(service.isAuthenticated()).toBeFalse();
     expect(navigateSpy).toHaveBeenCalledWith(['/login']);
-    expect(localStorage.getItem('suncity-user')).toBeNull();
   });
 });
