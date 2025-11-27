@@ -52,9 +52,8 @@ export class PageHeaderComponent {
 
   @Input() title = '';
   @Input() subtitle = '';
-  @Input() showGreeting = true;
-  @Input() greetingPrefix = 'Bonjour';
-  @Input() links: NavLink[] = [
+
+  links: NavLink[] = [
     { label: 'Meteo', path: '/weather' },
     { label: 'Actualites', path: '/news' },
     { label: 'Activites', path: '/activities' }

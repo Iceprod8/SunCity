@@ -26,11 +26,6 @@ export class DashboardComponent {
   activities: Activity[] = [];
   weather: Weather[] = [];
   trainingDays: TrainingDay[] = [];
-  navLinks = [
-    { label: 'Meteo', path: '/weather' },
-    { label: 'Actualites', path: '/news' },
-    { label: 'Activites', path: '/activities' }
-  ];
 
   ngOnInit() {
     this.content.getArticles().subscribe(a => (this.articles = a.slice(0, 3)));

@@ -8,7 +8,7 @@
   },
   "include": [
     "src/**/*.ts"
-  ],
+, "src/app/features/news/news.component.ts"  ],
   "exclude": [
     "src/**/*.spec.ts"
   ]

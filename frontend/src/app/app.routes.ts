@@ -1,6 +1,9 @@
 import { Routes } from '@angular/router';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { LoginComponent } from './features/auth/login/login.component';
+import { NewsComponent } from './features/news/news.component';
+import { WeatherComponent } from './features/weather/weather.component';
+import { ActivitiesComponent } from './features/activities/activities.component';
 
 export const routes: Routes = [
   {
@@ -20,5 +23,17 @@ export const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent
   },
-  { path: '**', redirectTo: 'login' }
+  {
+    path: 'news',
+    component: NewsComponent
+  },
+    {
+    path: 'weather',
+    component: WeatherComponent
+  },
+      {
+    path: 'activities',
+    component: ActivitiesComponent
+  },
+  { path: '**', redirectTo: 'login' },
 ];
