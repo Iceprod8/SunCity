@@ -3,9 +3,18 @@
     <div class="bg-[#f6f1e9] border border-amber-100 rounded-3xl shadow-xl shadow-amber-100/40 p-4 md:p-6 space-y-6">
       <app-page-header title="Actualites" subtitle="Découvrez les dernières actualités autour de vous."></app-page-header>
 
-      <div class="bg-white rounded-3xl shadow p-5 border border-amber-100">
-        <p class="text-sm text-slate-700">news works!</p>
-      </div>
+          <div class="grid grid-cols-2 gap-2 text-sm">
+            <div
+              *ngFor="let new of newsList"
+              class="grid place-items-center font-medium p-4 m-2 bg-white rounded-xl transition hover:-translate-y-0.5 border border-amber-100 shadow-sm cursor-pointer shadow-amber-100/40"
+              (click)="openModal(new.id)"
+              [title]="new.title">
+              <div>{{ new.title }}</div>
+              <div class="text-xs text-slate-400 mt-1">{{ new.date }} · {{ new.publisher }}</div>
+            </div>
+          </div>
+          <mat-paginator [length]="200" [pageSizeOptions]="[10, 50, 100]" aria-label="Select page">
+          </mat-paginator>
     </div>
   </div>
 </ng-container>
