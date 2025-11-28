@@ -4,5 +4,9 @@ export interface Weather {
   condition: string;
   min: number;
   max: number;
+  condition_en?: string;
+  condition_de?: string;
+  displayCondition?: string;
+  baseCondition?: string;
 }
 
