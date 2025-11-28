@@ -1,0 +1,58 @@
+<ng-container>
+  <div class="page-container pb-12">
+    <div class="bg-[#f6f1e9] border border-amber-100 rounded-3xl shadow-xl shadow-amber-100/40 p-4 md:p-6 space-y-6">
+      <app-page-header title="Parametres" subtitle="Options locales (mock) stockees dans le navigateur."></app-page-header>
+
+      <div class="grid gap-4 lg:grid-cols-3">
+        <div class="bg-white rounded-3xl shadow p-5 border border-amber-100 lg:col-span-2">
+          <div class="flex items-center justify-between mb-3">
+            <div>
+              <p class="text-sm text-amber-700">General</p>
+              <h3 class="text-lg font-semibold text-slate-900">Preferences locales</h3>
+            </div>
+          </div>
+
+          <ul class="space-y-3">
+            <li *ngFor="let setting of settings()" class="p-4 rounded-2xl bg-amber-50/70 border border-amber-100 shadow-sm flex items-start gap-3">
+              <input
+                type="checkbox"
+                class="mt-1 h-5 w-5 accent-amber-500"
+                [checked]="setting.value"
+                (change)="toggleSetting(setting.key)"
+                [id]="setting.key">
+              <div class="flex-1">
+                <label class="font-semibold text-slate-900 leading-tight" [for]="setting.key">{{ setting.label }}</label>
+                <p class="text-sm text-slate-600">{{ setting.description }}</p>
+              </div>
+              <span class="text-xs px-2 py-1 rounded-full border" [ngClass]="setting.value ? 'border-green-200 bg-green-50 text-green-700' : 'border-slate-200 bg-slate-50 text-slate-600'">
+                {{ setting.value ? 'Activé' : 'Désactivé' }}
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-3xl shadow p-5 border border-amber-100">
+          <div class="flex items-center justify-between mb-3">
+            <div>
+              <p class="text-sm text-amber-700">Journal</p>
+              <h3 class="text-lg font-semibold text-slate-900">Activite recente</h3>
+            </div>
+          </div>
+          <p class="text-sm text-slate-600 mb-2">Apercu des 5 dernieres lignes du journal d'activite.</p>
+          <ul *ngIf="auditEntries().length; else noAudit" class="space-y-2 text-sm text-slate-700">
+            <li *ngFor="let entry of auditEntries() | slice:0:5" class="p-3 rounded-xl bg-amber-50/60 border border-amber-100 shadow-sm">
+              <div class="flex items-center justify-between">
+                <span class="font-semibold text-slate-900">{{ entry.action }}</span>
+                <span class="text-xs text-slate-500">{{ entry.at | date:'short' }}</span>
+              </div>
+              <p class="text-xs text-slate-600" *ngIf="entry.detail">{{ entry.detail }}</p>
+            </li>
+          </ul>
+          <ng-template #noAudit>
+            <p class="text-sm text-slate-600">Aucune entree pour l'instant.</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

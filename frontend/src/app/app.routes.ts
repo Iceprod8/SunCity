@@ -5,6 +5,7 @@ import { NewsComponent } from './features/news/news.component';
 import { WeatherComponent } from './features/weather/weather.component';
 import { ActivitiesComponent } from './features/activities/activities.component';
 import { authGuard } from './features/auth/auth.guard';
+import { SettingsComponent } from './features/settings/settings.component';
 
 export const routes: Routes = [
   {
@@ -38,6 +39,11 @@ export const routes: Routes = [
       {
     path: 'activities',
     component: ActivitiesComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent,
     canActivate: [authGuard]
   },
   { path: '**', redirectTo: 'login' },
