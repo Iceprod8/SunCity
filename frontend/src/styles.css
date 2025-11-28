@@ -3,9 +3,83 @@
 @tailwind utilities;
 
 html, body { height: 100%; margin: 0; }
-body { @apply bg-[#f3f1ed] text-gray-900 antialiased; }
 
-.page-container { @apply w-full max-w-7xl md:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10; }
+/* Force Tailwind sans stack instead of Angular Material's Roboto to avoid heavier weight */
+body {
+  @apply bg-[#f3f1ed] text-gray-900 antialiased;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 400;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.page-container {
+  @apply w-full mx-auto px-6 sm:px-8 lg:px-10;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+:root {
+  --surface: #f3f1ed;
+  --card: #ffffff;
+  --muted: #475569;
+  --border: #e2e8f0;
+  --panel: #0b1220;
+  --panel-strong: #0a0f1a;
+}
+
+.dark {
+  --surface: #0a0f1a;
+  --card: #0c1424;
+  --muted: #cbd5e1;
+  --border: #1f2937;
+  --panel: #0c1424;
+  --panel-strong: #0a0f1a;
+}
+
+body {
+  background: var(--surface);
+}
+
+.dark .bg-white { background-color: var(--panel) !important; color: #e2e8f0 !important; }
+.dark [class*="bg-[#f6f1e9]"], .dark [class*="bg-[#f3f1ed]"] { background-color: var(--panel-strong) !important; border-color: var(--border) !important; }
+.dark [class*="bg-white/"] { background-color: rgba(255,255,255,0.06) !important; color: #e2e8f0 !important; }
+.dark .bg-amber-50, .dark .bg-amber-50\/70, .dark .bg-amber-50\/60, .dark .bg-amber-50\/50 { background-color: rgba(17,24,39,0.7) !important; }
+.dark .bg-amber-100, .dark .bg-amber-100\/40, .dark .bg-amber-100\/60 { background-color: rgba(31,41,55,0.7) !important; }
+.dark .bg-amber-200, .dark .bg-amber-200\/60 { background-color: rgba(55,65,81,0.7) !important; }
+.dark .border-amber-100, .dark .border-amber-200, .dark .border-amber-300 { border-color: var(--border) !important; }
+.dark .bg-amber-300 { background-color: #fbbf24 !important; color: #111827 !important; }
+.dark .text-slate-900 { color: #e2e8f0 !important; }
+.dark .text-slate-800 { color: #e5e7eb !important; }
+.dark .text-slate-700 { color: #cbd5e1 !important; }
+.dark .text-slate-600 { color: #94a3b8 !important; }
+.dark .text-amber-700 { color: #fbbf24 !important; }
+.dark .text-amber-800 { color: #fbbf24 !important; }
+.dark a { color: #fbbf24; }
+.dark .border { border-color: var(--border) !important; }
+.dark .bg-slate-900 { background-color: var(--panel) !important; }
+.dark .bg-[#f3f1ed] { background-color: var(--surface) !important; }
+.dark .shadow-lg, .dark .shadow-xl { box-shadow: 0 10px 28px rgba(0,0,0,0.55) !important; }
+.dark .text-brand-700 { color: #fbbf24 !important; }
+.dark .hover\:bg-white:hover { background-color: rgba(255,255,255,0.08) !important; }
+
+/* Weather gradient dark override */
+.dark #weather {
+  background: radial-gradient(circle at 20% 20%, rgba(251,191,36,0.2), transparent 35%),
+              radial-gradient(circle at 80% 80%, rgba(59,130,246,0.25), transparent 40%),
+              linear-gradient(135deg, #0c1424 0%, #0f172a 40%, #0b1220 100%);
+  border-color: var(--border) !important;
+}
+.dark #weather p,
+.dark #weather h2,
+.dark #weather a { color: #e2e8f0 !important; }
+.dark #weather .text-amber-700 { color: #fbbf24 !important; }
+.dark #weather .text-slate-600 { color: #cbd5e1 !important; }
+
+/* Cards/general surfaces */
+.dark .bg-slate-900 { background-color: var(--panel-strong) !important; }
+.dark .border-amber-100 { border-color: var(--border) !important; }
+.dark .text-slate-500 { color: #94a3b8 !important; }
+
+/* calendar dots and chips */
+.dark .bg-amber-50\/60 { background-color: rgba(31,41,55,0.7) !important; }

@@ -29,6 +29,27 @@
             </label>
           </div>
 
+          <div class="flex items-center justify-between mb-3 mt-6">
+            <div>
+              <p class="text-sm text-amber-700">Thème</p>
+              <h3 class="text-lg font-semibold text-slate-900">Choisissez le mode clair ou sombre.</h3>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-3 mb-6">
+            <label class="inline-flex items-center gap-2 px-3 py-2 border rounded-full cursor-pointer hover:border-amber-300"
+                   [class.border-amber-400]="selectedTheme() === 'light'"
+                   [class.bg-amber-50]="selectedTheme() === 'light'">
+              <input type="radio" class="accent-amber-500" value="light" [checked]="selectedTheme() === 'light'" (change)="changeTheme('light')">
+              <span class="text-sm text-slate-800">Clair</span>
+            </label>
+            <label class="inline-flex items-center gap-2 px-3 py-2 border rounded-full cursor-pointer hover:border-amber-300"
+                   [class.border-amber-400]="selectedTheme() === 'dark'"
+                   [class.bg-amber-50]="selectedTheme() === 'dark'">
+              <input type="radio" class="accent-amber-500" value="dark" [checked]="selectedTheme() === 'dark'" (change)="changeTheme('dark')">
+              <span class="text-sm text-slate-800">Sombre</span>
+            </label>
+          </div>
+
           <div class="flex items-center justify-between mb-3">
             <div>
               <p class="text-sm text-amber-700" i18n="@@settings.generalLabel">Général</p>

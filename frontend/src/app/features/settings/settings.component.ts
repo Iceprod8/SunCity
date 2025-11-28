@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PageHeaderComponent } from '../../shared/components/page-header.component';
 import { AuditService } from '../../shared/services/audit.service';
 import { applyDocumentLanguage, AppLanguage, getPreferredLanguage, savePreferredLanguage } from '../../shared/i18n';
+import { applyTheme, getSavedTheme, ThemeChoice } from '../../shared/theme';
 type SettingItem = { key: string; label: string; description: string; value: boolean };
 
 @Component({
@@ -21,6 +22,7 @@ export class SettingsComponent {
     { code: 'de' as AppLanguage, label: $localize`:@@languages.de:Deutsch` }
   ];
   selectedLanguage = signal<AppLanguage>(getPreferredLanguage());
+  selectedTheme = signal<ThemeChoice>(getSavedTheme());
 
   settings = signal<SettingItem[]>([
     {
@@ -56,6 +58,13 @@ export class SettingsComponent {
     if (typeof window !== 'undefined') {
       window.location.reload();
     }
+  }
+
+  changeTheme(theme: ThemeChoice) {
+    if (theme === this.selectedTheme()) return;
+    this.selectedTheme.set(theme);
+    applyTheme(theme);
+    this.audit.log('settings:theme', `Thème: ${theme}`);
   }
 
   toggleSetting(key: string) {
