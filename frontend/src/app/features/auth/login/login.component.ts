@@ -38,7 +38,7 @@ export class LoginComponent {
       },
       error: (err) => {
         this.isSubmitting = false;
-        this.error = err.message || 'Erreur de connexion';
+        this.error = err.message || $localize`:@@login.error.generic:Erreur de connexion`;
       }
     });
   }

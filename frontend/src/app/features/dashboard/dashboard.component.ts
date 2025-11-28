@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, LOCALE_ID, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
@@ -22,6 +22,7 @@ export class DashboardComponent {
   private auth = inject(AuthService);
   private content = inject(ContentService);
   private audit = inject(AuditService);
+  private locale = inject(LOCALE_ID);
   user = this.auth.user;
 
   readonly targetYear = 2025;
@@ -33,6 +34,8 @@ export class DashboardComponent {
   selectedDate = this.formatDate(new Date(this.targetYear, this.targetMonthIndex, 1));
   selectedWeather: Weather | null = null;
   auditEntries = this.audit.entries;
+  noDataText = $localize`:@@dashboard.weather.noData:Pas de données pour cette date`;
+  legendToday = $localize`:@@dashboard.legendToday:Aujourd'hui`;
 
   ngOnInit() {
     this.content.getArticles().subscribe(a => (this.articles = a.slice(0, 3)));
@@ -47,26 +50,44 @@ export class DashboardComponent {
   }
 
   get monthLabel() {
-    return new Intl.DateTimeFormat('fr-FR', { month: 'long', year: 'numeric' }).format(
+    return new Intl.DateTimeFormat(this.locale, { month: 'long', year: 'numeric' }).format(
       new Date(this.targetYear, this.targetMonthIndex, 1)
     );
   }
 
   get weatherIcon() {
-    const condition = (this.selectedWeather?.condition || '').toLowerCase();
-    if (condition.includes('sun')) return '☀️';
+    const condition =
+      (this.selectedWeather?.baseCondition ||
+        this.selectedWeather?.displayCondition ||
+        this.selectedWeather?.condition ||
+        '').toLowerCase();
+    if (condition.includes('sun') || condition.includes('soleil')) return '☀️';
     if (condition.includes('pluie') || condition.includes('rain')) return '🌧️';
     if (condition.includes('nuage') || condition.includes('cloud')) return '☁️';
-    if (condition.includes('orage') || condition.includes('storm')) return '🌩️';
-    if (condition.includes('fog')) return '🌫️';
-    if (condition.includes('wind')) return '🌬️';
-    return '⛅️';
+    if (condition.includes('orage') || condition.includes('storm')) return '⛈️';
+    if (condition.includes('brouillard') || condition.includes('fog')) return '🌫️';
+    if (condition.includes('vent') || condition.includes('wind')) return '💨';
+    return '⛅';
   }
 
   get selectedDateLabel() {
-    if (!this.selectedDate) return 'Date inconnue';
+    if (!this.selectedDate) return this.noDataText;
     const date = this.dateFromIso(this.selectedDate);
-    return new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long' }).format(date);
+    return new Intl.DateTimeFormat(this.locale, { day: 'numeric', month: 'long' }).format(date);
+  }
+
+  tooltipFor(date: string) {
+    return $localize`:@@dashboard.calendarTooltip:Voir la météo du ${date}`;
+  }
+
+  temperatureRange() {
+    const min = this.selectedWeather?.min ?? '--';
+    const max = this.selectedWeather?.max ?? '--';
+    return $localize`:@@dashboard.weather.tempRange:Mini ${min} C - Maxi ${max} C`;
+  }
+
+  activityScore(value: number) {
+    return $localize`:@@dashboard.activities.score:Score ${value}/100`;
   }
 
   scrollTo(sectionId: string) {

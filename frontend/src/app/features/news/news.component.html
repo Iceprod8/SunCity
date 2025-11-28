@@ -1,10 +1,14 @@
 <ng-container>
   <div class="page-container pb-12">
     <div class="bg-[#f6f1e9] border border-amber-100 rounded-3xl shadow-xl shadow-amber-100/40 p-4 md:p-6 space-y-6">
-      <app-page-header title="Actualites" subtitle="Découvrez les dernières actualités autour de vous."></app-page-header>
+      <app-page-header
+        title="Actualités"
+        i18n-title="@@news.title"
+        subtitle="Découvrez les dernières actualités autour de vous."
+        i18n-subtitle="@@news.subtitle"></app-page-header>
 
       <div class="bg-white rounded-3xl shadow p-5 border border-amber-100">
-        <p class="text-sm text-slate-700">news works!</p>
+        <p class="text-sm text-slate-700" i18n="@@news.placeholder">Section actualités à compléter.</p>
       </div>
     </div>
   </div>

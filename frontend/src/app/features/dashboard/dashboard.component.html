@@ -3,7 +3,9 @@
     <div class="bg-[#f6f1e9] border border-amber-100 rounded-3xl shadow-xl shadow-amber-100/40 p-4 md:p-6 space-y-6">
       <app-page-header
         title="Vue d'ensemble quotidienne"
-        subtitle="Meteo, actus et activites autour de vous.">
+        i18n-title="@@dashboard.title"
+        subtitle="Météo, actus et activités autour de vous."
+        i18n-subtitle="@@dashboard.subtitle">
       </app-page-header>
 
       <div class="grid gap-4 lg:grid-cols-3">
@@ -11,34 +13,36 @@
           <div class="absolute w-56 h-56 bg-amber-300/60 rounded-full blur-3xl -left-10 -top-8"></div>
           <div class="absolute w-64 h-64 bg-orange-300/50 rounded-full blur-3xl right-10 bottom-0"></div>
           <div class="relative p-6 flex flex-col gap-4">
-            <p class="text-sm text-amber-700">Votre energie du jour</p>
+            <p class="text-sm text-amber-700" i18n="@@dashboard.energy">Votre énergie du jour</p>
             <h2 class="text-xl font-semibold text-slate-900">
-              {{ weatherIcon }} {{ selectedDateLabel }} · {{ selectedWeather?.condition || 'Pas de donnees pour cette date' }}
+              {{ weatherIcon }} {{ selectedDateLabel }} - {{ selectedWeather?.displayCondition || selectedWeather?.condition || noDataText }}
             </h2>
-            <p class="text-sm text-slate-600">Mini {{ selectedWeather?.min ?? '--' }}°C · Maxi {{ selectedWeather?.max ?? '--' }}°C</p>
-            <p *ngIf="!selectedWeather" class="text-sm text-slate-600">Aucune meteo trouvee pour cette date. Cliquez sur une autre journee du calendrier.</p>
+            <p class="text-sm text-slate-600">
+              {{ temperatureRange() }}
+            </p>
+            <p *ngIf="!selectedWeather" class="text-sm text-slate-600" i18n="@@dashboard.weather.missingForDate">Aucune météo trouvée pour cette date. Cliquez sur une autre journée du calendrier.</p>
             <div class="flex flex-col gap-2 text-sm text-slate-800">
               <div class="flex items-center gap-2">
-                <span class="w-3 h-2 rounded-full bg-orange-400"></span> Conditions meteo chargees depuis le backend
+                <span class="w-3 h-2 rounded-full bg-orange-400"></span> <span i18n="@@dashboard.weather.dataFromBackend">Conditions météo chargées depuis le backend</span>
               </div>
               <div class="flex items-center gap-2">
-                <span class="w-3 h-2 rounded-full bg-amber-500"></span> Choisissez un jour du calendrier pour filtrer
+                <span class="w-3 h-2 rounded-full bg-amber-500"></span> <span i18n="@@dashboard.weather.pickDay">Choisissez un jour du calendrier pour filtrer</span>
               </div>
               <div class="flex items-center gap-2">
-                <span class="w-3 h-2 rounded-full bg-slate-700"></span> Icones dynamiques selon la condition du jour
+                <span class="w-3 h-2 rounded-full bg-slate-700"></span> <span i18n="@@dashboard.weather.dynamicIcons">Icônes dynamiques selon la condition du jour</span>
               </div>
             </div>
-            <a routerLink="/weather" class="self-start text-sm font-semibold text-slate-900 hover:underline">Voir la meteo</a>
+            <a routerLink="/weather" class="self-start text-sm font-semibold text-slate-900 hover:underline" i18n="@@dashboard.weather.link">Voir la météo</a>
           </div>
         </div>
 
         <div class="bg-slate-900 text-white rounded-3xl shadow-lg p-5 flex flex-col gap-4 border border-slate-800">
           <div class="flex items-start justify-between">
             <div>
-              <p class="text-sm text-slate-300">Vos jours actifs</p>
+              <p class="text-sm text-slate-300" i18n="@@dashboard.activeDays">Vos jours actifs</p>
               <h2 class="text-xl font-semibold">{{ monthLabel }}</h2>
             </div>
-            <div class="px-3 py-1 rounded-full bg-slate-800 text-xs">Planning</div>
+            <div class="px-3 py-1 rounded-full bg-slate-800 text-xs" i18n="@@dashboard.planning">Planning</div>
           </div>
           <div class="grid grid-cols-7 gap-2 text-sm">
             <div
@@ -50,12 +54,12 @@
                 'ring-2 ring-amber-300 ring-offset-2 ring-offset-slate-900': selectedDate === day.date && day.state !== 'current'
               }"
               (click)="selectDate(day.date)"
-              [title]="'Voir la meteo du ' + day.date">
+              [attr.title]="tooltipFor(day.date)">
               {{ day.day }}
             </div>
           </div>
           <div class="flex gap-4 text-xs text-slate-300">
-            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-amber-300"></span> Aujourd'hui</div>
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-amber-300"></span> {{ legendToday }}</div>
           </div>
         </div>
       </div>
@@ -64,27 +68,27 @@
         <div class="bg-white rounded-3xl shadow p-5 border border-amber-100">
           <div class="flex items-center justify-between mb-3">
             <div>
-              <p class="text-sm text-amber-700">Actualites</p>
-              <h3 class="text-lg font-semibold text-slate-900">Selection du jour</h3>
+              <p class="text-sm text-amber-700" i18n="@@dashboard.news.label">Actualités</p>
+              <h3 class="text-lg font-semibold text-slate-900" i18n="@@dashboard.news.title">Sélection du jour</h3>
             </div>
-            <a routerLink="/news" class="text-xs text-brand-700 hover:underline">Tout voir</a>
+            <a routerLink="/news" class="text-xs text-brand-700 hover:underline" i18n="@@dashboard.news.all">Tout voir</a>
           </div>
           <ul class="space-y-2 text-sm text-slate-700">
             <li *ngFor="let a of articles" class="p-3 rounded-xl bg-amber-50/60 border border-amber-100 shadow-sm">
               <p class="font-semibold text-slate-900">{{ a.title }}</p>
-              <p class="text-xs text-slate-500">{{ a.publisher }} · {{ a.date }}</p>
+              <p class="text-xs text-slate-500">{{ a.publisher }} - {{ a.date }}</p>
             </li>
           </ul>
-          <p *ngIf="!articles.length" class="text-sm text-slate-500">Aucune actualite chargee.</p>
+          <p *ngIf="!articles.length" class="text-sm text-slate-500" i18n="@@dashboard.news.empty">Aucune actualité chargée.</p>
         </div>
 
         <div class="bg-white rounded-3xl shadow p-5 border border-amber-100" id="activities">
           <div class="flex items-center justify-between mb-3">
             <div>
-              <p class="text-sm text-amber-700">Activites proches</p>
-              <h3 class="text-lg font-semibold text-slate-900">A faire aujourd'hui</h3>
+              <p class="text-sm text-amber-700" i18n="@@dashboard.activities.label">Activités proches</p>
+              <h3 class="text-lg font-semibold text-slate-900" i18n="@@dashboard.activities.title">À faire aujourd'hui</h3>
             </div>
-            <a routerLink="/activities" class="text-xs text-brand-700 hover:underline">Explorer</a>
+            <a routerLink="/activities" class="text-xs text-brand-700 hover:underline" i18n="@@dashboard.activities.all">Explorer</a>
           </div>
           <ul class="space-y-2 text-sm text-slate-700">
             <li *ngFor="let x of activities" class="flex items-center justify-between p-3 rounded-xl bg-amber-50/60 border border-amber-100 shadow-sm">
@@ -94,11 +98,11 @@
               </div>
               <div class="text-right">
                 <p class="text-sm font-semibold text-slate-900">{{ x.distanceKm }} km</p>
-                <p class="text-xs text-slate-500">Score {{ x.popularity }}/100</p>
+                <p class="text-xs text-slate-500">{{ activityScore(x.popularity) }}</p>
               </div>
             </li>
           </ul>
-          <p *ngIf="!activities.length" class="text-sm text-slate-500">Aucune activite chargee.</p>
+          <p *ngIf="!activities.length" class="text-sm text-slate-500" i18n="@@dashboard.activities.empty">Aucune activité chargée.</p>
         </div>
       </div>
     </div>
@@ -106,5 +110,5 @@
 </ng-container>
 
 <ng-template #notLogged>
-  <p class="page-container">Connectez-vous pour voir votre dashboard. <a routerLink="/login" class="text-brand-700 hover:underline">Connexion</a></p>
+  <p class="page-container"><span i18n="@@dashboard.notLogged">Connectez-vous pour voir votre dashboard.</span> <a routerLink="/login" class="text-brand-700 hover:underline" i18n="@@dashboard.loginLink">Connexion</a></p>
 </ng-template>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {PageHeaderComponent } from '../../shared/components/page-header.component';
+import { PageHeaderComponent } from '../../shared/components/page-header.component';
 import { CommonModule } from '@angular/common';
 
 @Component({

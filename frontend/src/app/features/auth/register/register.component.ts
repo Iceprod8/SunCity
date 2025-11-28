@@ -44,7 +44,7 @@ export class RegisterComponent {
       },
       error: (err) => {
         this.isSubmitting = false;
-        this.error = err.message || 'Impossible de creer le compte';
+        this.error = err.message || $localize`:@@register.error.generic:Impossible de créer le compte`;
       }
     });
   }
