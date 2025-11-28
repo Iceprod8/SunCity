@@ -43,9 +43,12 @@ type NavLink = { label: string; path: string };
             {{ initials() || 'SC' }}
           </div>
         </div>
-        <button class="w-9 h-9 rounded-full bg-white shadow border border-amber-100 text-slate-700 grid place-items-center hover:text-slate-900" aria-label="Options">
+        <a
+          routerLink="/settings"
+          class="w-9 h-9 rounded-full bg-white shadow border border-amber-100 text-slate-700 grid place-items-center hover:text-slate-900"
+          aria-label="Paramètres">
           &#9881;
-        </button>
+        </a>
         <button class="w-9 h-9 rounded-full bg-white shadow border border-amber-100 text-red-600 grid place-items-center hover:text-red-700" aria-label="Se deconnecter" (click)="logout()">
           &#x23FB;
         </button>
@@ -59,11 +62,11 @@ export class PageHeaderComponent {
   @Input() title = '';
   @Input() subtitle = '';
 
-  @Input() links: NavLink[] = [
+  links = [
     { label: 'Dashboard', path: '/dashboard' },
     { label: 'Meteo', path: '/weather' },
     { label: 'Actualites', path: '/news' },
-    { label: 'Activites', path: '/activities' }
+    { label: 'Activites', path: '/activities' },
   ];
 
   user = this.auth.user;

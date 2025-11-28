@@ -7,6 +7,7 @@ import { Article } from '../../shared/models/article.model';
 import { Activity } from '../../shared/models/activity.model';
 import { Weather } from '../../shared/models/weather.model';
 import { PageHeaderComponent } from '../../shared/components/page-header.component';
+import { AuditService } from '../../shared/services/audit.service';
 
 type TrainingDayState = 'current' | 'done' | 'scheduled';
 type TrainingDay = { day: number; date: string; state: TrainingDayState };
@@ -20,22 +21,18 @@ type TrainingDay = { day: number; date: string; state: TrainingDayState };
 export class DashboardComponent {
   private auth = inject(AuthService);
   private content = inject(ContentService);
+  private audit = inject(AuditService);
   user = this.auth.user;
 
   readonly targetYear = 2025;
-  readonly targetMonthIndex = 10; // novembre (0-based)
+  readonly targetMonthIndex = 10;
   articles: Article[] = [];
   activities: Activity[] = [];
   weather: Weather[] = [];
   trainingDays: TrainingDay[] = [];
   selectedDate = this.formatDate(new Date(this.targetYear, this.targetMonthIndex, 1));
   selectedWeather: Weather | null = null;
-  navLinks = [
-    { label: 'Dashboard', path: '/dashboard' },
-    { label: 'Meteo', path: '/weather' },
-    { label: 'Actualites', path: '/news' },
-    { label: 'Activites', path: '/activities' }
-  ];
+  auditEntries = this.audit.entries;
 
   ngOnInit() {
     this.content.getArticles().subscribe(a => (this.articles = a.slice(0, 3)));
