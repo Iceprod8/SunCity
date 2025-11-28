@@ -70,12 +70,12 @@
             <a routerLink="/news" class="text-xs text-brand-700 hover:underline">Tout voir</a>
           </div>
           <ul class="space-y-2 text-sm text-slate-700">
-            <li *ngFor="let a of articles" class="p-3 rounded-xl bg-amber-50/60 border border-amber-100 shadow-sm">
+            <li *ngFor="let a of news" class="p-3 rounded-xl bg-amber-50/60 border border-amber-100 shadow-sm">
               <p class="font-semibold text-slate-900">{{ a.title }}</p>
               <p class="text-xs text-slate-500">{{ a.publisher }} · {{ a.date }}</p>
             </li>
           </ul>
-          <p *ngIf="!articles.length" class="text-sm text-slate-500">Aucune actualite chargee.</p>
+          <p *ngIf="!news.length" class="text-sm text-slate-500">Aucune actualite chargee.</p>
         </div>
 
         <div class="bg-white rounded-3xl shadow p-5 border border-amber-100" id="activities">
