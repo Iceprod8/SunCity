@@ -3,10 +3,12 @@ import { loadTranslations } from '@angular/localize';
 import { buildAppConfig } from './app/app.config';
 import { App } from './app/app';
 import { applyDocumentLanguage, getPreferredLanguage } from './app/shared/i18n';
+import { applyTheme, getSavedTheme } from './app/shared/theme';
 
 async function bootstrap() {
   const lang = getPreferredLanguage();
   applyDocumentLanguage(lang);
+  applyTheme(getSavedTheme());
 
   if (lang !== 'fr') {
     try {
