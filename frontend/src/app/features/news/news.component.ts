@@ -3,7 +3,7 @@ import {PageHeaderComponent } from '../../shared/components/page-header.componen
 import { CommonModule } from '@angular/common';
 import { NewsService } from '../../shared/services/news.service';
 import { New } from '../../shared/models/new.model';
-import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-news',
@@ -20,10 +20,8 @@ export class NewsComponent {
   lastPageLabel = `Last page`;
   nextPageLabel = 'Next page';
   previousPageLabel = 'Previous page';
-  length = 0;
   pageSize = 5;
-  pageSizeOptions: number[] = [5, 10, 25, 100];
-  
+  pageSizeOptions: number[] = [10, 20];
   
   ngOnInit() {
     this.newsService.getNews().subscribe(n => (this.newsList = n));
@@ -43,6 +41,5 @@ export class NewsComponent {
       alert(`Titre: ${newsItem.title}\n\nContenu: ${newsItem.excerpt}`);
     }
   }
-
 
 }
