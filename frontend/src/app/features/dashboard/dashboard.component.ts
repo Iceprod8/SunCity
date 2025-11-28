@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { ContentService } from '../../shared/services/content.service';
-import { Article } from '../../shared/models/article.model';
+import { NewsService } from '../../shared/services/news.service';
+import { New } from '../../shared/models/new.model';
 import { Activity } from '../../shared/models/activity.model';
 import { Weather } from '../../shared/models/weather.model';
 import { PageHeaderComponent } from '../../shared/components/page-header.component';
 import { AuditService } from '../../shared/services/audit.service';
+import { WeatherService } from '../../shared/services/weather.service';
 
 type TrainingDayState = 'current' | 'done' | 'scheduled';
 type TrainingDay = { day: number; date: string; state: TrainingDayState };
@@ -21,13 +23,15 @@ type TrainingDay = { day: number; date: string; state: TrainingDayState };
 export class DashboardComponent {
   private auth = inject(AuthService);
   private content = inject(ContentService);
+  private newsService = inject(NewsService);
+  private weatherService = inject(WeatherService);
   private audit = inject(AuditService);
   private locale = inject(LOCALE_ID);
   user = this.auth.user;
 
   readonly targetYear = 2025;
   readonly targetMonthIndex = 10;
-  articles: Article[] = [];
+  news: New[] = [];
   activities: Activity[] = [];
   weather: Weather[] = [];
   trainingDays: TrainingDay[] = [];
@@ -38,9 +42,9 @@ export class DashboardComponent {
   legendToday = $localize`:@@dashboard.legendToday:Aujourd'hui`;
 
   ngOnInit() {
-    this.content.getArticles().subscribe(a => (this.articles = a.slice(0, 3)));
+    this.newsService.getNews().subscribe(n => (this.news = n.slice(0, 3)));
     this.content.getActivities().subscribe(a => (this.activities = a.slice(0, 3)));
-    this.content.getWeather().subscribe(w => {
+    this.weatherService.getWeather().subscribe(w => {
       this.weather = w;
       const todayIso = this.formatDate(new Date());
       const defaultDate = this.isTargetMonth(todayIso) ? todayIso : w[0]?.date || this.selectedDate;

@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { ApiService } from './api.service';
-import { Article } from '../models/article.model';
 import { Activity } from '../models/activity.model';
 import { Weather } from '../models/weather.model';
 import { getPreferredLanguage, AppLanguage } from '../i18n';
+import { New } from '../models/new.model';
 
 @Injectable({ providedIn: 'root' })
 export class ContentService {
@@ -13,7 +13,7 @@ export class ContentService {
 
   getArticles() {
     const lang = getPreferredLanguage();
-    return this.http.get<Article[]>(this.api.url('/articles')).pipe(
+    return this.http.get<New[]>(this.api.url('/articles')).pipe(
       map(list => list.map(article => this.localizeArticle(article, lang)))
     );
   }
@@ -32,7 +32,7 @@ export class ContentService {
     );
   }
 
-  private localizeArticle(article: Article, lang: AppLanguage): Article {
+  private localizeArticle(article: New, lang: AppLanguage): New {
     return {
       ...article,
       title: this.pick(article, 'title', lang),

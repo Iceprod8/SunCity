@@ -20,32 +20,76 @@
       "password": "clem"
     }
   ],
-  "articles": [
+  "news": [
     {
       "id": "1",
       "title": "Breaking: Soleil au zénith",
-      "title_en": "Breaking: Sun at its zenith",
-      "title_de": "Eilmeldung: Sonne im Zenit",
       "publisher": "Le Quotidien",
-      "publisher_en": "Daily News",
-      "publisher_de": "Tageszeitung",
       "date": "2025-11-08",
-      "excerpt": "Une journée radieuse s'annonce.",
-      "excerpt_en": "A radiant day is coming.",
-      "excerpt_de": "Ein strahlender Tag steht bevor."
+      "excerpt": "La journée s’annonce particulièrement lumineuse alors qu’un anticyclone s’installe durablement sur l’ensemble du pays. Les prévisions font état de températures exceptionnellement douces pour la saison, invitant les habitants à profiter pleinement des espaces extérieurs. Les parcs municipaux, déjà très fréquentés tôt ce matin, s’attendent à accueillir un nombre record de visiteurs. Les autorités recommandent néanmoins de rester vigilants face au risque d’exposition prolongée au soleil, notamment pour les personnes sensibles. Ce phénomène devrait se maintenir durant tout le week-end, créant un climat idéal pour les activités en plein air."
     },
     {
       "id": "2",
       "title": "Culture: Expo de peinture",
-      "title_en": "Culture: Painting exhibition",
-      "title_de": "Kultur: Gemäldeausstellung",
       "publisher": "Arts & Co",
-      "publisher_en": "Arts & Co",
-      "publisher_de": "Kunst & Co",
       "date": "2025-11-07",
-      "excerpt": "Couleurs et émotions au rendez-vous.",
-      "excerpt_en": "Colors and emotions on display.",
-      "excerpt_de": "Farben und Emotionen sind angesagt."
+      "excerpt": "L’exposition annuelle de peinture contemporaine a ouvert ses portes hier soir dans une ambiance chaleureuse et colorée. Plus de quarante artistes émergents y présentent leurs œuvres, explorant des thèmes allant de la fragilité humaine à la mondialisation. Les visiteurs ont particulièrement salué l’audace des installations lumineuses et le réalisme troublant de certaines toiles hyperréalistes. Les organisateurs espèrent que cette nouvelle édition attirera un public encore plus large que les années précédentes. L’événement durera jusqu’à la fin du mois et proposera également des ateliers et rencontres avec les artistes."
+    },
+    {
+      "id": "3",
+      "title": "Économie: Hausse du pouvoir d'achat",
+      "publisher": "L'Éco Journal",
+      "date": "2025-11-06",
+      "excerpt": "Le gouvernement a annoncé aujourd’hui une revalorisation générale des salaires minimums, une mesure qui devrait avoir des répercussions immédiates sur la consommation intérieure. Les experts estiment que cette hausse contribuera à redynamiser plusieurs secteurs fragilisés ces derniers mois. Les syndicats se félicitent d’une avancée qu’ils jugent nécessaire dans un contexte marqué par une inflation persistante. Cependant, certains économistes alertent déjà sur le risque d’une hausse parallèle des prix. Les discussions se poursuivront dans les prochaines semaines, notamment autour de mesures complémentaires destinées aux petites entreprises."
+    },
+    {
+      "id": "4",
+      "title": "Technologie: Nouveau smartphone pliable",
+      "publisher": "TechVision",
+      "date": "2025-11-05",
+      "excerpt": "La marque SynTech vient de dévoiler son nouveau smartphone pliable, considéré par beaucoup comme une révolution dans le secteur mobile. Doté d’un écran ultra-résistant et d’un système de charnière repensé, l'appareil promet une durabilité accrue. Les premiers tests montrent une autonomie impressionnante, permettant une utilisation intensive pendant plus de deux jours. Les innovations logicielles, centrées sur la productivité et le multitâche, ont également été largement saluées. Le lancement mondial est prévu pour la fin de l’année, avec une forte attente du public et des professionnels."
+    },
+    {
+      "id": "5",
+      "title": "Sport: Victoire historique en football",
+      "publisher": "SportMag",
+      "date": "2025-11-04",
+      "excerpt": "L’équipe nationale a signé hier soir une victoire historique face à son adversaire de longue date, dans un match d’une intensité rare. Le but décisif, inscrit en prolongation, a immédiatement déclenché une vague d’euphorie dans les tribunes et sur les réseaux sociaux. Les joueurs ont salué la ténacité du groupe, soulignant la préparation physique exceptionnelle menée ces dernières semaines. Les supporters, quant à eux, parlent déjà d’un moment inoubliable qui restera gravé dans les mémoires. Cette victoire place l’équipe en position favorable pour la suite de la compétition internationale."
+    },
+    {
+      "id": "6",
+      "title": "Santé: Une nouvelle étude sur le sommeil",
+      "publisher": "Santé Focus",
+      "date": "2025-11-03",
+      "excerpt": "Une équipe de chercheurs a publié aujourd’hui une étude révélant qu'une sieste quotidienne de vingt minutes suffirait à améliorer significativement la concentration. Les résultats montrent également une diminution notable du stress chez les participants ayant adopté ce rituel pendant trois semaines. Les scientifiques soulignent que l’effet bénéfique dépend toutefois d’une régularité stricte. Cette découverte relance le débat sur l’intégration d’espaces de repos dans les entreprises. Plusieurs sociétés envisagent déjà d’expérimenter ces recommandations afin de favoriser le bien-être de leurs employés."
+    },
+    {
+      "id": "7",
+      "title": "Environnement: Reforestation record",
+      "publisher": "Nature & Avenir",
+      "date": "2025-11-02",
+      "excerpt": "Un programme national de reforestation vient de franchir un cap historique avec plus de deux millions d’arbres plantés cette année. Ce résultat est le fruit d’un effort coordonné entre associations, collectivités locales et bénévoles. Les experts considèrent qu'il s’agit d’une étape clé pour lutter contre la dégradation des sols et restaurer certains écosystèmes fragiles. Les zones rurales autrefois touchées par la sécheresse montrent déjà des signes encourageants de régénération. Le gouvernement envisage désormais d’étendre ce projet sur plusieurs régions supplémentaires."
+    },
+    {
+      "id": "8",
+      "title": "Voyage: Nouvelle ligne ferroviaire",
+      "publisher": "Travel News",
+      "date": "2025-11-01",
+      "excerpt": "Une nouvelle ligne ferroviaire à grande vitesse reliera désormais Paris à Lisbonne en moins de sept heures, une prouesse technique saluée par les voyageurs et les experts du transport. Les premiers usagers évoquent un confort remarquable grâce à des wagons plus spacieux et des services révisés. Les autorités espèrent que cette liaison réduira la dépendance au transport aérien sur cet axe très fréquenté. Cette initiative s’inscrit dans un plan plus large visant à moderniser les infrastructures ferroviaires européennes. Les réservations pour les prochains mois affichent déjà complet."
+    },
+    {
+      "id": "9",
+      "title": "Innovation: IA au service de l'éducation",
+      "publisher": "FutureLab",
+      "date": "2025-10-30",
+      "excerpt": "Une nouvelle plateforme d’apprentissage adaptatif révolutionne la manière dont les élèves interagissent avec leurs cours. Grâce à un système d’intelligence artificielle capable d’analyser les progrès en temps réel, les étudiants reçoivent désormais des exercices sur mesure. Les enseignants peuvent quant à eux suivre l’évolution globale d’une classe grâce à des tableaux de bord intuitifs. Plusieurs établissements pilotes rapportent déjà une hausse notable de la motivation des élèves. La solution devrait être déployée nationalement au cours de l’année prochaine."
+    },
+    {
+      "id": "10",
+      "title": "Société: Hausse du bénévolat",
+      "publisher": "Le Monde Social",
+      "date": "2025-10-28",
+      "excerpt": "Les associations constatent une augmentation sans précédent du nombre de bénévoles, particulièrement chez les jeunes adultes. Cette tendance s’explique par une volonté croissante de s’engager pour des causes sociales et environnementales. Les responsables associatifs soulignent que cet élan permet de lancer de nouveaux projets qui étaient auparavant en manque de ressources humaines. Les bénévoles mettent en avant le sentiment d’utilité et la richesse des rencontres. Ce mouvement pourrait transformer durablement le paysage associatif au cours des prochaines années."
     }
   ],
   "activities": [
