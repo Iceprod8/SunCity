@@ -8,6 +8,7 @@ import { Activity } from '../../shared/models/activity.model';
 import { Weather } from '../../shared/models/weather.model';
 import { PageHeaderComponent } from '../../shared/components/page-header.component';
 import { AuditService } from '../../shared/services/audit.service';
+import { ActivityService } from '../../shared/services/activity.service';
 
 type TrainingDayState = 'current' | 'done' | 'scheduled';
 type TrainingDay = { day: number; date: string; state: TrainingDayState };
@@ -22,6 +23,7 @@ export class DashboardComponent {
   private auth = inject(AuthService);
   private content = inject(ContentService);
   private audit = inject(AuditService);
+  private activity = inject(ActivityService);
   user = this.auth.user;
 
   readonly targetYear = 2025;
@@ -36,7 +38,7 @@ export class DashboardComponent {
 
   ngOnInit() {
     this.content.getArticles().subscribe(a => (this.articles = a.slice(0, 3)));
-    this.content.getActivities().subscribe(a => (this.activities = a.slice(0, 3)));
+    this.activity.getActivities().subscribe(a => (this.activities = a.slice(0, 3)));
     this.content.getWeather().subscribe(w => {
       this.weather = w;
       const todayIso = this.formatDate(new Date());
