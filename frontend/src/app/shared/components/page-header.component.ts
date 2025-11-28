@@ -1,6 +1,6 @@
 import { Component, Input, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../features/auth/auth.service';
 
 type NavLink = { label: string; path: string };
@@ -8,24 +8,30 @@ type NavLink = { label: string; path: string };
 @Component({
   selector: 'app-page-header',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   template: `
     <header class="relative flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between min-h-[110px]">
       <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-6 lg:flex-1">
-        <div class="min-w-[240px]">
+        <div class="min-w-[240px] space-y-2">
           <h1 class="text-2xl md:text-3xl font-semibold text-slate-900">{{ title }}</h1>
           <p class="text-sm text-slate-600">{{ subtitle }}</p>
         </div>
 
         <nav class="flex md:hidden items-center gap-3 text-sm text-slate-700" aria-label="Liens de navigation">
-          <a *ngFor="let link of links" [routerLink]="link.path" class="px-3 py-2 rounded-full hover:bg-white shadow-sm border border-amber-100">
+          <a *ngFor="let link of links"
+             [routerLink]="link.path"
+             routerLinkActive="bg-amber-200 text-slate-900 border-amber-200"
+             class="px-3 py-2 rounded-full hover:bg-white shadow-sm border border-amber-100 transition">
             {{ link.label }}
           </a>
         </nav>
       </div>
 
       <nav class="hidden md:flex items-center gap-3 text-sm text-slate-700 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" aria-label="Liens de navigation">
-        <a *ngFor="let link of links" [routerLink]="link.path" class="px-3 py-2 rounded-full hover:bg-white shadow-sm border border-amber-100">
+        <a *ngFor="let link of links"
+           [routerLink]="link.path"
+           routerLinkActive="bg-amber-200 text-slate-900 border-amber-200"
+           class="px-3 py-2 rounded-full hover:bg-white shadow-sm border border-amber-100 transition">
           {{ link.label }}
         </a>
       </nav>
@@ -53,7 +59,8 @@ export class PageHeaderComponent {
   @Input() title = '';
   @Input() subtitle = '';
 
-  links: NavLink[] = [
+  @Input() links: NavLink[] = [
+    { label: 'Dashboard', path: '/dashboard' },
     { label: 'Meteo', path: '/weather' },
     { label: 'Actualites', path: '/news' },
     { label: 'Activites', path: '/activities' }

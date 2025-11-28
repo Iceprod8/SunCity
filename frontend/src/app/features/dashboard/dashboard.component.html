@@ -3,7 +3,8 @@
     <div class="bg-[#f6f1e9] border border-amber-100 rounded-3xl shadow-xl shadow-amber-100/40 p-4 md:p-6 space-y-6">
       <app-page-header
         title="Vue d'ensemble quotidienne"
-        subtitle="Meteo, actus et activites autour de vous.">
+        subtitle="Meteo, actus et activites autour de vous."
+        [links]="navLinks">
       </app-page-header>
 
       <div class="grid gap-4 lg:grid-cols-3">
@@ -13,18 +14,19 @@
           <div class="relative p-6 flex flex-col gap-4">
             <p class="text-sm text-amber-700">Votre energie du jour</p>
             <h2 class="text-xl font-semibold text-slate-900">
-              {{ weatherIcon }} {{ todayWeather?.date || "Aujourd'hui" }} · {{ todayWeather?.condition || 'Conditions stables' }}
+              {{ weatherIcon }} {{ selectedDateLabel }} · {{ selectedWeather?.condition || 'Pas de donnees pour cette date' }}
             </h2>
-            <p class="text-sm text-slate-600">Mini {{ todayWeather?.min || '--' }}° · Maxi {{ todayWeather?.max || '--' }}°</p>
+            <p class="text-sm text-slate-600">Mini {{ selectedWeather?.min ?? '--' }}°C · Maxi {{ selectedWeather?.max ?? '--' }}°C</p>
+            <p *ngIf="!selectedWeather" class="text-sm text-slate-600">Aucune meteo trouvee pour cette date. Cliquez sur une autre journee du calendrier.</p>
             <div class="flex flex-col gap-2 text-sm text-slate-800">
               <div class="flex items-center gap-2">
-                <span class="w-3 h-2 rounded-full bg-orange-400"></span> Conditions meteo depuis vos donnees locales
+                <span class="w-3 h-2 rounded-full bg-orange-400"></span> Conditions meteo chargees depuis le backend
               </div>
               <div class="flex items-center gap-2">
-                <span class="w-3 h-2 rounded-full bg-amber-500"></span> Filtrer une autre date sur la page meteo
+                <span class="w-3 h-2 rounded-full bg-amber-500"></span> Choisissez un jour du calendrier pour filtrer
               </div>
               <div class="flex items-center gap-2">
-                <span class="w-3 h-2 rounded-full bg-slate-700"></span> Icones dynamiques chargees depuis le JSON
+                <span class="w-3 h-2 rounded-full bg-slate-700"></span> Icones dynamiques selon la condition du jour
               </div>
             </div>
             <a routerLink="/weather" class="self-start text-sm font-semibold text-slate-900 hover:underline">Voir la meteo</a>
@@ -40,20 +42,21 @@
             <div class="px-3 py-1 rounded-full bg-slate-800 text-xs">Planning</div>
           </div>
           <div class="grid grid-cols-7 gap-2 text-sm">
-            <div *ngFor="let day of trainingDays"
-                 class="aspect-square rounded-full grid place-items-center font-medium"
-                 [ngClass]="{
-                  'bg-amber-300 text-slate-900 shadow': day.state === 'current',
-                  'bg-slate-700 text-white': day.state === 'done',
-                  'bg-slate-800 text-slate-300 border border-slate-700': day.state === 'scheduled'
-                 }">
+            <div
+              *ngFor="let day of trainingDays"
+              class="aspect-square rounded-full grid place-items-center font-medium cursor-pointer transition hover:-translate-y-0.5"
+              [ngClass]="{
+                'bg-amber-300 text-slate-900 shadow ring-2 ring-amber-200 ring-offset-2 ring-offset-slate-900': day.state === 'current',
+                'bg-slate-800 text-slate-100 border border-slate-700': day.state !== 'current',
+                'ring-2 ring-amber-300 ring-offset-2 ring-offset-slate-900': selectedDate === day.date && day.state !== 'current'
+              }"
+              (click)="selectDate(day.date)"
+              [title]="'Voir la meteo du ' + day.date">
               {{ day.day }}
             </div>
           </div>
           <div class="flex gap-4 text-xs text-slate-300">
             <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-amber-300"></span> Aujourd'hui</div>
-            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-slate-700"></span> Termine</div>
-            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-slate-800 border border-slate-700"></span> Prevu</div>
           </div>
         </div>
       </div>

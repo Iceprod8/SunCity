@@ -9,7 +9,7 @@ import { Weather } from '../../shared/models/weather.model';
 import { PageHeaderComponent } from '../../shared/components/page-header.component';
 
 type TrainingDayState = 'current' | 'done' | 'scheduled';
-type TrainingDay = { day: number; state: TrainingDayState };
+type TrainingDay = { day: number; date: string; state: TrainingDayState };
 
 @Component({
   selector: 'app-dashboard',
@@ -22,33 +22,54 @@ export class DashboardComponent {
   private content = inject(ContentService);
   user = this.auth.user;
 
+  readonly targetYear = 2025;
+  readonly targetMonthIndex = 10; // novembre (0-based)
   articles: Article[] = [];
   activities: Activity[] = [];
   weather: Weather[] = [];
   trainingDays: TrainingDay[] = [];
+  selectedDate = this.formatDate(new Date(this.targetYear, this.targetMonthIndex, 1));
+  selectedWeather: Weather | null = null;
+  navLinks = [
+    { label: 'Dashboard', path: '/dashboard' },
+    { label: 'Meteo', path: '/weather' },
+    { label: 'Actualites', path: '/news' },
+    { label: 'Activites', path: '/activities' }
+  ];
 
   ngOnInit() {
     this.content.getArticles().subscribe(a => (this.articles = a.slice(0, 3)));
     this.content.getActivities().subscribe(a => (this.activities = a.slice(0, 3)));
-    this.content.getWeather().subscribe(w => (this.weather = w.slice(0, 1)));
+    this.content.getWeather().subscribe(w => {
+      this.weather = w;
+      const todayIso = this.formatDate(new Date());
+      const defaultDate = this.isTargetMonth(todayIso) ? todayIso : w[0]?.date || this.selectedDate;
+      this.selectDate(defaultDate);
+    });
     this.trainingDays = this.buildTrainingDays();
   }
 
-  get todayWeather(): Weather | null {
-    return this.weather[0] || null;
+  get monthLabel() {
+    return new Intl.DateTimeFormat('fr-FR', { month: 'long', year: 'numeric' }).format(
+      new Date(this.targetYear, this.targetMonthIndex, 1)
+    );
   }
 
   get weatherIcon() {
-    const condition = (this.todayWeather?.condition || '').toLowerCase();
+    const condition = (this.selectedWeather?.condition || '').toLowerCase();
     if (condition.includes('sun')) return '☀️';
     if (condition.includes('pluie') || condition.includes('rain')) return '🌧️';
     if (condition.includes('nuage') || condition.includes('cloud')) return '☁️';
-    if (condition.includes('orage')) return '⛈️';
-    return '🌤️';
+    if (condition.includes('orage') || condition.includes('storm')) return '🌩️';
+    if (condition.includes('fog')) return '🌫️';
+    if (condition.includes('wind')) return '🌬️';
+    return '⛅️';
   }
 
-  get monthLabel() {
-    return new Intl.DateTimeFormat('fr-FR', { month: 'long' }).format(new Date());
+  get selectedDateLabel() {
+    if (!this.selectedDate) return 'Date inconnue';
+    const date = this.dateFromIso(this.selectedDate);
+    return new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long' }).format(date);
   }
 
   scrollTo(sectionId: string) {
@@ -58,17 +79,40 @@ export class DashboardComponent {
     }
   }
 
+  selectDate(date: string) {
+    this.selectedDate = date;
+    this.selectedWeather = this.weather.find(w => w.date === date) || null;
+  }
+
   private buildTrainingDays(): TrainingDay[] {
-    const today = new Date().getDate();
-    const doneDays = new Set([1, 2, 4, 6, 9, 12, 15, 18, 20]);
-    const scheduled = new Set([22, 24, 27]);
-    return Array.from({ length: 30 }).map((_, idx) => {
+    const today = new Date();
+    const isCurrentMonth =
+      today.getFullYear() === this.targetYear && today.getMonth() === this.targetMonthIndex;
+    const todayDay = isCurrentMonth ? today.getDate() : null;
+    const daysInMonth = new Date(this.targetYear, this.targetMonthIndex + 1, 0).getDate();
+
+    return Array.from({ length: daysInMonth }).map((_, idx) => {
       const day = idx + 1;
-      let state: TrainingDayState = 'done';
-      if (scheduled.has(day)) state = 'scheduled';
-      if (day === today) state = 'current';
-      if (!doneDays.has(day) && !scheduled.has(day) && day < today) state = 'done';
-      return { day, state };
+      const date = this.formatDate(new Date(this.targetYear, this.targetMonthIndex, day));
+      const state: TrainingDayState = todayDay && day === todayDay ? 'current' : 'scheduled';
+      return { day, date, state };
     });
+  }
+
+  private formatDate(date: Date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+
+  private isTargetMonth(dateStr: string) {
+    const [year, month] = dateStr.split('-').map(Number);
+    return year === this.targetYear && month === this.targetMonthIndex + 1;
+  }
+
+  private dateFromIso(dateStr: string) {
+    const [year, month, day] = dateStr.split('-').map(Number);
+    return new Date(year, month - 1, day);
   }
 }
