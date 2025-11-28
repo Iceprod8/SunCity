@@ -1,14 +1,38 @@
 <ng-container>
   <div class="page-container pb-12">
     <div class="bg-[#f6f1e9] border border-amber-100 rounded-3xl shadow-xl shadow-amber-100/40 p-4 md:p-6 space-y-6">
-      <app-page-header title="Parametres" subtitle="Options locales (mock) stockees dans le navigateur."></app-page-header>
+      <app-page-header
+        title="Paramètres"
+        i18n-title="@@settings.title"
+        subtitle="Options locales (mock) stockées dans le navigateur."
+        i18n-subtitle="@@settings.subtitle"></app-page-header>
 
       <div class="grid gap-4 lg:grid-cols-3">
         <div class="bg-white rounded-3xl shadow p-5 border border-amber-100 lg:col-span-2">
           <div class="flex items-center justify-between mb-3">
             <div>
-              <p class="text-sm text-amber-700">General</p>
-              <h3 class="text-lg font-semibold text-slate-900">Preferences locales</h3>
+              <p class="text-sm text-amber-700" i18n="@@settings.language.title">Langue</p>
+              <h3 class="text-lg font-semibold text-slate-900" i18n="@@settings.language.description">Choisissez la langue de l'application.</h3>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-3 mb-6">
+            <label *ngFor="let option of languages" class="inline-flex items-center gap-2 px-3 py-2 border rounded-full cursor-pointer hover:border-amber-300"
+                   [class.border-amber-400]="selectedLanguage() === option.code"
+                   [class.bg-amber-50]="selectedLanguage() === option.code">
+              <input
+                type="radio"
+                class="accent-amber-500"
+                [value]="option.code"
+                [checked]="selectedLanguage() === option.code"
+                (change)="changeLanguage(option.code)">
+              <span class="text-sm text-slate-800">{{ option.label }}</span>
+            </label>
+          </div>
+
+          <div class="flex items-center justify-between mb-3">
+            <div>
+              <p class="text-sm text-amber-700" i18n="@@settings.generalLabel">Général</p>
+              <h3 class="text-lg font-semibold text-slate-900" i18n="@@settings.generalTitle">Préférences locales</h3>
             </div>
           </div>
 
@@ -25,7 +49,7 @@
                 <p class="text-sm text-slate-600">{{ setting.description }}</p>
               </div>
               <span class="text-xs px-2 py-1 rounded-full border" [ngClass]="setting.value ? 'border-green-200 bg-green-50 text-green-700' : 'border-slate-200 bg-slate-50 text-slate-600'">
-                {{ setting.value ? 'Activé' : 'Désactivé' }}
+                {{ setting.value ? stateEnabled : stateDisabled }}
               </span>
             </li>
           </ul>
@@ -34,22 +58,22 @@
         <div class="bg-white rounded-3xl shadow p-5 border border-amber-100">
           <div class="flex items-center justify-between mb-3">
             <div>
-              <p class="text-sm text-amber-700">Journal</p>
-              <h3 class="text-lg font-semibold text-slate-900">Activite recente</h3>
+              <p class="text-sm text-amber-700" i18n="@@settings.journal.label">Journal</p>
+              <h3 class="text-lg font-semibold text-slate-900" i18n="@@settings.journal.title">Activité récente</h3>
             </div>
           </div>
-          <p class="text-sm text-slate-600 mb-2">Apercu des 5 dernieres lignes du journal d'activite.</p>
+          <p class="text-sm text-slate-600 mb-2" i18n="@@settings.journal.preview">Aperçu des 5 dernières lignes du journal d'activité.</p>
           <ul *ngIf="auditEntries().length; else noAudit" class="space-y-2 text-sm text-slate-700">
             <li *ngFor="let entry of auditEntries() | slice:0:5" class="p-3 rounded-xl bg-amber-50/60 border border-amber-100 shadow-sm">
               <div class="flex items-center justify-between">
                 <span class="font-semibold text-slate-900">{{ entry.action }}</span>
-                <span class="text-xs text-slate-500">{{ entry.at | date:'short' }}</span>
+                <span class="text-xs text-slate-500">{{ entry.at | date:'short':undefined:localeId }}</span>
               </div>
               <p class="text-xs text-slate-600" *ngIf="entry.detail">{{ entry.detail }}</p>
             </li>
           </ul>
           <ng-template #noAudit>
-            <p class="text-sm text-slate-600">Aucune entree pour l'instant.</p>
+            <p class="text-sm text-slate-600" i18n="@@settings.journal.empty">Aucune entrée pour l'instant.</p>
           </ng-template>
         </div>
       </div>
