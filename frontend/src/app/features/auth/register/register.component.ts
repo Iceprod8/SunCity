@@ -17,6 +17,7 @@ export class RegisterComponent {
   private router = inject(Router);
 
   error: string | null = null;
+  isSubmitting = false;
 
   form = this.fb.group(
     {
@@ -30,13 +31,21 @@ export class RegisterComponent {
 
   submit() {
     this.error = null;
-    if (this.form.invalid) return;
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+    this.isSubmitting = true;
     const { email, username, password } = this.form.getRawValue();
-    this.auth
-      .register({ email: email!, username: username!, password: password!})
-      .subscribe({
-        next: () => this.router.navigate(['/dashboard']),
-        error: (err) => (this.error = err.message || "Impossible de créer le compte")
-      });
+    this.auth.register({ email: email!, username: username!, password: password! }).subscribe({
+      next: () => {
+        this.isSubmitting = false;
+        this.router.navigate(['/dashboard']);
+      },
+      error: (err) => {
+        this.isSubmitting = false;
+        this.error = err.message || 'Impossible de creer le compte';
+      }
+    });
   }
 }

@@ -16,6 +16,7 @@ export class LoginComponent {
   private router = inject(Router);
 
   error: string | null = null;
+  isSubmitting = false;
 
   form = this.fb.nonNullable.group({
     email: ['', [Validators.required, Validators.email]],
@@ -24,11 +25,21 @@ export class LoginComponent {
 
   submit() {
     this.error = null;
-    if (this.form.invalid) return;
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+    this.isSubmitting = true;
     const { email, password } = this.form.getRawValue();
     this.auth.login(email, password).subscribe({
-      next: () => this.router.navigate(['/dashboard']),
-      error: (err) => (this.error = err.message || 'Erreur de connexion')
+      next: () => {
+        this.isSubmitting = false;
+        this.router.navigate(['/dashboard']);
+      },
+      error: (err) => {
+        this.isSubmitting = false;
+        this.error = err.message || 'Erreur de connexion';
+      }
     });
   }
 }

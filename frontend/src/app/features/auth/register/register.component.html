@@ -1,44 +1,115 @@
-<div class="max-w-lg mx-auto">
-  <div class="bg-white border rounded-xl shadow-sm p-6">
-    <h2 class="text-xl font-semibold mb-4">Inscription</h2>
-    <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
-      <label class="block">
-        <span class="block text-sm font-medium text-gray-700">Email</span>
-        <input type="email" formControlName="email" placeholder="ex: jean@exemple.com"
-               class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" />
-      </label>
+<div class="min-h-screen bg-gradient-to-br from-amber-50 via-amber-100 to-white relative overflow-hidden">
+  <div class="absolute w-72 h-72 bg-amber-300/40 blur-3xl rounded-full -top-16 -left-10"></div>
+  <div class="absolute w-80 h-80 bg-orange-300/30 blur-3xl rounded-full bottom-10 right-0"></div>
 
-      <label class="block">
-        <span class="block text-sm font-medium text-gray-700">Username</span>
-        <input type="username" formControlName="username" placeholder="Jean Dupont"
-               class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" />
-      </label>
-
-      <label class="block">
-        <span class="block text-sm font-medium text-gray-700">Mot de passe</span>
-        <input type="password" formControlName="password" placeholder="••••"
-               class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" />
-      </label>
-
-      <label class="block">
-        <span class="block text-sm font-medium text-gray-700">Confirmer le mot de passe</span>
-        <input type="password" formControlName="confirmPassword" placeholder="••••"
-               class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" />
-      </label>
-
-      <p class="text-sm text-red-600" *ngIf="form.hasError('passwordMismatch')">
-        Les mots de passe ne correspondent pas
-      </p>
-
-      <p class="text-sm text-red-600" *ngIf="error">{{ error }}</p>
-
-      <div class="pt-2 flex items-center gap-3">
-        <button type="submit" class="inline-flex items-center justify-center rounded-md bg-brand-600 px-4 py-2 text-white hover:bg-brand-700">
-          Créer le compte
-        </button>
-        <a routerLink="/login" class="text-brand-700 hover:underline">Se connecter</a>
+  <div class="page-container py-12 relative">
+    <div class="grid gap-10 lg:grid-cols-2 items-center">
+      <div class="hidden lg:flex flex-col gap-6 text-slate-900">
+        <div class="inline-flex items-center px-3 py-1 rounded-full bg-amber-200/60 border border-amber-300 text-sm text-amber-800 w-fit">
+          Rejoignez SunCity
+        </div>
+        <h1 class="text-4xl font-semibold leading-tight">Creez votre compte en quelques secondes.</h1>
+        <p class="text-lg text-slate-700 max-w-xl">
+          Accedez a un dashboard concu pour suivre votre meteo ciblee, vos activites et les actualites locales, le tout en un seul endroit.
+        </p>
+        <div class="grid grid-cols-2 gap-4 text-sm text-slate-700">
+          <div class="p-4 rounded-2xl bg-white/80 border border-amber-100 shadow-sm">
+            <p class="font-semibold text-slate-900">Profil rapide</p>
+            <p>Creez vos identifiants et retrouvez vos donnees des la connexion.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/80 border border-amber-100 shadow-sm">
+            <p class="font-semibold text-slate-900">Espace fluide</p>
+            <p>Interface alignee sur le dashboard, moderne et lisible.</p>
+          </div>
+        </div>
       </div>
-    </form>
+
+      <div class="relative bg-white/90 backdrop-blur border border-amber-100 rounded-3xl shadow-xl shadow-amber-100/60 p-8 sm:p-10">
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <p class="text-sm text-amber-700 font-semibold">Inscription</p>
+            <h2 class="text-2xl font-semibold text-slate-900">Creer votre acces</h2>
+          </div>
+          <span class="px-3 py-1 text-xs rounded-full bg-amber-100 text-amber-800 border border-amber-200">Step 1/1</span>
+        </div>
+
+        <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-5">
+          <label class="block space-y-2">
+            <span class="block text-sm font-medium text-slate-800">Email</span>
+            <div class="relative">
+              <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">&#9993;</span>
+              <input
+                type="email"
+                formControlName="email"
+                placeholder="ex: jean@exemple.com"
+                class="w-full rounded-xl border border-amber-100 bg-amber-50/50 px-4 py-3 pl-9 text-slate-900 shadow-sm focus:border-amber-400 focus:ring-2 focus:ring-amber-200 focus:outline-none" />
+            </div>
+            <p class="text-sm text-red-600" *ngIf="form.controls.email.touched && form.controls.email.invalid">
+              Adresse email invalide
+            </p>
+          </label>
+
+          <label class="block space-y-2">
+            <span class="block text-sm font-medium text-slate-800">Nom d'utilisateur</span>
+            <div class="relative">
+              <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">&#128100;</span>
+              <input
+                type="text"
+                formControlName="username"
+                placeholder="Jean Dupont"
+                class="w-full rounded-xl border border-amber-100 bg-amber-50/50 px-4 py-3 pl-9 text-slate-900 shadow-sm focus:border-amber-400 focus:ring-2 focus:ring-amber-200 focus:outline-none" />
+            </div>
+            <p class="text-sm text-red-600" *ngIf="form.controls.username.touched && form.controls.username.invalid">
+              Le nom d'utilisateur doit contenir au moins 2 caracteres
+            </p>
+          </label>
+
+          <label class="block space-y-2">
+            <span class="block text-sm font-medium text-slate-800">Mot de passe</span>
+            <div class="relative">
+              <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">&#128274;</span>
+              <input
+                type="password"
+                formControlName="password"
+                placeholder="Votre mot de passe"
+                class="w-full rounded-xl border border-amber-100 bg-amber-50/50 px-4 py-3 pl-9 text-slate-900 shadow-sm focus:border-amber-400 focus:ring-2 focus:ring-amber-200 focus:outline-none" />
+            </div>
+            <p class="text-sm text-red-600" *ngIf="form.controls.password.touched && form.controls.password.invalid">
+              Le mot de passe doit contenir au moins 4 caracteres
+            </p>
+          </label>
+
+          <label class="block space-y-2">
+            <span class="block text-sm font-medium text-slate-800">Confirmer le mot de passe</span>
+            <div class="relative">
+              <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">&#128274;</span>
+              <input
+                type="password"
+                formControlName="confirmPassword"
+                placeholder="Retapez votre mot de passe"
+                class="w-full rounded-xl border border-amber-100 bg-amber-50/50 px-4 py-3 pl-9 text-slate-900 shadow-sm focus:border-amber-400 focus:ring-2 focus:ring-amber-200 focus:outline-none" />
+            </div>
+            <p class="text-sm text-red-600" *ngIf="form.hasError('passwordMismatch')">
+              Les mots de passe ne correspondent pas
+            </p>
+          </label>
+
+          <p class="text-sm text-red-600 bg-red-50 border border-red-100 rounded-lg px-3 py-2" *ngIf="error">{{ error }}</p>
+
+          <div class="pt-2 flex flex-col gap-3">
+            <button
+              type="submit"
+              [disabled]="isSubmitting"
+              class="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-3 text-white font-semibold hover:bg-slate-800 disabled:opacity-60 disabled:cursor-not-allowed transition">
+              {{ isSubmitting ? 'Creation en cours...' : 'Creer le compte' }}
+            </button>
+            <p class="text-sm text-slate-700">
+              Deja inscrit ?
+              <a routerLink="/login" class="text-amber-700 font-semibold hover:underline">Se connecter</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
-
