@@ -3,11 +3,13 @@ import {PageHeaderComponent } from '../../shared/components/page-header.componen
 import { CommonModule } from '@angular/common';
 import { NewsService } from '../../shared/services/news.service';
 import { New } from '../../shared/models/new.model';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-news',
-  imports: [PageHeaderComponent, CommonModule, MatPaginatorModule],
+  imports: [PageHeaderComponent, CommonModule, NgxPaginationModule, FormsModule],
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.css'],
 })
@@ -15,31 +17,50 @@ export class NewsComponent {
   private newsService = inject(NewsService);
 
   newsList: New[] = [];
-  firstPageLabel = `First page`;
-  itemsPerPageLabel = `Items per page:`;
-  lastPageLabel = `Last page`;
-  nextPageLabel = 'Next page';
-  previousPageLabel = 'Previous page';
-  pageSize = 5;
-  pageSizeOptions: number[] = [10, 20];
+  page = 1;
+  newsPerPage = 6;
+  isLoading = true;
+  searchQuery: string = '';
+
   
   ngOnInit() {
-    this.newsService.getNews().subscribe(n => (this.newsList = n));
+    this.getNews();
   }
 
-  getRangeLabel(page: number, pageSize: number, length: number): string {
-    if (length === 0) {
-      return `Page 1 of 1`;
-    }
-    const amountPages = Math.ceil(length / pageSize);
-    return `Page ${page + 1} of ${amountPages}`;
+  public getNews(): void {
+    this.isLoading = true;
+    this.newsService.getNews().subscribe({
+      next: (n: New[]) => {
+        this.isLoading = false;
+        this.newsList = n;
+      },
+      error: () => {
+        this.isLoading = false;
+      }
+    })
   }
+
+  pageChangeEvent(event: number){
+      this.page = event;
+      this.getNews();
+  }
+
 
   openModal(id: number) {
     const newsItem = this.newsList.find(n => n.id === id);
     if (newsItem) {
       alert(`Titre: ${newsItem.title}\n\nContenu: ${newsItem.excerpt}`);
     }
+  }
+
+  filterNews(): void {
+    if(!this.searchQuery) {
+      this.getNews();
+      return;
+    }
+    this.isLoading = true;
+    let query = this.searchQuery.toLowerCase().trim();
+    this.newsList = this.newsList.filter(news => news.title.toLowerCase().trim().includes(query) || news.publisher?.toLowerCase().trim().includes(query));
   }
 
 }
