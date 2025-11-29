@@ -15,10 +15,11 @@
       </div>
       <div class="grid grid-cols-2 gap-2 text-sm">
         <div *ngFor="let new of newsList | paginate: { itemsPerPage: newsPerPage, currentPage: page } "
-          class="grid place-items-center font-medium p-4 m-2 bg-white rounded-xl transition hover:-translate-y-0.5 border border-amber-100 shadow-sm cursor-pointer shadow-amber-100/40"
+          class="grid place-items-center font-medium m-2 bg-white rounded-xl transition hover:-translate-y-0.5 border border-amber-100 shadow-sm cursor-pointer shadow-amber-100/40"
           (click)="openModal(new.id)" [title]="new.title">
-          <div>{{ new.title }}</div>
-          <div class="text-xs text-slate-400 mt-1">{{ new.date }} · {{ new.publisher }}</div>
+          <img [src]="'assets/' + new.photo" class="w-full h-32 object-cover mb-2 rounded-t-md" alt="news image">
+          <div class="pr-4 pl-4">{{ new.title }}</div>
+          <div class="text-xs text-slate-400 mt-1 pb-4 pr-4 pl-4">{{ new.date }} · {{ new.publisher }}</div>
         </div>
       </div>
       <pagination-controls (pageChange)="pageChangeEvent($event)" class="my-3 text-center ">

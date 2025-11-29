@@ -10,5 +10,6 @@ export interface New {
   publisher_de?: string;
   excerpt_en?: string;
   excerpt_de?: string;
+  photo?: string;
 }
 

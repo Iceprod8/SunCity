@@ -5,6 +5,7 @@ import { NewsService } from '../../shared/services/news.service';
 import { New } from '../../shared/models/new.model';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class NewsComponent {
   private newsService = inject(NewsService);
+  private router = inject(Router);
 
   newsList: New[] = [];
   page = 1;
@@ -47,9 +49,12 @@ export class NewsComponent {
 
 
   openModal(id: number) {
-    const newsItem = this.newsList.find(n => n.id === id);
-    if (newsItem) {
-      alert(`Titre: ${newsItem.title}\n\nContenu: ${newsItem.excerpt}`);
+    const newItem = this.newsList.find(n => n.id === id);
+    if (newItem) {
+      this.router.navigate(['/new', id]);
+    }
+    else{
+      alert("Actualité introuvable.");
     }
   }
 
