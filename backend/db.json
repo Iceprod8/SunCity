@@ -55,6 +55,12 @@
       "password": "emma",
       "username": "Emma",
       "city": "Bordeaux"
+    },
+    {
+      "id": "8869",
+      "email": "nathan@gmail.com",
+      "username": "patrick",
+      "password": "password"
     }
   ],
   "friends": [
@@ -74,6 +80,18 @@
       "id": "8ea2",
       "ownerId": "dff3",
       "friendUserId": "49ca",
+      "note": ""
+    },
+    {
+      "id": "5f7c",
+      "ownerId": "8869",
+      "friendUserId": "dff3",
+      "note": ""
+    },
+    {
+      "id": "0069",
+      "ownerId": "dff3",
+      "friendUserId": "8869",
       "note": ""
     }
   ],
