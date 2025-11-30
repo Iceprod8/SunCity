@@ -11,7 +11,8 @@
         <button 
           (click)="goBack()"   
           class="absolute top-8 left-8 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center shadow-sm text-slate-600 hover:bg-slate-200 hover:text-slate-800 transition" 
-          aria-label="Retour">
+          aria-label="Retour"
+          i18n-aria-label="@@news.backAria">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
             stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
@@ -32,6 +33,40 @@
           </p>
         </div>
 
+        <div class="pt-4 mt-3 border-t border-amber-100 space-y-4">
+          <div class="flex items-center gap-3">
+            <button
+              (click)="toggleLike()"
+              class="flex items-center gap-2 px-3 py-2 rounded-full border border-amber-200 bg-white hover:bg-amber-50 transition">
+              <span [class.text-amber-700]="liked" [class.text-slate-500]="!liked">&#9829;</span>
+              <span class="text-sm font-semibold text-slate-800">{{ likes }}</span>
+              <span class="text-xs text-slate-500" i18n="@@news.likeLabel">J'aime</span>
+            </button>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex gap-2">
+              <input
+                [(ngModel)]="newComment"
+                (keyup.enter)="addComment()"
+                placeholder="Ajouter un commentaire"
+                i18n-placeholder="@@news.comment.placeholder"
+                class="flex-1 px-3 py-2 rounded-lg border border-amber-200 bg-white focus:outline-none focus:ring-2 focus:ring-amber-300 text-sm">
+              <button
+                (click)="addComment()"
+                class="px-3 py-2 rounded-lg bg-amber-600 text-white hover:bg-amber-700 transition text-sm">
+                <span i18n="@@news.comment.submit">Publier</span>
+              </button>
+            </div>
+            <div *ngIf="!comments.length" class="text-xs text-slate-500" i18n="@@news.comment.empty">Pas encore de commentaire.</div>
+            <div *ngFor="let comment of comments" class="bg-amber-50 border border-amber-100 rounded-xl p-3">
+              <div class="text-xs text-slate-500 mb-1">
+                {{ comment.author }} - {{ comment.at | date:'short' }}
+              </div>
+              <p class="text-sm text-slate-800">{{ comment.text }}</p>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>

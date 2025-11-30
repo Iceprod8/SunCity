@@ -31,8 +31,10 @@
 
           <div class="flex items-center justify-between mb-3 mt-6">
             <div>
-              <p class="text-sm text-amber-700">Thème</p>
-              <h3 class="text-lg font-semibold text-slate-900">Choisissez le mode clair ou sombre.</h3>
+              <p class="text-sm text-amber-700" i18n="@@settings.theme.label">Thème</p>
+              <h3 class="text-lg font-semibold text-slate-900" i18n="@@settings.theme.description">
+                Choisissez le mode clair ou sombre.
+              </h3>
             </div>
           </div>
           <div class="flex flex-wrap gap-3 mb-6">
@@ -49,53 +51,68 @@
               <span class="text-sm text-slate-800">Sombre</span>
             </label>
           </div>
-
-          <div class="flex items-center justify-between mb-3">
-            <div>
-              <p class="text-sm text-amber-700" i18n="@@settings.generalLabel">Général</p>
-              <h3 class="text-lg font-semibold text-slate-900" i18n="@@settings.generalTitle">Préférences locales</h3>
-            </div>
-          </div>
-
-          <ul class="space-y-3">
-            <li *ngFor="let setting of settings()" class="p-4 rounded-2xl bg-amber-50/70 border border-amber-100 shadow-sm flex items-start gap-3">
-              <input
-                type="checkbox"
-                class="mt-1 h-5 w-5 accent-amber-500"
-                [checked]="setting.value"
-                (change)="toggleSetting(setting.key)"
-                [id]="setting.key">
-              <div class="flex-1">
-                <label class="font-semibold text-slate-900 leading-tight" [for]="setting.key">{{ setting.label }}</label>
-                <p class="text-sm text-slate-600">{{ setting.description }}</p>
-              </div>
-              <span class="text-xs px-2 py-1 rounded-full border" [ngClass]="setting.value ? 'border-green-200 bg-green-50 text-green-700' : 'border-slate-200 bg-slate-50 text-slate-600'">
-                {{ setting.value ? stateEnabled : stateDisabled }}
-              </span>
-            </li>
-          </ul>
         </div>
-
         <div class="bg-white rounded-3xl shadow p-5 border border-amber-100">
           <div class="flex items-center justify-between mb-3">
             <div>
-              <p class="text-sm text-amber-700" i18n="@@settings.journal.label">Journal</p>
-              <h3 class="text-lg font-semibold text-slate-900" i18n="@@settings.journal.title">Activité récente</h3>
+              <p class="text-sm text-amber-700" i18n="@@settings.account.label">Compte</p>
+              <h3 class="text-lg font-semibold text-slate-900" i18n="@@settings.account.title">
+                Informations du profil
+              </h3>
             </div>
           </div>
-          <p class="text-sm text-slate-600 mb-2" i18n="@@settings.journal.preview">Aperçu des 5 dernières lignes du journal d'activité.</p>
-          <ul *ngIf="auditEntries().length; else noAudit" class="space-y-2 text-sm text-slate-700">
-            <li *ngFor="let entry of auditEntries() | slice:0:5" class="p-3 rounded-xl bg-amber-50/60 border border-amber-100 shadow-sm">
-              <div class="flex items-center justify-between">
-                <span class="font-semibold text-slate-900">{{ entry.action }}</span>
-                <span class="text-xs text-slate-500">{{ entry.at | date:'short':undefined:localeId }}</span>
+          <div class="space-y-3">
+            <div class="space-y-1">
+              <label class="text-xs text-slate-500" i18n="@@settings.account.field.username">Pseudo</label>
+              <input
+                [ngModel]="account().username"
+                (ngModelChange)="updateAccountField('username', $event)"
+                class="w-full px-3 py-2 rounded-lg border border-amber-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-300" />
+            </div>
+            <div class="space-y-1">
+              <label class="text-xs text-slate-500" i18n="@@settings.account.field.email">Email</label>
+              <input
+                [ngModel]="account().email"
+                (ngModelChange)="updateAccountField('email', $event)"
+                type="email"
+                class="w-full px-3 py-2 rounded-lg border border-amber-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-300" />
+            </div>
+            <div class="space-y-1">
+              <label class="text-xs text-slate-500" i18n="@@settings.account.field.city">Ville</label>
+              <input
+                [ngModel]="account().city"
+                (ngModelChange)="updateAccountField('city', $event)"
+                class="w-full px-3 py-2 rounded-lg border border-amber-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-300" />
+            </div>
+            <div class="grid grid-cols-1 gap-3 mt-2">
+              <div class="space-y-1">
+                <label class="text-xs text-slate-500" i18n="@@settings.account.field.password">
+                  Nouveau mot de passe
+                </label>
+                <input
+                  [ngModel]="account().password"
+                  (ngModelChange)="updateAccountField('password', $event)"
+                  type="password"
+                  class="w-full px-3 py-2 rounded-lg border border-amber-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-300" />
               </div>
-              <p class="text-xs text-slate-600" *ngIf="entry.detail">{{ entry.detail }}</p>
-            </li>
-          </ul>
-          <ng-template #noAudit>
-            <p class="text-sm text-slate-600" i18n="@@settings.journal.empty">Aucune entrée pour l'instant.</p>
-          </ng-template>
+              <div class="space-y-1">
+                <label class="text-xs text-slate-500" i18n="@@settings.account.field.confirm">Confirmation</label>
+                <input
+                  [ngModel]="account().confirm"
+                  (ngModelChange)="updateAccountField('confirm', $event)"
+                  type="password"
+                  class="w-full px-3 py-2 rounded-lg border border-amber-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-300" />
+              </div>
+            </div>
+            <div *ngIf="accountError()" class="text-xs text-red-600">{{ accountError() }}</div>
+            <div *ngIf="accountSuccess()" class="text-xs text-green-600">{{ accountSuccess() }}</div>
+            <button
+              (click)="saveAccount()"
+              [disabled]="accountSaving()"
+              class="mt-2 w-full px-3 py-2 rounded-lg bg-amber-600 text-white text-sm font-semibold hover:bg-amber-700 disabled:opacity-60 disabled:cursor-not-allowed">
+              {{ accountSaving() ? saveLabelSaving : saveLabelIdle }}
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { Component, Input, computed, inject } from '@angular/core';
+﻿import { Component, Input, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../features/auth/auth.service';
@@ -44,6 +44,17 @@ type NavLink = { label: string; path: string };
           </div>
         </div>
         <a
+          routerLink="/friends"
+          class="w-9 h-9 rounded-full bg-white shadow border border-amber-100 text-slate-700 grid place-items-center hover:text-slate-900"
+          aria-label="Amis">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="9" cy="7" r="4" />
+            <line x1="19" y1="8" x2="19" y2="14" stroke-linecap="round" />
+            <line x1="22" y1="11" x2="16" y2="11" stroke-linecap="round" />
+          </svg>
+        </a>
+        <a
           routerLink="/settings"
           class="w-9 h-9 rounded-full bg-white shadow border border-amber-100 text-slate-700 grid place-items-center hover:text-slate-900"
           aria-label="Paramètres" i18n-aria-label="@@nav.settingsAria">
@@ -85,3 +96,4 @@ export class PageHeaderComponent {
     this.auth.logout();
   }
 }
+

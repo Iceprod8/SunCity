@@ -5,7 +5,6 @@ import { tap, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ApiService } from '../../shared/services/api.service';
 import { User } from '../../shared/models/user.model';
-import { AuditService } from '../../shared/services/audit.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -21,8 +20,7 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private api: ApiService,
-    private router: Router,
-    private audit: AuditService
+    private router: Router
   ) {
     this.hydrateFromStorage();
     this.attachActivityListeners();
@@ -52,11 +50,6 @@ export class AuthService {
     localStorage.removeItem(this.STORAGE_KEY);
     localStorage.removeItem(this.ACTIVITY_KEY);
     this.stopActivityCheck();
-    if (reason) {
-      this.audit.log('logout', reason);
-    } else {
-      this.audit.log('logout', $localize`:@@auth.logout.user:Déconnexion utilisateur`);
-    }
     this.router.navigate(['/login']);
   }
 
@@ -88,7 +81,6 @@ export class AuthService {
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify(user));
     this.markActivity(true);
     this.startActivityCheck();
-    this.audit.log('login', $localize`:@@auth.audit.login:Connexion de ${user.email}`);
   }
 
   private hydrateFromStorage() {

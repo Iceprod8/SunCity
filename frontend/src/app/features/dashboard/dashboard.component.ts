@@ -8,8 +8,8 @@ import { New } from '../../shared/models/new.model';
 import { Activity } from '../../shared/models/activity.model';
 import { Weather } from '../../shared/models/weather.model';
 import { PageHeaderComponent } from '../../shared/components/page-header.component';
-import { AuditService } from '../../shared/services/audit.service';
 import { WeatherService } from '../../shared/services/weather.service';
+import { FeedComponent } from '../feed/feed.component';
 
 type TrainingDayState = 'current' | 'done' | 'scheduled';
 type TrainingDay = { day: number; date: string; state: TrainingDayState };
@@ -17,7 +17,7 @@ type TrainingDay = { day: number; date: string; state: TrainingDayState };
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterLink, PageHeaderComponent],
+  imports: [CommonModule, RouterLink, PageHeaderComponent, FeedComponent],
   templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent {
@@ -25,7 +25,6 @@ export class DashboardComponent {
   private content = inject(ContentService);
   private newsService = inject(NewsService);
   private weatherService = inject(WeatherService);
-  private audit = inject(AuditService);
   private locale = inject(LOCALE_ID);
   user = this.auth.user;
 
@@ -37,7 +36,6 @@ export class DashboardComponent {
   trainingDays: TrainingDay[] = [];
   selectedDate = this.formatDate(new Date(this.targetYear, this.targetMonthIndex, 1));
   selectedWeather: Weather | null = null;
-  auditEntries = this.audit.entries;
   noDataText = $localize`:@@dashboard.weather.noData:Pas de données pour cette date`;
   legendToday = $localize`:@@dashboard.legendToday:Aujourd'hui`;
 
