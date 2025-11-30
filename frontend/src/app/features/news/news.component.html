@@ -4,7 +4,7 @@
       <app-page-header title="Actualités" i18n-title="@@news.title"
         subtitle="Découvrez les dernières actualités autour de vous." i18n-subtitle="@@news.subtitle">
       </app-page-header>
-      <div class="relative w-full flex justify-center mb-4">
+      <div class="relative w-full flex justify-between mb-4">
         <div class="relative w-1/3">
           <input type="text" [(ngModel)]="searchQuery" (input)="filterNews()" placeholder="Rechercher une actualité..."
             class="w-full px-4 py-2 rounded-xl border border-amber-200 shadow-sm shadow-amber-100/40
@@ -12,9 +12,21 @@
           <img src="assets/search.svg" class="w-5 h-5 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
             alt="search icon">
         </div>
+        <div class="flex justify-end w-1/3">
+            <select id="sort-select" 
+                  #sortSelectValue (change)="sortNews(sortSelectValue.value)"
+                  class="w-1/2 p-2 rounded-xl border border-amber-200 shadow-sm shadow-amber-100/40 
+                  focus:outline-none focus:ring-2 focus:ring-amber-300 transition bg-white">
+            
+            <option value="">Trier par...</option>
+
+            <option value="date-asc">le plus récent</option>
+            <option value="date-desc">le moins récent</option>
+            </select>
+        </div>
       </div>
       <div class="grid grid-cols-2 gap-2 text-sm">
-        <div *ngFor="let new of newsList | paginate: { itemsPerPage: newsPerPage, currentPage: page } "
+        <div *ngFor="let new of news | paginate: { itemsPerPage: newsPerPage, currentPage: page } "
           class="grid place-items-center font-medium m-2 bg-white rounded-xl transition hover:-translate-y-0.5 border border-amber-100 shadow-sm cursor-pointer shadow-amber-100/40"
           (click)="openModal(new.id)" [title]="new.title">
           <img [src]="'assets/' + new.photo" class="w-full h-32 object-cover mb-2 rounded-t-md" alt="news image">
@@ -22,8 +34,10 @@
           <div class="text-xs text-slate-400 mt-1 pb-4 pr-4 pl-4">{{ new.date }} · {{ new.publisher }}</div>
         </div>
       </div>
-      <pagination-controls (pageChange)="pageChangeEvent($event)" class="my-3 text-center ">
-      </pagination-controls>
+      <pagination-controls
+        (pageChange)="pageChangeEvent($event)"
+        class="my-pagination text-center mt-6">
+    </pagination-controls>
 
     </div>
   </div>
