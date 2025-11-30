@@ -9,7 +9,7 @@ export function getSavedTheme(): ThemeChoice {
   } catch {
     console.log('Could not retrieve theme preference');
   }
-  return 'light';
+  return 'dark';
 }
 
 export function applyTheme(theme: ThemeChoice) {

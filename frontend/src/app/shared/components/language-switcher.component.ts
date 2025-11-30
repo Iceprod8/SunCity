@@ -35,7 +35,6 @@ export class LanguageSwitcherComponent {
     if (!value || value === getPreferredLanguage()) return;
     savePreferredLanguage(value);
     applyDocumentLanguage(value);
-    // Reload to let Angular re-bootstrap with the new locale and translations.
     if (typeof window !== 'undefined') {
       window.location.reload();
     }

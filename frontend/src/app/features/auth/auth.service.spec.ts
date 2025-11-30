@@ -73,7 +73,6 @@ describe('AuthService', () => {
   it('should clear the user on logout and navigate to login', () => {
     const navigateSpy = spyOn(router, 'navigate').and.resolveTo(true);
 
-    // Prime the state with a logged-in user.
     service.login(mockUser.email, mockUser.password).subscribe();
     const req = httpMock.expectOne(request => request.url === 'http://localhost:3000/users');
     req.flush([mockUser]);

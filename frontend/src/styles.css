@@ -106,6 +106,13 @@ body {
   color: #94a3b8 !important;
 }
 
+.weather-strip {
+  scrollbar-width: none;
+}
+.weather-strip::-webkit-scrollbar {
+  display: none;
+}
+
 /* Pagination (ngx-pagination) - simple pills */
 .my-pagination .ngx-pagination {
   display: inline-flex;

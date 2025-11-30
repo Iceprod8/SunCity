@@ -1,55 +1,111 @@
-<ng-container>
+﻿<ng-container>
   <div class="page-container pb-12">
-    <div
-      class="bg-[#f6f1e9] border border-amber-100 rounded-3xl shadow-xl shadow-amber-100/40 p-4 md:p-6 space-y-6"
-    >
+    <div id="weather" class="bg-[#f6f1e9] border border-amber-100 rounded-3xl shadow-xl shadow-amber-100/40 p-4 md:p-6 space-y-6">
       <app-page-header
-        title="Meteo"
+        title="Météo"
+        i18n-title="@@weather.title"
         subtitle="Découvrez la météo du jour et des prochains jours."
-      ></app-page-header>
+        i18n-subtitle="@@weather.subtitle"></app-page-header>
 
-      <div class="flex flex-col items-center justify-center">
-        <div class="w-full overflow-x-auto">
-          <ul
-            class="inline-flex flex-nowrap gap-1.5 bg-slate-900 text-white rounded-3xl shadow-lg border border-slate-800 p-3 min-w-max"
-          >
-            <li *ngFor="let day of weather">
+      <div class="flex flex-col gap-6">
+        <div class="grid gap-4 lg:grid-cols-3 items-start">
+          <ng-container *ngIf="selectedWeather as day">
+            <div class="lg:col-span-2 flex flex-col gap-3">
+              <div
+                class="rounded-3xl shadow-2xl border border-slate-800 p-6 md:p-8 relative overflow-hidden"
+                [ngStyle]="gradientStyle(paletteForDay(day))">
+                <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
+                <div class="relative flex items-start justify-between gap-4 flex-wrap text-white">
+                  <div>
+                    <p class="text-sm font-semibold text-white/80">{{ formattedDate(day.date) }}</p>
+                    <h2 class="text-2xl md:text-3xl font-bold flex items-center gap-3 mt-1">
+                      <span class="text-3xl">{{ conditionIcon(day.condition) }}</span>
+                      <span>{{ day.displayCondition || day.condition }}</span>
+                    </h2>
+                    <p class="text-sm text-white/80 mt-1">Vent {{ day.wind }} km/h</p>
+                    <div class="flex flex-wrap gap-2 mt-2" *ngIf="badges(day.condition).length">
+                      <span
+                        *ngFor="let b of badges(day.condition)"
+                        class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-black/25 border border-white/30 text-xs font-medium">
+                        <span>{{ b.icon }}</span>
+                        <span>{{ b.label }}</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="flex gap-2 items-center">
+                    <span class="px-3 py-1 rounded-full bg-white/20 border border-white/40 text-sm font-semibold">
+                      Min {{ day.min }}°C
+                    </span>
+                    <span class="px-3 py-1 rounded-full bg-white/20 border border-white/40 text-sm font-semibold">
+                      Max {{ day.max }}°C
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="alertFor(day.condition) as alert"
+                   class="rounded-3xl border border-slate-800 bg-slate-900/90 shadow p-4 flex items-start gap-3">
+                <div class="text-2xl">
+                  {{ alert.icon }}
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-slate-100">{{ alert.title }}</p>
+                  <p class="text-xs text-slate-300 mt-1">
+                    {{ alert.message }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+          <div class="bg-slate-900 text-white rounded-3xl shadow-lg p-4 md:p-5 flex flex-col gap-4 border border-slate-800">
+            <div class="flex items-start justify-between">
+              <div>
+                <p class="text-sm text-slate-300">Calendrier</p>
+                <h2 class="text-xl font-semibold">{{ monthLabel }}</h2>
+              </div>
+            </div>
+            <div class="grid grid-cols-7 gap-1.5 text-xs">
               <button
+                *ngFor="let d of calendarDays"
                 type="button"
-                class="px-2.5 py-1 text-lg font-semibold text-left rounded-2xl cursor-pointer transition-transform duration-200 hover:scale-105"
-                [ngClass]="selectedWeather?.id === day.id ? 'bg-white/10 text-white' : 'text-gray-400'"
-                (click)="selectWeather(day)"
-              >
-                {{ formattedDate(day.date) }}
+                class="aspect-square rounded-full grid place-items-center font-medium cursor-pointer transition hover:-translate-y-0.5"
+                [ngClass]="{
+                  'bg-amber-300 text-slate-900 shadow ring-2 ring-amber-200 ring-offset-2 ring-offset-slate-900': d.date === selectedDate,
+                  'bg-slate-800 text-slate-100 border border-slate-700': d.date !== selectedDate && d.hasData,
+                  'bg-slate-900 text-slate-500 border border-slate-800 opacity-60 cursor-default': !d.hasData
+                }"
+                (click)="d.hasData && selectDate(d.date)"
+                [attr.title]="formattedDate(d.date)">
+                {{ d.day }}
               </button>
-            </li>
-          </ul>
-        </div>
-
-        <div class="m-3 bg-white rounded-3xl shadow p-5 border border-amber-100" *ngIf="selectedWeather">
-          <p class="font-semibold text-amber-700">{{ formattedDate(selectedWeather.date) }}</p>
-          <p class="text-sm text-slate-600">
-            {{ conditionIcon(selectedWeather.condition) }} Mini {{ selectedWeather.min }}°C · Maxi
-            {{ selectedWeather.max }}°C · Vent {{ selectedWeather.wind }} km/h
-          </p>
-        </div>
-
-        <div class="m-3 flex flex-wrap gap-3 justify-center" *ngIf="selectedWeather as day">
-          <div
-            *ngFor="let period of day.periods"
-            class="flex flex-col items-center justify-center w-56 h-60 bg-gradient-to-br from-amber-100 via-amber-50 to-amber-200 shadow-lg border border-amber-100 rounded-3xl text-center p-4"
-          >
-            <h1 class="font-semibold">{{ period.label }}</h1>
-            <span class="text-2xl">{{ conditionIcon(period.condition) }} {{ period.temp }}°C</span>
-            <p class="text-sm text-slate-600">Mini {{ day.min }}°C · Maxi {{ day.max }}°C</p>
-            <p class="text-sm text-slate-600">Vent {{ period.wind }} km/h</p>
-            <p class="text-xs text-slate-500">{{ period.condition }}</p>
+            </div>
           </div>
         </div>
 
-        <div class="bg-white rounded-3xl shadow p-5 border border-amber-100 max-w-3xl" *ngIf="selectedWeather">
-          <p>{{ selectedWeather.daily_tip }}</p>
-        </div>
+        <ng-container *ngIf="selectedWeather as day">
+          <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            <div
+              *ngFor="let period of day.periods"
+              class="rounded-3xl shadow border border-slate-800 p-4 text-center bg-slate-900 text-slate-100"
+            >
+              <div class="w-full h-1.5 rounded-full mb-4 overflow-hidden bg-slate-800">
+                <div class="h-full" [ngStyle]="gradientStyle(paletteForPeriod(period, day))"></div>
+              </div>
+              <p class="font-semibold text-sm">{{ period.label }}</p>
+              <p class="text-2xl font-bold flex items-center justify-center gap-2 mt-1">
+                <span>{{ conditionIcon(period.condition) }}</span>
+                <span>{{ period.temp }}°C</span>
+              </p>
+              <p class="text-xs text-slate-300 mt-1">Vent {{ period.wind }} km/h</p>
+              <p class="text-xs text-slate-400">{{ period.condition }}</p>
+            </div>
+          </div>
+
+          <div class="bg-slate-900 rounded-3xl shadow p-5 border border-slate-800 max-w-3xl text-slate-200">
+            <p class="text-sm">{{ day.daily_tip }}</p>
+          </div>
+        </ng-container>
 
         <div class="text-slate-500" *ngIf="!weather.length">
           Aucune donnée météo disponible.
