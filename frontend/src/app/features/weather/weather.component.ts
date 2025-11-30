@@ -19,7 +19,9 @@ export class WeatherComponent implements OnInit {
   ngOnInit(): void {
     this.weatherService.getWeather().subscribe(data => {
       this.weather = data;
-      this.selectedWeather = data[0] || null;
+      const targetDate = '2025-11-30';
+      const defaultDay = data.find(day => (day.date || '').slice(0, 10) === targetDate);
+      this.selectedWeather = defaultDay || data[0] || null;
     });
   }
 

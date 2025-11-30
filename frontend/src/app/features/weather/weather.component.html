@@ -9,20 +9,22 @@
       ></app-page-header>
 
       <div class="flex flex-col items-center justify-center">
-        <ul
-          class="flex flex-wrap gap-2 bg-slate-900 text-white rounded-3xl shadow-lg border border-slate-800 p-3 justify-center"
-        >
-          <li *ngFor="let day of weather">
-            <button
-              type="button"
-              class="px-3 py-1 text-xl font-bold text-left rounded-2xl cursor-pointer transition-transform duration-200 hover:scale-110"
-              [ngClass]="selectedWeather?.id === day.id ? 'bg-white/10 text-white' : 'text-gray-400'"
-              (click)="selectWeather(day)"
-            >
-              {{ formattedDate(day.date) }}
-            </button>
-          </li>
-        </ul>
+        <div class="w-full overflow-x-auto">
+          <ul
+            class="inline-flex flex-nowrap gap-1.5 bg-slate-900 text-white rounded-3xl shadow-lg border border-slate-800 p-3 min-w-max"
+          >
+            <li *ngFor="let day of weather">
+              <button
+                type="button"
+                class="px-2.5 py-1 text-lg font-semibold text-left rounded-2xl cursor-pointer transition-transform duration-200 hover:scale-105"
+                [ngClass]="selectedWeather?.id === day.id ? 'bg-white/10 text-white' : 'text-gray-400'"
+                (click)="selectWeather(day)"
+              >
+                {{ formattedDate(day.date) }}
+              </button>
+            </li>
+          </ul>
+        </div>
 
         <div class="m-3 bg-white rounded-3xl shadow p-5 border border-amber-100" *ngIf="selectedWeather">
           <p class="font-semibold text-amber-700">{{ formattedDate(selectedWeather.date) }}</p>
