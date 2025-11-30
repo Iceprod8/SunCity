@@ -23,6 +23,8 @@ export class NewsComponent {
   newsPerPage = 6;
   isLoading = true;
   searchQuery: string = '';
+  sortedNews: New[] = [];
+  news: New[] = [];
 
   
   ngOnInit() {
@@ -35,6 +37,8 @@ export class NewsComponent {
       next: (n: New[]) => {
         this.isLoading = false;
         this.newsList = n;
+        this.news = n;
+        this.sortedNews = [];
       },
       error: () => {
         this.isLoading = false;
@@ -59,13 +63,39 @@ export class NewsComponent {
   }
 
   filterNews(): void {
+    const source = this.sortedNews.length > 0 ? this.sortedNews : this.news;
+    
     if(!this.searchQuery) {
-      this.getNews();
+      this.news = source;
       return;
     }
     this.isLoading = true;
     let query = this.searchQuery.toLowerCase().trim();
-    this.newsList = this.newsList.filter(news => news.title.toLowerCase().trim().includes(query) || news.publisher?.toLowerCase().trim().includes(query));
+    this.news = source.filter(news => news.title.toLowerCase().trim().includes(query) || news.publisher?.toLowerCase().trim().includes(query));
+  }
+
+   sortNews(mode: string): void {
+    if (!mode) {
+      this.sortedNews = [];
+      this.news = [...this.newsList];
+      return;
+    }
+    this.sortedNews = [...this.news]; 
+
+    if (mode === 'date-desc') {
+      this.sortedNews.sort((a, b) => 
+        {
+          console.log(new Date(a.date).getTime(), new Date(b.date).getTime());
+          return new Date(a.date).getTime() - new Date(b.date).getTime();
+        });
+    } else if (mode === 'date-asc') {
+      this.sortedNews.sort((a, b) => 
+        {
+          console.log(new Date(b.date).getTime(), new Date(a.date).getTime());
+          return new Date(b.date).getTime() - new Date(a.date).getTime();
+        });
+    }
+    this.news = this.sortedNews;
   }
 
 }
