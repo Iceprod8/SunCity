@@ -57,7 +57,7 @@ body {
 .dark a { color: #fbbf24; }
 .dark .border { border-color: var(--border) !important; }
 .dark .bg-slate-900 { background-color: var(--panel) !important; }
-.dark [class*="bg-[#f3f1ed]"] { background-color: var(--surface) !important; }
+.dark .bg-\[\#f3f1ed\] { background-color: var(--surface) !important; }
 .dark .shadow-lg, .dark .shadow-xl { box-shadow: 0 10px 28px rgba(0,0,0,0.55) !important; }
 .dark .text-brand-700 { color: #fbbf24 !important; }
 .dark .hover\:bg-white:hover { background-color: rgba(255,255,255,0.08) !important; }

@@ -7,7 +7,7 @@ import { Weather } from '../models/weather.model';
 export class WeatherService {
   constructor(private http: HttpClient, private api: ApiService) {}
 
-  getWeather() { 
-    return this.http.get<Weather[]>(this.api.url('/weather')); 
+  getWeather() {
+    return this.http.get<Weather[]>(this.api.url('/weather'));
   }
 }
