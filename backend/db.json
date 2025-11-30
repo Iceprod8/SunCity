@@ -58,210 +58,480 @@
       "date": "2025-11-01",
       "condition": "sunny",
       "min": 9,
-      "max": 17
+      "max": 17,
+      "wind": 11,
+      "daily_tip": "Profiter d’une journée ensoleillée (9–17°C) ; prévoir une couche légère le matin et l’adapter dans l’après-midi.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 10, "condition": "sunny", "wind": 9 },
+        { "key": "noon", "label": "Midi", "temp": 17, "condition": "sunny", "wind": 11 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 16, "condition": "sunny", "wind": 12 },
+        { "key": "evening", "label": "Soir", "temp": 11, "condition": "clear", "wind": 10 },
+        { "key": "night", "label": "Nuit", "temp": 9, "condition": "clear", "wind": 8 }
+      ]
     },
     {
       "id": 2,
       "date": "2025-11-02",
       "condition": "partly-cloudy",
       "min": 8,
-      "max": 16
+      "max": 16,
+      "wind": 14,
+      "daily_tip": "Composer avec des éclaircies (8–16°C) ; privilégier une veste légère et conserver une couche supplémentaire à disposition.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 9, "condition": "partly-cloudy", "wind": 12 },
+        { "key": "noon", "label": "Midi", "temp": 16, "condition": "partly-cloudy", "wind": 14 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 15, "condition": "cloudy", "wind": 15 },
+        { "key": "evening", "label": "Soir", "temp": 10, "condition": "cloudy", "wind": 13 },
+        { "key": "night", "label": "Nuit", "temp": 8, "condition": "clear", "wind": 11 }
+      ]
     },
     {
       "id": 3,
       "date": "2025-11-03",
       "condition": "rain",
       "min": 7,
-      "max": 12
+      "max": 12,
+      "wind": 18,
+      "daily_tip": "Anticiper des précipitations (7–12°C) ; prévoir un vêtement imperméable et des chaussures adaptées.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 8, "condition": "rain", "wind": 16 },
+        { "key": "noon", "label": "Midi", "temp": 12, "condition": "rain", "wind": 18 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 11, "condition": "rain", "wind": 19 },
+        { "key": "evening", "label": "Soir", "temp": 9, "condition": "cloudy", "wind": 17 },
+        { "key": "night", "label": "Nuit", "temp": 7, "condition": "cloudy", "wind": 15 }
+      ]
     },
     {
       "id": 4,
       "date": "2025-11-04",
       "condition": "rain",
       "min": 6,
-      "max": 11
+      "max": 11,
+      "wind": 20,
+      "daily_tip": "Prévoir une journée humide et fraîche (6–11°C) ; opter pour des vêtements superposés et limiter l’exposition prolongée.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 7, "condition": "rain", "wind": 18 },
+        { "key": "noon", "label": "Midi", "temp": 11, "condition": "rain", "wind": 20 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 10, "condition": "rain", "wind": 21 },
+        { "key": "evening", "label": "Soir", "temp": 8, "condition": "cloudy", "wind": 19 },
+        { "key": "night", "label": "Nuit", "temp": 6, "condition": "cloudy", "wind": 17 }
+      ]
     },
     {
       "id": 5,
       "date": "2025-11-05",
       "condition": "storm",
       "min": 8,
-      "max": 13
+      "max": 13,
+      "wind": 32,
+      "daily_tip": "Rester vigilant en raison d’un risque d’orage (8–13°C) ; limiter les déplacements et se tenir informé des alertes.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 9, "condition": "rain", "wind": 30 },
+        { "key": "noon", "label": "Midi", "temp": 13, "condition": "storm", "wind": 32 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 12, "condition": "storm", "wind": 33 },
+        { "key": "evening", "label": "Soir", "temp": 10, "condition": "rain", "wind": 31 },
+        { "key": "night", "label": "Nuit", "temp": 8, "condition": "cloudy", "wind": 29 }
+      ]
     },
     {
       "id": 6,
       "date": "2025-11-06",
       "condition": "cloudy",
       "min": 9,
-      "max": 14
+      "max": 14,
+      "wind": 17,
+      "daily_tip": "Prévoir un temps couvert et frais (9–14°C) ; privilégier une tenue de mi-saison et une protection contre le vent.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 10, "condition": "cloudy", "wind": 15 },
+        { "key": "noon", "label": "Midi", "temp": 14, "condition": "cloudy", "wind": 17 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 13, "condition": "cloudy", "wind": 18 },
+        { "key": "evening", "label": "Soir", "temp": 11, "condition": "cloudy", "wind": 16 },
+        { "key": "night", "label": "Nuit", "temp": 9, "condition": "cloudy", "wind": 14 }
+      ]
     },
     {
       "id": 7,
       "date": "2025-11-07",
       "condition": "sunny",
       "min": 10,
-      "max": 18
+      "max": 18,
+      "wind": 12,
+      "daily_tip": "Profiter d’une journée ensoleillée et modérément douce (10–18°C) ; prévoir une couche légère pour le matin.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 11, "condition": "sunny", "wind": 10 },
+        { "key": "noon", "label": "Midi", "temp": 18, "condition": "sunny", "wind": 12 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 17, "condition": "sunny", "wind": 13 },
+        { "key": "evening", "label": "Soir", "temp": 12, "condition": "clear", "wind": 11 },
+        { "key": "night", "label": "Nuit", "temp": 10, "condition": "clear", "wind": 9 }
+      ]
     },
     {
       "id": 8,
       "date": "2025-11-08",
       "condition": "sunny",
       "min": 12,
-      "max": 21
+      "max": 21,
+      "wind": 10,
+      "daily_tip": "Prévoir une journée très douce (12–21°C) ; adopter une tenue légère et se protéger en cas d’exposition prolongée au soleil.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 13, "condition": "sunny", "wind": 8 },
+        { "key": "noon", "label": "Midi", "temp": 21, "condition": "sunny", "wind": 10 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 20, "condition": "sunny", "wind": 11 },
+        { "key": "evening", "label": "Soir", "temp": 15, "condition": "clear", "wind": 9 },
+        { "key": "night", "label": "Nuit", "temp": 12, "condition": "clear", "wind": 7 }
+      ]
     },
     {
       "id": 9,
       "date": "2025-11-09",
       "condition": "cloudy",
       "min": 10,
-      "max": 18
+      "max": 18,
+      "wind": 16,
+      "daily_tip": "Prévoir un temps couvert mais relativement doux (10–18°C) ; conserver une couche légère, notamment en cas de vent.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 11, "condition": "cloudy", "wind": 14 },
+        { "key": "noon", "label": "Midi", "temp": 18, "condition": "cloudy", "wind": 16 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 17, "condition": "cloudy", "wind": 17 },
+        { "key": "evening", "label": "Soir", "temp": 12, "condition": "cloudy", "wind": 15 },
+        { "key": "night", "label": "Nuit", "temp": 10, "condition": "cloudy", "wind": 13 }
+      ]
     },
     {
       "id": 10,
       "date": "2025-11-10",
       "condition": "rain",
       "min": 9,
-      "max": 15
+      "max": 15,
+      "wind": 19,
+      "daily_tip": "Prévoir un risque de pluie (9–15°C) ; privilégier une protection imperméable et des chaussures fermées.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 10, "condition": "rain", "wind": 17 },
+        { "key": "noon", "label": "Midi", "temp": 15, "condition": "rain", "wind": 19 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 14, "condition": "rain", "wind": 20 },
+        { "key": "evening", "label": "Soir", "temp": 11, "condition": "cloudy", "wind": 18 },
+        { "key": "night", "label": "Nuit", "temp": 9, "condition": "cloudy", "wind": 16 }
+      ]
     },
     {
       "id": 11,
       "date": "2025-11-11",
       "condition": "sunny",
       "min": 8,
-      "max": 16
+      "max": 16,
+      "wind": 13,
+      "daily_tip": "Prévoir une matinée fraîche et une après-midi plus douce (8–16°C) ; adapter la tenue par couches.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 9, "condition": "sunny", "wind": 11 },
+        { "key": "noon", "label": "Midi", "temp": 16, "condition": "sunny", "wind": 13 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 15, "condition": "sunny", "wind": 14 },
+        { "key": "evening", "label": "Soir", "temp": 10, "condition": "clear", "wind": 12 },
+        { "key": "night", "label": "Nuit", "temp": 8, "condition": "clear", "wind": 10 }
+      ]
     },
     {
       "id": 12,
       "date": "2025-11-12",
       "condition": "cloudy",
       "min": 7,
-      "max": 13
+      "max": 13,
+      "wind": 18,
+      "daily_tip": "Prévoir un temps gris et frais (7–13°C) ; opter pour des vêtements superposés et une protection contre le vent.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 8, "condition": "cloudy", "wind": 16 },
+        { "key": "noon", "label": "Midi", "temp": 13, "condition": "cloudy", "wind": 18 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 12, "condition": "cloudy", "wind": 19 },
+        { "key": "evening", "label": "Soir", "temp": 9, "condition": "cloudy", "wind": 17 },
+        { "key": "night", "label": "Nuit", "temp": 7, "condition": "cloudy", "wind": 15 }
+      ]
     },
     {
       "id": 13,
       "date": "2025-11-13",
       "condition": "fog",
       "min": 6,
-      "max": 10
+      "max": 10,
+      "wind": 9,
+      "daily_tip": "Prévoir du brouillard et des températures basses (6–10°C) ; accroître la vigilance lors des déplacements et renforcer la visibilité.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 7, "condition": "fog", "wind": 7 },
+        { "key": "noon", "label": "Midi", "temp": 10, "condition": "cloudy", "wind": 9 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 9, "condition": "cloudy", "wind": 10 },
+        { "key": "evening", "label": "Soir", "temp": 8, "condition": "fog", "wind": 8 },
+        { "key": "night", "label": "Nuit", "temp": 6, "condition": "fog", "wind": 6 }
+      ]
     },
     {
       "id": 14,
       "date": "2025-11-14",
       "condition": "sunny",
       "min": 7,
-      "max": 14
+      "max": 14,
+      "wind": 12,
+      "daily_tip": "Prévoir une journée ensoleillée mais fraîche (7–14°C) ; conserver une veste adaptée, surtout le matin.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 8, "condition": "sunny", "wind": 10 },
+        { "key": "noon", "label": "Midi", "temp": 14, "condition": "sunny", "wind": 12 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 13, "condition": "sunny", "wind": 13 },
+        { "key": "evening", "label": "Soir", "temp": 9, "condition": "clear", "wind": 11 },
+        { "key": "night", "label": "Nuit", "temp": 7, "condition": "clear", "wind": 9 }
+      ]
     },
     {
       "id": 15,
       "date": "2025-11-15",
       "condition": "rain",
       "min": 8,
-      "max": 12
+      "max": 12,
+      "wind": 21,
+      "daily_tip": "Prévoir des pluies et une sensation de fraîcheur (8–12°C) ; porter une protection imperméable et limiter l’exposition.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 9, "condition": "rain", "wind": 19 },
+        { "key": "noon", "label": "Midi", "temp": 12, "condition": "rain", "wind": 21 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 11, "condition": "rain", "wind": 22 },
+        { "key": "evening", "label": "Soir", "temp": 10, "condition": "cloudy", "wind": 20 },
+        { "key": "night", "label": "Nuit", "temp": 8, "condition": "cloudy", "wind": 18 }
+      ]
     },
     {
       "id": 16,
       "date": "2025-11-16",
       "condition": "cloudy",
       "min": 9,
-      "max": 14
+      "max": 14,
+      "wind": 15,
+      "daily_tip": "Prévoir un temps nuageux et frais (9–14°C) ; privilégier une tenue de mi-saison et une couche coupe-vent si nécessaire.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 10, "condition": "cloudy", "wind": 13 },
+        { "key": "noon", "label": "Midi", "temp": 14, "condition": "cloudy", "wind": 15 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 13, "condition": "cloudy", "wind": 16 },
+        { "key": "evening", "label": "Soir", "temp": 11, "condition": "cloudy", "wind": 14 },
+        { "key": "night", "label": "Nuit", "temp": 9, "condition": "cloudy", "wind": 12 }
+      ]
     },
     {
       "id": 17,
       "date": "2025-11-17",
       "condition": "sunny",
       "min": 8,
-      "max": 15
+      "max": 15,
+      "wind": 11,
+      "daily_tip": "Prévoir une journée ensoleillée et modérée (8–15°C) ; adapter la tenue, en particulier en matinée.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 9, "condition": "sunny", "wind": 9 },
+        { "key": "noon", "label": "Midi", "temp": 15, "condition": "sunny", "wind": 11 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 14, "condition": "sunny", "wind": 12 },
+        { "key": "evening", "label": "Soir", "temp": 10, "condition": "clear", "wind": 10 },
+        { "key": "night", "label": "Nuit", "temp": 8, "condition": "clear", "wind": 8 }
+      ]
     },
     {
       "id": 18,
       "date": "2025-11-18",
       "condition": "rain",
       "min": 7,
-      "max": 11
+      "max": 11,
+      "wind": 22,
+      "daily_tip": "Prévoir des précipitations et une baisse des températures (7–11°C) ; porter un vêtement imperméable et des couches chaudes.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 8, "condition": "rain", "wind": 20 },
+        { "key": "noon", "label": "Midi", "temp": 11, "condition": "rain", "wind": 22 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 10, "condition": "rain", "wind": 23 },
+        { "key": "evening", "label": "Soir", "temp": 9, "condition": "cloudy", "wind": 21 },
+        { "key": "night", "label": "Nuit", "temp": 7, "condition": "cloudy", "wind": 19 }
+      ]
     },
     {
       "id": 19,
       "date": "2025-11-19",
       "condition": "windy",
       "min": 9,
-      "max": 13
+      "max": 13,
+      "wind": 35,
+      "daily_tip": "Prévoir des conditions venteuses (9–13°C) ; privilégier un vêtement coupe-vent et sécuriser les objets susceptibles d’être déplacés.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 10, "condition": "windy", "wind": 33 },
+        { "key": "noon", "label": "Midi", "temp": 13, "condition": "windy", "wind": 35 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 12, "condition": "windy", "wind": 36 },
+        { "key": "evening", "label": "Soir", "temp": 11, "condition": "cloudy", "wind": 34 },
+        { "key": "night", "label": "Nuit", "temp": 9, "condition": "cloudy", "wind": 32 }
+      ]
     },
     {
       "id": 20,
       "date": "2025-11-20",
       "condition": "cloudy",
       "min": 8,
-      "max": 12
+      "max": 12,
+      "wind": 17,
+      "daily_tip": "Prévoir un temps couvert et frais (8–12°C) ; opter pour une tenue chaude et limiter l’exposition prolongée.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 9, "condition": "cloudy", "wind": 15 },
+        { "key": "noon", "label": "Midi", "temp": 12, "condition": "cloudy", "wind": 17 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 11, "condition": "cloudy", "wind": 18 },
+        { "key": "evening", "label": "Soir", "temp": 10, "condition": "cloudy", "wind": 16 },
+        { "key": "night", "label": "Nuit", "temp": 8, "condition": "cloudy", "wind": 14 }
+      ]
     },
     {
       "id": 21,
       "date": "2025-11-21",
       "condition": "sunny",
       "min": 9,
-      "max": 14
+      "max": 14,
+      "wind": 13,
+      "daily_tip": "Prévoir une journée ensoleillée mais fraîche (9–14°C) ; conserver une veste légère et adapter la tenue au cours de la journée.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 10, "condition": "sunny", "wind": 11 },
+        { "key": "noon", "label": "Midi", "temp": 14, "condition": "sunny", "wind": 13 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 13, "condition": "sunny", "wind": 14 },
+        { "key": "evening", "label": "Soir", "temp": 11, "condition": "clear", "wind": 12 },
+        { "key": "night", "label": "Nuit", "temp": 9, "condition": "clear", "wind": 10 }
+      ]
     },
     {
       "id": 22,
       "date": "2025-11-22",
       "condition": "rain",
       "min": 7,
-      "max": 10
+      "max": 10,
+      "wind": 19,
+      "daily_tip": "Prévoir de la pluie et un temps froid (7–10°C) ; porter une protection imperméable et réduire les déplacements non essentiels.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 8, "condition": "rain", "wind": 17 },
+        { "key": "noon", "label": "Midi", "temp": 10, "condition": "rain", "wind": 19 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 9, "condition": "rain", "wind": 20 },
+        { "key": "evening", "label": "Soir", "temp": 9, "condition": "cloudy", "wind": 18 },
+        { "key": "night", "label": "Nuit", "temp": 7, "condition": "cloudy", "wind": 16 }
+      ]
     },
     {
       "id": 23,
       "date": "2025-11-23",
       "condition": "sunny",
       "min": 8,
-      "max": 15
+      "max": 15,
+      "wind": 12,
+      "daily_tip": "Prévoir une journée lumineuse et modérée (8–15°C) ; adapter la tenue par couches et privilégier les sorties en milieu de journée.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 9, "condition": "sunny", "wind": 10 },
+        { "key": "noon", "label": "Midi", "temp": 15, "condition": "sunny", "wind": 12 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 14, "condition": "sunny", "wind": 13 },
+        { "key": "evening", "label": "Soir", "temp": 10, "condition": "clear", "wind": 11 },
+        { "key": "night", "label": "Nuit", "temp": 8, "condition": "clear", "wind": 9 }
+      ]
     },
     {
       "id": 24,
       "date": "2025-11-24",
       "condition": "cloudy",
       "min": 7,
-      "max": 12
+      "max": 12,
+      "wind": 16,
+      "daily_tip": "Prévoir un temps nuageux et frais (7–12°C) ; porter une tenue chaude et se protéger du vent.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 8, "condition": "cloudy", "wind": 14 },
+        { "key": "noon", "label": "Midi", "temp": 12, "condition": "cloudy", "wind": 16 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 11, "condition": "cloudy", "wind": 17 },
+        { "key": "evening", "label": "Soir", "temp": 9, "condition": "cloudy", "wind": 15 },
+        { "key": "night", "label": "Nuit", "temp": 7, "condition": "cloudy", "wind": 13 }
+      ]
     },
     {
       "id": 25,
       "date": "2025-11-25",
       "condition": "rain",
       "min": 6,
-      "max": 9
+      "max": 9,
+      "wind": 23,
+      "daily_tip": "Prévoir une journée froide et pluvieuse (6–9°C) ; renforcer la protection thermique et privilégier les déplacements abrités.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 7, "condition": "rain", "wind": 21 },
+        { "key": "noon", "label": "Midi", "temp": 9, "condition": "rain", "wind": 23 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 8, "condition": "rain", "wind": 24 },
+        { "key": "evening", "label": "Soir", "temp": 8, "condition": "cloudy", "wind": 22 },
+        { "key": "night", "label": "Nuit", "temp": 6, "condition": "cloudy", "wind": 20 }
+      ]
     },
     {
       "id": 26,
       "date": "2025-11-26",
       "condition": "storm",
       "min": 7,
-      "max": 11
+      "max": 11,
+      "wind": 34,
+      "daily_tip": "Prévoir un risque d’orage et des rafales (7–11°C) ; limiter les déplacements, notamment aux heures les plus instables.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 8, "condition": "rain", "wind": 32 },
+        { "key": "noon", "label": "Midi", "temp": 11, "condition": "storm", "wind": 34 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 10, "condition": "storm", "wind": 35 },
+        { "key": "evening", "label": "Soir", "temp": 9, "condition": "rain", "wind": 33 },
+        { "key": "night", "label": "Nuit", "temp": 7, "condition": "cloudy", "wind": 31 }
+      ]
     },
     {
       "id": 27,
       "date": "2025-11-27",
       "condition": "cloudy",
       "min": 8,
-      "max": 13
+      "max": 13,
+      "wind": 15,
+      "daily_tip": "Prévoir un temps couvert et frais (8–13°C) ; opter pour une tenue de mi-saison et une couche supplémentaire en soirée.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 9, "condition": "cloudy", "wind": 13 },
+        { "key": "noon", "label": "Midi", "temp": 13, "condition": "cloudy", "wind": 15 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 12, "condition": "cloudy", "wind": 16 },
+        { "key": "evening", "label": "Soir", "temp": 10, "condition": "cloudy", "wind": 14 },
+        { "key": "night", "label": "Nuit", "temp": 8, "condition": "cloudy", "wind": 12 }
+      ]
     },
     {
       "id": 28,
       "date": "2025-11-28",
       "condition": "sunny",
       "min": 9,
-      "max": 15
+      "max": 15,
+      "wind": 11,
+      "daily_tip": "Prévoir une journée ensoleillée et modérée (9–15°C) ; conserver une veste le matin et ajuster la tenue ensuite.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 10, "condition": "sunny", "wind": 9 },
+        { "key": "noon", "label": "Midi", "temp": 15, "condition": "sunny", "wind": 11 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 14, "condition": "sunny", "wind": 12 },
+        { "key": "evening", "label": "Soir", "temp": 11, "condition": "clear", "wind": 10 },
+        { "key": "night", "label": "Nuit", "temp": 9, "condition": "clear", "wind": 8 }
+      ]
     },
     {
       "id": 29,
       "date": "2025-11-29",
       "condition": "rain",
       "min": 7,
-      "max": 11
+      "max": 11,
+      "wind": 20,
+      "daily_tip": "Prévoir de la pluie et un temps frais (7–11°C) ; porter une protection imperméable et des chaussures adaptées.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 8, "condition": "rain", "wind": 18 },
+        { "key": "noon", "label": "Midi", "temp": 11, "condition": "rain", "wind": 20 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 10, "condition": "rain", "wind": 21 },
+        { "key": "evening", "label": "Soir", "temp": 9, "condition": "cloudy", "wind": 19 },
+        { "key": "night", "label": "Nuit", "temp": 7, "condition": "cloudy", "wind": 17 }
+      ]
     },
     {
       "id": 30,
       "date": "2025-11-30",
       "condition": "cloudy",
       "min": 6,
-      "max": 10
+      "max": 10,
+      "wind": 14,
+      "daily_tip": "Prévoir un temps froid et couvert (6–10°C) ; porter un manteau chaud et limiter les sorties prolongées.",
+      "periods": [
+        { "key": "morning", "label": "Matin", "temp": 7, "condition": "cloudy", "wind": 12 },
+        { "key": "noon", "label": "Midi", "temp": 10, "condition": "cloudy", "wind": 14 },
+        { "key": "afternoon", "label": "Après-midi", "temp": 9, "condition": "cloudy", "wind": 15 },
+        { "key": "evening", "label": "Soir", "temp": 8, "condition": "cloudy", "wind": 13 },
+        { "key": "night", "label": "Nuit", "temp": 6, "condition": "cloudy", "wind": 11 }
+      ]
     }
   ]
 }
