@@ -17,7 +17,7 @@ type NavLink = { label: string; path: string };
           <p class="text-sm text-slate-600">{{ subtitle }}</p>
         </div>
 
-        <nav class="flex md:hidden items-center gap-3 text-sm text-slate-700" aria-label="Liens de navigation">
+        <nav class="flex md:hidden items-center gap-3 text-sm text-slate-700" aria-label="Liens de navigation" i18n-aria-label="@@nav.linksAria">
           <a *ngFor="let link of links"
              [routerLink]="link.path"
              routerLinkActive="bg-amber-200 text-slate-900 border-amber-200"
@@ -27,7 +27,7 @@ type NavLink = { label: string; path: string };
         </nav>
       </div>
 
-      <nav class="hidden md:flex items-center gap-3 text-sm text-slate-700 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" aria-label="Liens de navigation">
+      <nav class="hidden md:flex items-center gap-3 text-sm text-slate-700 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" aria-label="Liens de navigation" i18n-aria-label="@@nav.linksAria">
         <a *ngFor="let link of links"
            [routerLink]="link.path"
            routerLinkActive="bg-amber-200 text-slate-900 border-amber-200"
@@ -38,7 +38,7 @@ type NavLink = { label: string; path: string };
 
       <div class="flex items-center gap-3 lg:pl-4">
         <div class="flex items-center gap-2">
-          <span class="text-sm font-medium text-slate-900">{{ user()?.username || 'Profil' }}</span>
+          <span class="text-sm font-medium text-slate-900">{{ user()?.username || profileFallback }}</span>
           <div class="w-9 h-9 rounded-full bg-brand-600 text-white grid place-items-center font-semibold">
             {{ initials() || 'SC' }}
           </div>
@@ -46,10 +46,10 @@ type NavLink = { label: string; path: string };
         <a
           routerLink="/settings"
           class="w-9 h-9 rounded-full bg-white shadow border border-amber-100 text-slate-700 grid place-items-center hover:text-slate-900"
-          aria-label="Paramètres">
+          aria-label="Paramètres" i18n-aria-label="@@nav.settingsAria">
           &#9881;
         </a>
-        <button class="w-9 h-9 rounded-full bg-white shadow border border-amber-100 text-red-600 grid place-items-center hover:text-red-700" aria-label="Se deconnecter" (click)="logout()">
+        <button class="w-9 h-9 rounded-full bg-white shadow border border-amber-100 text-red-600 grid place-items-center hover:text-red-700" aria-label="Se déconnecter" i18n-aria-label="@@nav.logoutAria" (click)="logout()">
           &#x23FB;
         </button>
       </div>
@@ -62,11 +62,12 @@ export class PageHeaderComponent {
   @Input() title = '';
   @Input() subtitle = '';
 
-  links = [
-    { label: 'Dashboard', path: '/dashboard' },
-    { label: 'Meteo', path: '/weather' },
-    { label: 'Actualites', path: '/news' },
-    { label: 'Activites', path: '/activities' },
+  profileFallback = $localize`:@@nav.profileFallback:Profil`;
+  links: NavLink[] = [
+    { label: $localize`:@@nav.dashboard:Dashboard`, path: '/dashboard' },
+    { label: $localize`:@@nav.weather:Météo`, path: '/weather' },
+    { label: $localize`:@@nav.news:Actualités`, path: '/news' },
+    { label: $localize`:@@nav.activities:Activités`, path: '/activities' },
   ];
 
   user = this.auth.user;

@@ -5,21 +5,21 @@
   <div class="page-container	py-12 relative">
     <div class="grid gap-10 lg:grid-cols-2 items-center">
       <div class="hidden lg:flex flex-col gap-6 text-slate-900">
-        <div class="inline-flex items-center px-3 py-1 rounded-full bg-amber-200/60 border border-amber-300 text-sm text-amber-800 w-fit">
+        <div class="inline-flex items-center px-3 py-1 rounded-full bg-amber-200/60 border border-amber-300 text-sm text-amber-800 w-fit" i18n="@@login.badge">
           Bienvenue sur SunCity
         </div>
-        <h1 class="text-4xl font-semibold leading-tight">Reprenez la main sur votre journee.</h1>
-        <p class="text-lg text-slate-700 max-w-xl">
-          Connectez-vous pour retrouver votre dashboard avec la meteo, vos activites et vos actualites en un clin d'oeil.
+        <h1 class="text-4xl font-semibold leading-tight" i18n="@@login.title">Reprenez la main sur votre journée.</h1>
+        <p class="text-lg text-slate-700 max-w-xl" i18n="@@login.description">
+          Connectez-vous pour retrouver votre dashboard avec la météo, vos activités et vos actualités en un clin d'œil.
         </p>
         <div class="grid grid-cols-2 gap-4 text-sm text-slate-700">
           <div class="p-4 rounded-2xl bg-white/80 border border-amber-100 shadow-sm">
-            <p class="font-semibold text-slate-900">Meteo ciblee</p>
-            <p>Votre calendrier clique pour afficher le temps du jour choisi.</p>
+            <p class="font-semibold text-slate-900" i18n="@@login.feature1.title">Météo ciblée</p>
+            <p i18n="@@login.feature1.desc">Cliquez sur un jour du calendrier pour afficher sa météo.</p>
           </div>
           <div class="p-4 rounded-2xl bg-white/80 border border-amber-100 shadow-sm">
-            <p class="font-semibold text-slate-900">Actus proches</p>
-            <p>Selection locale et activites sur mesure.</p>
+            <p class="font-semibold text-slate-900" i18n="@@login.feature2.title">Actus proches</p>
+            <p i18n="@@login.feature2.desc">Sélection locale et activités sur mesure.</p>
           </div>
         </div>
       </div>
@@ -27,40 +27,41 @@
       <div class="relative bg-white/90 backdrop-blur border border-amber-100 rounded-3xl shadow-xl shadow-amber-100/60 p-8 sm:p-10">
         <div class="flex items-center justify-between mb-6">
           <div>
-            <p class="text-sm text-amber-700 font-semibold">Connexion</p>
-            <h2 class="text-2xl font-semibold text-slate-900">Accedez a votre espace</h2>
+            <p class="text-sm text-amber-700 font-semibold" i18n="@@login.cardTitle">Connexion</p>
+            <h2 class="text-2xl font-semibold text-slate-900" i18n="@@login.cardSubtitle">Accédez à votre espace</h2>
           </div>
-          <span class="px-3 py-1 text-xs rounded-full bg-amber-100 text-amber-800 border border-amber-200">Secure</span>
         </div>
 
         <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-5">
           <label class="block space-y-2">
-            <span class="block text-sm font-medium text-slate-800">Email</span>
+            <span class="block text-sm font-medium text-slate-800" i18n="@@form.email.label">Email</span>
             <div class="relative">
               <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">&#9993;</span>
               <input
                 type="email"
                 formControlName="email"
                 placeholder="ex: jean@exemple.com"
+                i18n-placeholder="@@form.email.placeholder"
                 class="w-full rounded-xl border border-amber-100 bg-amber-50/50 px-4 py-3 pl-9 text-slate-900 shadow-sm focus:border-amber-400 focus:ring-2 focus:ring-amber-200 focus:outline-none" />
             </div>
-            <p class="text-sm text-red-600" *ngIf="form.controls.email.touched && form.controls.email.invalid">
+            <p class="text-sm text-red-600" *ngIf="form.controls.email.touched && form.controls.email.invalid" i18n="@@form.email.error">
               Adresse email invalide
             </p>
           </label>
 
           <label class="block space-y-2">
-            <span class="block text-sm font-medium text-slate-800">Mot de passe</span>
+            <span class="block text-sm font-medium text-slate-800" i18n="@@form.password.label">Mot de passe</span>
             <div class="relative">
               <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">&#128274;</span>
               <input
                 type="password"
                 formControlName="password"
                 placeholder="Votre mot de passe"
+                i18n-placeholder="@@form.password.placeholder"
                 class="w-full rounded-xl border border-amber-100 bg-amber-50/50 px-4 py-3 pl-9 text-slate-900 shadow-sm focus:border-amber-400 focus:ring-2 focus:ring-amber-200 focus:outline-none" />
             </div>
-            <p class="text-sm text-red-600" *ngIf="form.controls.password.touched && form.controls.password.invalid">
-              Le mot de passe doit contenir au moins 4 caracteres
+            <p class="text-sm text-red-600" *ngIf="form.controls.password.touched && form.controls.password.invalid" i18n="@@form.password.error">
+              Le mot de passe doit contenir au moins 4 caractères
             </p>
           </label>
 
@@ -71,11 +72,12 @@
               type="submit"
               [disabled]="isSubmitting"
               class="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-3 text-white font-semibold hover:bg-slate-800 disabled:opacity-60 disabled:cursor-not-allowed transition">
-              {{ isSubmitting ? 'Connexion en cours...' : 'Se connecter' }}
+              <ng-container *ngIf="isSubmitting; else loginLabel" i18n="@@login.submitting">Connexion en cours...</ng-container>
+              <ng-template #loginLabel><span i18n="@@login.submit">Se connecter</span></ng-template>
             </button>
             <p class="text-sm text-slate-700">
-              Pas encore de compte ?
-              <a routerLink="/register" class="text-amber-700 font-semibold hover:underline">Creer un compte</a>
+              <span i18n="@@login.noAccount">Pas encore de compte ?</span>
+              <a routerLink="/register" class="text-amber-700 font-semibold hover:underline" i18n="@@login.createAccount">Créer un compte</a>
             </p>
           </div>
         </form>

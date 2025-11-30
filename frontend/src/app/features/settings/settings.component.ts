@@ -1,8 +1,9 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, LOCALE_ID, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageHeaderComponent } from '../../shared/components/page-header.component';
 import { AuditService } from '../../shared/services/audit.service';
-
+import { applyDocumentLanguage, AppLanguage, getPreferredLanguage, savePreferredLanguage } from '../../shared/i18n';
+import { applyTheme, getSavedTheme, ThemeChoice } from '../../shared/theme';
 type SettingItem = { key: string; label: string; description: string; value: boolean };
 
 @Component({
@@ -14,29 +15,57 @@ type SettingItem = { key: string; label: string; description: string; value: boo
 })
 export class SettingsComponent {
   private audit = inject(AuditService);
+  localeId = inject(LOCALE_ID);
+  languages = [
+    { code: 'fr' as AppLanguage, label: $localize`:@@languages.fr:Français` },
+    { code: 'en' as AppLanguage, label: $localize`:@@languages.en:English` },
+    { code: 'de' as AppLanguage, label: $localize`:@@languages.de:Deutsch` }
+  ];
+  selectedLanguage = signal<AppLanguage>(getPreferredLanguage());
+  selectedTheme = signal<ThemeChoice>(getSavedTheme());
 
   settings = signal<SettingItem[]>([
     {
       key: 'autoLogout',
-      label: 'Deconnexion automatique',
-      description: '2 jours d\'inactivite maximum avant fermeture de session (mock).',
+      label: $localize`:@@settings.items.autoLogout.label:Déconnexion automatique`,
+      description: $localize`:@@settings.items.autoLogout.description:2 jours d'inactivité maximum avant fermeture de session (mock).`,
       value: true
     },
     {
       key: 'activityLog',
-      label: 'Journal local',
-      description: 'Conserver un audit local des actions cles (connexion, deconnexion).',
+      label: $localize`:@@settings.items.activityLog.label:Journal local`,
+      description: $localize`:@@settings.items.activityLog.description:Conserver un audit local des actions clés (connexion, déconnexion).`,
       value: true
     },
     {
       key: 'notifications',
-      label: 'Notifications locales',
-      description: 'Recevoir des alertes mock pour les changements critiques.',
+      label: $localize`:@@settings.items.notifications.label:Notifications locales`,
+      description: $localize`:@@settings.items.notifications.description:Recevoir des alertes mock pour les changements critiques.`,
       value: false
     }
   ]);
 
   auditEntries = this.audit.entries;
+  stateEnabled = $localize`:@@settings.state.enabled:Activé`;
+  stateDisabled = $localize`:@@settings.state.disabled:Désactivé`;
+
+  changeLanguage(lang: AppLanguage) {
+    if (lang === this.selectedLanguage()) return;
+    this.selectedLanguage.set(lang);
+    savePreferredLanguage(lang);
+    applyDocumentLanguage(lang);
+    this.audit.log('settings:language', `Langue: ${lang}`);
+    if (typeof window !== 'undefined') {
+      window.location.reload();
+    }
+  }
+
+  changeTheme(theme: ThemeChoice) {
+    if (theme === this.selectedTheme()) return;
+    this.selectedTheme.set(theme);
+    applyTheme(theme);
+    this.audit.log('settings:theme', `Thème: ${theme}`);
+  }
 
   toggleSetting(key: string) {
     this.settings.update(items =>
@@ -48,7 +77,7 @@ export class SettingsComponent {
     if (updated) {
       this.audit.log(
         'settings:update',
-        `${updated.label}: ${updated.value ? 'activé' : 'désactivé'}`
+        `${updated.label}: ${updated.value ? this.stateEnabled : this.stateDisabled}`
       );
     }
   }
