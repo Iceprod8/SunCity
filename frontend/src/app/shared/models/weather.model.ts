@@ -2,11 +2,20 @@ export interface Weather {
   id: number;
   date: string;
   condition: string;
+  baseCondition?: string;
+  displayCondition?: string;
   min: number;
   max: number;
-  condition_en?: string;
-  condition_de?: string;
-  displayCondition?: string;
-  baseCondition?: string;
+  wind: number;
+  daily_tip: string;
+  periods: WeatherPeriod[];
+}
+
+export interface WeatherPeriod {
+  key: string;
+  label: string;
+  temp: number;
+  condition: string;
+  wind: number;
 }
 
