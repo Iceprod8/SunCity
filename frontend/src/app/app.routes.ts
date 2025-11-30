@@ -7,6 +7,7 @@ import { ActivitiesComponent } from './features/activities/activities.component'
 import { authGuard } from './features/auth/auth.guard';
 import { SettingsComponent } from './features/settings/settings.component';
 import { NewComponent } from './features/new/new.component';
+import { FriendsComponent } from './features/friends/friends.component';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,11 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'friends',
+    component: FriendsComponent,
     canActivate: [authGuard]
   },
   {

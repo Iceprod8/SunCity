@@ -7,7 +7,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-news',
   imports: [PageHeaderComponent, CommonModule, NgxPaginationModule, FormsModule],
@@ -49,7 +48,7 @@ export class NewsComponent {
   pageChangeEvent(event: number){
       this.page = event;
       this.getNews();
-  }
+    }
 
 
   openModal(id: number) {
@@ -58,7 +57,7 @@ export class NewsComponent {
       this.router.navigate(['/new', id]);
     }
     else{
-      alert("Actualité introuvable.");
+      alert($localize`:@@news.notFound:Actualité introuvable.`);
     }
   }
 

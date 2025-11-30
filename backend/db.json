@@ -10,98 +10,415 @@
     {
       "id": "dff3",
       "email": "samochval.nathan@gmail.com",
-      "username": "test",
-      "password": "test"
+      "username": "nathan",
+      "password": "test",
+      "city": "Paris"
     },
     {
       "id": "49ca",
       "email": "clem.amiard@gmail.com",
       "username": "clem",
-      "password": "clem"
+      "password": "clem",
+      "city": "Paris"
+    },
+    {
+      "id": "u100",
+      "email": "alice@example.com",
+      "password": "alice",
+      "username": "Alice",
+      "city": "Lyon"
+    },
+    {
+      "id": "u101",
+      "email": "bob@example.com",
+      "password": "bob",
+      "username": "Bob",
+      "city": "Marseille"
+    },
+    {
+      "id": "u102",
+      "email": "carla@example.com",
+      "password": "carla",
+      "username": "Carla",
+      "city": "Nice"
+    },
+    {
+      "id": "u103",
+      "email": "dan@example.com",
+      "password": "dan",
+      "username": "Dan",
+      "city": "Toulouse"
+    },
+    {
+      "id": "u104",
+      "email": "emma@example.com",
+      "password": "emma",
+      "username": "Emma",
+      "city": "Bordeaux"
     }
   ],
-"news": [
-  {
-    "id": "1",
-    "title": "Breaking: Soleil au zénith",
-    "publisher": "Le Quotidien",
-    "date": "2025-11-08",
-    "excerpt": "La journée s’annonce particulièrement lumineuse alors qu’un anticyclone s’installe durablement sur l’ensemble du pays. Les prévisions font état de températures exceptionnellement douces pour la saison, invitant les habitants à profiter pleinement des espaces extérieurs et à organiser des activités spontanées. Les parcs municipaux, déjà très fréquentés tôt ce matin, s’attendent à accueillir un nombre record de visiteurs, notamment des familles venues se promener ou pique-niquer. Les autorités recommandent néanmoins de rester vigilants face au risque d’exposition prolongée au soleil, particulièrement pour les personnes sensibles ou souffrant de problèmes dermatologiques. Des campagnes de prévention rappellent l’importance de s’hydrater et d’éviter les heures les plus chaudes. Ce phénomène devrait se maintenir durant tout le week-end, créant un climat idéal pour les activités en plein air mais aussi un défi pour les équipes de secours qui se préparent à une hausse des appels liés aux malaises liés à la chaleur. Les météorologues précisent que cette situation exceptionnelle pourrait durer plusieurs jours, avec des températures supérieures aux normales saisonnières, favorisant ainsi la floraison tardive de certaines plantes et stimulant les activités agricoles locales. Les habitants sont invités à profiter de cette période rare tout en respectant les consignes de sécurité et à anticiper les risques liés aux fortes chaleurs, notamment pour les enfants et les personnes âgées, afin de prévenir tout incident sanitaire.",
-    "photo": "animal.jpg"
-  },
-  {
-    "id": "2",
-    "title": "Culture: Expo de peinture",
-    "publisher": "Arts & Co",
-    "date": "2025-11-07",
-    "excerpt": "L’exposition annuelle de peinture contemporaine a ouvert ses portes hier soir dans une ambiance chaleureuse, colorée et particulièrement inspirante. Plus de quarante artistes émergents y présentent leurs œuvres, explorant des thématiques variées allant de la fragilité humaine à la mondialisation, en passant par les transformations sociales actuelles. Les visiteurs ont salué l’audace des installations lumineuses, l’originalité des techniques mixtes et le réalisme troublant de certaines toiles hyperréalistes qui suscitent de nombreuses discussions. Plusieurs performances en direct ont également captivé le public, offrant une immersion artistique encore plus profonde. Les organisateurs espèrent que cette nouvelle édition attirera un public encore plus large que les années précédentes, notamment grâce à un programme enrichi d’ateliers, de conférences et de rencontres exclusives avec les artistes. L’événement durera jusqu’à la fin du mois et ambitionne de devenir un rendez-vous incontournable du paysage culturel régional. En complément des expositions principales, des projections vidéo et des expériences interactives permettent aux visiteurs de comprendre le processus créatif des artistes. Des conférences et tables rondes avec des critiques d’art renommés sont également prévues, offrant aux participants l’occasion d’échanger sur les tendances contemporaines et les enjeux sociétaux reflétés dans les œuvres exposées.",
-    "photo": "businessman.jpg"
-  },
-  {
-    "id": "3",
-    "title": "Économie: Hausse du pouvoir d'achat",
-    "publisher": "L'Éco Journal",
-    "date": "2025-11-06",
-    "excerpt": "Le gouvernement a annoncé aujourd’hui une revalorisation générale des salaires minimums, une mesure attendue qui devrait avoir des répercussions immédiates sur la consommation intérieure et le moral des ménages. Les experts estiment que cette hausse contribuera à redynamiser plusieurs secteurs fragilisés ces derniers mois, notamment la restauration, le commerce de proximité et certains services. Les syndicats se félicitent d’une avancée qu’ils jugent essentielle dans un contexte marqué par une inflation persistante et une diminution du pouvoir d’achat. Cependant, certains économistes alertent déjà sur le risque d’une hausse parallèle des prix, qui pourrait neutraliser en partie les bénéfices attendus. Les discussions se poursuivront dans les prochaines semaines, notamment autour de mesures complémentaires destinées aux petites entreprises afin d’éviter que cette revalorisation n'entraîne une pression trop forte sur leurs charges. Le débat s’annonce animé au sein des instances politiques et patronales. En outre, les consommateurs devraient observer une augmentation progressive de leur pouvoir d’achat disponible, ce qui pourrait stimuler la demande dans des secteurs tels que l’hôtellerie, le transport et le secteur culturel, tout en encourageant une meilleure répartition des ressources au sein des ménages. Les économistes recommandent néanmoins de surveiller les effets à moyen terme sur l’inflation et le coût de la vie.",
-    "photo": "lantern.jpg"
-  },
-  {
-    "id": "4",
-    "title": "Technologie: Nouveau smartphone pliable",
-    "publisher": "TechVision",
-    "date": "2025-11-05",
-    "excerpt": "La marque SynTech vient de dévoiler son nouveau smartphone pliable, considéré par beaucoup comme une révolution dans le secteur mobile et un tournant pour les technologies nomades. Doté d’un écran ultra-résistant, d’un mécanisme de charnière repensé et d’une ergonomie améliorée, l’appareil promet une durabilité accrue même après plusieurs milliers de pliages. Les premiers tests montrent une autonomie impressionnante, permettant une utilisation intensive pendant plus de deux jours sans recharge, un argument fort pour les utilisateurs professionnels. Les innovations logicielles, centrées sur la productivité, le multitâche et l’intégration fluide entre les modes plié et déplié, ont également été largement saluées. Plusieurs journalistes spécialisés estiment qu’il pourrait redéfinir les standards du marché. Le lancement mondial est prévu pour la fin de l’année, et l’engouement croissant du public laisse présager une demande particulièrement forte dès les précommandes. Les analystes anticipent que cette technologie pourrait ouvrir la voie à de nouvelles applications dans les domaines de l’éducation, de la bureautique et du divertissement, tandis que les fabricants concurrents se préparent à adapter leurs modèles afin de rester compétitifs sur le marché très concurrentiel des smartphones pliables.",
-    "photo": "new-york.jpg"
-  },
-  {
-    "id": "5",
-    "title": "Sport: Victoire historique en football",
-    "publisher": "SportMag",
-    "date": "2025-11-04",
-    "excerpt": "L’équipe nationale a signé hier soir une victoire historique face à son adversaire de longue date, au terme d’un match d’une intensité exceptionnelle. Le but décisif, inscrit en prolongation après plusieurs tentatives infructueuses, a immédiatement déclenché une vague d’euphorie dans les tribunes et sur les réseaux sociaux, où l’événement est devenu viral en quelques minutes. Les joueurs ont salué la ténacité du groupe, mettant en avant la préparation physique et mentale exceptionnelle menée ces dernières semaines. Les supporters, quant à eux, parlent déjà d’un moment inoubliable qui restera gravé dans les mémoires et pourrait marquer un tournant dans l’histoire du football national. Cette victoire place l’équipe en position favorable pour la suite de la compétition internationale, renforçant l’espoir d’un parcours encore plus impressionnant dans les prochains matchs. Les experts sportifs soulignent que cette performance pourrait inspirer une nouvelle génération de joueurs et motiver des initiatives locales pour développer le football dans les régions moins desservies, tout en stimulant la passion des fans à travers le pays.",
-    "photo": "nyc.jpg"
-  },
-  {
-    "id": "6",
-    "title": "Santé: Une nouvelle étude sur le sommeil",
-    "publisher": "Santé Focus",
-    "date": "2025-11-03",
-    "excerpt": "Une équipe de chercheurs a publié aujourd’hui une étude révélant qu'une sieste quotidienne de vingt minutes suffirait à améliorer significativement la concentration et les performances cognitives. Les résultats montrent également une diminution notable du stress chez les participants ayant adopté ce rituel pendant trois semaines, avec une amélioration mesurable de leur humeur et de leur productivité. Les scientifiques soulignent que l’effet bénéfique dépend toutefois d’une régularité stricte et d’un environnement calme, conditions qui sont parfois difficiles à réunir dans la vie professionnelle moderne. Cette découverte relance le débat sur l’intégration d’espaces de repos dans les entreprises, un concept déjà adopté par certaines firmes étrangères. Plusieurs sociétés envisagent désormais d’expérimenter ces recommandations afin de favoriser le bien-être de leurs employés et réduire les risques liés à la fatigue chronique. Les spécialistes de la santé recommandent également de combiner cette pratique avec une hygiène de vie adaptée, incluant une alimentation équilibrée et une activité physique régulière, afin d’optimiser les effets positifs sur la concentration et la santé mentale.",
-    "photo": "open-book.jpg"
-  },
-  {
-    "id": "7",
-    "title": "Environnement: Reforestation record",
-    "publisher": "Nature & Avenir",
-    "date": "2025-11-02",
-    "excerpt": "Un programme national de reforestation vient de franchir un cap historique avec plus de deux millions d’arbres plantés cette année, un chiffre inédit qui témoigne d’un engagement collectif remarquable. Ce résultat est le fruit d’un effort coordonné entre associations, collectivités locales, écoles, agriculteurs et bénévoles mobilisés dans tout le pays. Les experts considèrent qu'il s’agit d’une étape clé pour lutter contre la dégradation des sols, restaurer certains écosystèmes fragiles et améliorer la biodiversité. Les zones rurales autrefois touchées par la sécheresse montrent déjà des signes encourageants de régénération, notamment grâce au retour de certaines espèces d’oiseaux et d’insectes. Le gouvernement envisage désormais d’étendre ce projet sur plusieurs régions supplémentaires et d’augmenter les financements destinés aux initiatives citoyennes. Cette dynamique pourrait transformer durablement les paysages et renforcer la résilience environnementale du territoire. Les observateurs estiment que cette politique exemplaire pourrait devenir un modèle pour d’autres pays et inspirer de nouvelles stratégies de gestion forestière durable, tout en sensibilisant le public à la préservation de la biodiversité et aux enjeux du changement climatique.",
-    "photo": "park.jpg"
-  },
-  {
-    "id": "8",
-    "title": "Voyage: Nouvelle ligne ferroviaire",
-    "publisher": "Travel News",
-    "date": "2025-11-01",
-    "excerpt": "Une nouvelle ligne ferroviaire à grande vitesse reliera désormais Paris à Lisbonne en moins de sept heures, une prouesse technique saluée par les voyageurs et les experts du transport. Les premiers usagers évoquent un confort remarquable grâce à des wagons plus spacieux, des sièges améliorés et une réduction notable des vibrations en pleine vitesse. Les autorités espèrent que cette liaison réduira la dépendance au transport aérien sur cet axe très fréquenté, contribuant ainsi à une diminution des émissions de carbone. Cette initiative s’inscrit dans un plan plus large visant à moderniser les infrastructures ferroviaires européennes et à renforcer la connectivité entre grandes capitales. Les réservations pour les prochains mois affichent déjà complet, signe d’un enthousiasme massif pour ce nouveau moyen de voyager rapidement et durablement. De plus, des services supplémentaires tels que le Wi-Fi, les espaces de travail modulables et des services de restauration améliorés ont été intégrés afin de répondre aux besoins d’un public professionnel et touristique exigeant, assurant ainsi une expérience de voyage confortable et moderne.",
-    "photo": "sunset.jpg"
-  },
-  {
-    "id": "9",
-    "title": "Innovation: IA au service de l'éducation",
-    "publisher": "FutureLab",
-    "date": "2025-10-30",
-    "excerpt": "Une nouvelle plateforme d’apprentissage adaptatif révolutionne la manière dont les élèves interagissent avec leurs cours et progresser dans leurs apprentissages. Grâce à un système d’intelligence artificielle capable d’analyser les progrès en temps réel, les étudiants reçoivent désormais des exercices sur mesure, adaptés à leurs lacunes, leurs forces et leur vitesse d’évolution. Les enseignants disposent quant à eux de tableaux de bord intuitifs permettant de suivre l’évolution globale d’une classe, d’identifier les points de blocage et de personnaliser encore davantage leur pédagogie. Plusieurs établissements pilotes rapportent déjà une hausse notable de la motivation des élèves, qui se sentent mieux accompagnés et plus autonomes. La solution devrait être déployée nationalement au cours de l’année prochaine, ouvrant la voie à une nouvelle ère d’enseignement assisté par la technologie. Les experts pédagogiques soulignent que cette approche personnalisée pourrait transformer l’éducation traditionnelle, réduire le décrochage scolaire et encourager l’innovation dans la conception de programmes scolaires adaptés aux besoins de chaque élève.",
-    "photo": "sylvester.jpg"
-  },
-  {
-    "id": "10",
-    "title": "Société: Hausse du bénévolat",
-    "publisher": "Le Monde Social",
-    "date": "2025-10-28",
-    "excerpt": "Les associations constatent une augmentation sans précédent du nombre de bénévoles, particulièrement chez les jeunes adultes séduits par l’idée de contribuer à des causes sociales et environnementales. Cette tendance s’explique par une volonté croissante de s'engager concrètement, mais également par une recherche de sens et d’impact positif dans un contexte social complexe. Les responsables associatifs soulignent que cet élan permet de lancer de nouveaux projets qui étaient auparavant en manque de ressources humaines, tout en renforçant la cohésion entre générations. Les bénévoles mettent en avant le sentiment d’utilité, la richesse des rencontres et les compétences acquises lors de ces missions. Ce mouvement pourrait transformer durablement le paysage associatif au cours des prochaines années et encourager la création d’initiatives locales innovantes. En parallèle, les organismes mettent en place des programmes de formation pour mieux intégrer les nouveaux bénévoles et maximiser leur impact, créant ainsi un cercle vertueux où engagement, apprentissage et expérience positive se renforcent mutuellement.",
-    "photo": "wooden-hut.jpg"
-  }
-],
+  "friends": [
+    {
+      "id": "f1",
+      "ownerId": "1",
+      "friendUserId": "dff3",
+      "note": "Toujours ok pour partager les alertes meteo"
+    },
+    {
+      "id": "f2",
+      "ownerId": "1",
+      "friendUserId": "49ca",
+      "note": "Prefere les recaps du soir"
+    },
+    {
+      "id": "8ea2",
+      "ownerId": "dff3",
+      "friendUserId": "49ca",
+      "note": ""
+    }
+  ],
+  "feedLikes": [
+    {
+      "id": "l1",
+      "itemId": "news-1",
+      "userId": "1",
+      "createdAt": "2025-11-30T10:00:00.000Z"
+    },
+    {
+      "id": "l3",
+      "itemId": "news-1",
+      "userId": "49ca",
+      "createdAt": "2025-11-30T10:10:00.000Z"
+    },
+    {
+      "id": "l4",
+      "itemId": "news-2",
+      "userId": "u100",
+      "createdAt": "2025-11-30T10:15:00.000Z"
+    },
+    {
+      "id": "l5",
+      "itemId": "news-2",
+      "userId": "u101",
+      "createdAt": "2025-11-30T10:20:00.000Z"
+    },
+    {
+      "id": "l6",
+      "itemId": "news-2",
+      "userId": "u102",
+      "createdAt": "2025-11-30T10:22:00.000Z"
+    },
+    {
+      "id": "l7",
+      "itemId": "news-3",
+      "userId": "u103",
+      "createdAt": "2025-11-30T10:25:00.000Z"
+    },
+    {
+      "id": "l8",
+      "itemId": "news-3",
+      "userId": "u104",
+      "createdAt": "2025-11-30T10:27:00.000Z"
+    },
+    {
+      "id": "l9",
+      "itemId": "news-3",
+      "userId": "1",
+      "createdAt": "2025-11-30T10:29:00.000Z"
+    },
+    {
+      "id": "l10",
+      "itemId": "news-4",
+      "userId": "dff3",
+      "createdAt": "2025-11-30T10:30:00.000Z"
+    },
+    {
+      "id": "l11",
+      "itemId": "news-4",
+      "userId": "49ca",
+      "createdAt": "2025-11-30T10:32:00.000Z"
+    },
+    {
+      "id": "l12",
+      "itemId": "news-4",
+      "userId": "u100",
+      "createdAt": "2025-11-30T10:34:00.000Z"
+    },
+    {
+      "id": "l13",
+      "itemId": "news-5",
+      "userId": "u101",
+      "createdAt": "2025-11-30T10:36:00.000Z"
+    },
+    {
+      "id": "l14",
+      "itemId": "news-5",
+      "userId": "u102",
+      "createdAt": "2025-11-30T10:38:00.000Z"
+    },
+    {
+      "id": "l15",
+      "itemId": "news-5",
+      "userId": "u103",
+      "createdAt": "2025-11-30T10:40:00.000Z"
+    },
+    {
+      "id": "l16",
+      "itemId": "news-6",
+      "userId": "u104",
+      "createdAt": "2025-11-30T10:42:00.000Z"
+    },
+    {
+      "id": "l17",
+      "itemId": "news-6",
+      "userId": "1",
+      "createdAt": "2025-11-30T10:44:00.000Z"
+    },
+    {
+      "id": "l18",
+      "itemId": "news-6",
+      "userId": "dff3",
+      "createdAt": "2025-11-30T10:46:00.000Z"
+    },
+    {
+      "id": "l19",
+      "itemId": "news-7",
+      "userId": "49ca",
+      "createdAt": "2025-11-30T10:48:00.000Z"
+    },
+    {
+      "id": "l20",
+      "itemId": "news-7",
+      "userId": "u100",
+      "createdAt": "2025-11-30T10:49:00.000Z"
+    },
+    {
+      "id": "l21",
+      "itemId": "news-8",
+      "userId": "u101",
+      "createdAt": "2025-11-30T10:50:00.000Z"
+    },
+    {
+      "id": "l22",
+      "itemId": "news-8",
+      "userId": "u102",
+      "createdAt": "2025-11-30T10:52:00.000Z"
+    },
+    {
+      "id": "l23",
+      "itemId": "news-9",
+      "userId": "u103",
+      "createdAt": "2025-11-30T10:54:00.000Z"
+    },
+    {
+      "id": "l24",
+      "itemId": "news-9",
+      "userId": "u104",
+      "createdAt": "2025-11-30T10:56:00.000Z"
+    },
+    {
+      "id": "l25",
+      "itemId": "news-10",
+      "userId": "1",
+      "createdAt": "2025-11-30T10:58:00.000Z"
+    },
+    {
+      "id": "l26",
+      "itemId": "news-10",
+      "userId": "dff3",
+      "createdAt": "2025-11-30T11:00:00.000Z"
+    },
+    {
+      "id": "15dc",
+      "itemId": "news-1",
+      "userId": "dff3",
+      "createdAt": "2025-11-30T14:00:08.440Z"
+    }
+  ],
+  "feedComments": [
+    {
+      "id": "c1",
+      "itemId": "news-1",
+      "userId": "u100",
+      "author": "Alice",
+      "text": "Super article, ça donne envie de sortir.",
+      "at": "2025-11-30T09:00:00.000Z"
+    },
+    {
+      "id": "c2",
+      "itemId": "news-1",
+      "userId": "u101",
+      "author": "Bob",
+      "text": "Je confirme, le soleil est bien au rendez-vous ici aussi.",
+      "at": "2025-11-30T09:05:00.000Z"
+    },
+    {
+      "id": "c3",
+      "itemId": "news-2",
+      "userId": "u102",
+      "author": "Carla",
+      "text": "Hâte de découvrir l’expo ce week-end.",
+      "at": "2025-11-30T09:10:00.000Z"
+    },
+    {
+      "id": "c4",
+      "itemId": "news-3",
+      "userId": "u103",
+      "author": "Dan",
+      "text": "Bonne nouvelle pour le pouvoir d’achat, à voir sur la durée.",
+      "at": "2025-11-30T09:15:00.000Z"
+    },
+    {
+      "id": "c5",
+      "itemId": "weather-2025-11-08",
+      "userId": "u104",
+      "author": "Emma",
+      "text": "Parfait pour une balade au parc ce jour-là.",
+      "at": "2025-11-30T09:20:00.000Z"
+    }
+  ],
+  "news": [
+    {
+      "id": "1",
+      "title": "Breaking: Soleil au zénith",
+      "publisher": "Le Quotidien",
+      "date": "2025-11-08",
+      "excerpt": "La journée s’annonce particulièrement lumineuse alors qu’un anticyclone s’installe durablement sur l’ensemble du pays. Les prévisions font état de températures exceptionnellement douces pour la saison, invitant les habitants à profiter pleinement des espaces extérieurs et à organiser des activités spontanées. Les parcs municipaux, déjà très fréquentés tôt ce matin, s’attendent à accueillir un nombre record de visiteurs, notamment des familles venues se promener ou pique-niquer. Les autorités recommandent néanmoins de rester vigilants face au risque d’exposition prolongée au soleil, particulièrement pour les personnes sensibles ou souffrant de problèmes dermatologiques. Des campagnes de prévention rappellent l’importance de s’hydrater et d’éviter les heures les plus chaudes. Ce phénomène devrait se maintenir durant tout le week-end, créant un climat idéal pour les activités en plein air mais aussi un défi pour les équipes de secours qui se préparent à une hausse des appels liés aux malaises liés à la chaleur. Les météorologues précisent que cette situation exceptionnelle pourrait durer plusieurs jours, avec des températures supérieures aux normales saisonnières, favorisant ainsi la floraison tardive de certaines plantes et stimulant les activités agricoles locales. Les habitants sont invités à profiter de cette période rare tout en respectant les consignes de sécurité et à anticiper les risques liés aux fortes chaleurs, notamment pour les enfants et les personnes âgées, afin de prévenir tout incident sanitaire.",
+      "title_en": "Breaking: Sun at its peak",
+      "title_de": "Eilmeldung: Sonne im Zenit",
+      "publisher_en": "The Daily",
+      "publisher_de": "Die Tageszeitung",
+      "excerpt_en": "A particularly bright day is expected as a powerful anticyclone settles over the whole country, bringing exceptionally mild temperatures for the season. Forecasters are already announcing a rush to parks and outdoor spaces, where families and friends are planning last‑minute walks and picnics to make the most of the sunshine. Municipal services are preparing for record attendance, reinforcing teams in the most popular green areas to manage the flow of visitors. At the same time, the authorities are warning residents about the risks of prolonged exposure to the sun, especially for vulnerable people, and are repeating prevention messages about regular hydration and avoiding the hottest hours of the day. Emergency crews are anticipating an increase in calls linked to heat‑related discomfort, while farmers welcome conditions that favour late flowering and stimulate local agricultural activity. According to meteorologists, this unusual situation could last for several days, with temperatures clearly above normal and a rare opportunity to enjoy outdoor life before winter really sets in.",
+      "excerpt_de": "Ein besonders heller Tag wird erwartet, waehrend sich ein maechtiges Hochdruckgebiet ueber dem gesamten Land festsetzt und fuer ungewoehnlich milde Temperaturen fuer die Jahreszeit sorgt. Wetterdienste kuendigen bereits einen Ansturm auf Parks und Freiflaechen an, wo Familien und Freunde kurzfristig Spaziergaenge und Picknicks planen, um die Sonne bestmoeglich zu nutzen. Die staedtischen Dienste bereiten sich auf Rekordbesuche vor und verstaerken die Teams in den beliebtesten Gruenanlagen, um den Besucherandrang zu steuern. Gleichzeitig warnen die Behoerden vor den Risiken langer Sonneneinstrahlung, insbesondere fuer empfindliche Personen, und erinnern mit Praeventionskampagnen an regelmaessiges Trinken und das Meiden der heissesten Stunden des Tages. Rettungsdienste rechnen mit einem Anstieg hitzebedingter Notrufe, waehrend sich Landwirte ueber Bedingungen freuen, die eine spaete Bluete und die lokale Landwirtschaft foerdern. Laut Meteorologen koennte diese ungewoehnliche Wetterlage mehrere Tage anhalten, mit Temperaturen deutlich ueber den saisonalen Durchschnittswerten und einer seltenen Gelegenheit, das Leben im Freien noch einmal ausgiebig zu geniessen, bevor der Winter tatsaechlich einzieht.",
+      "photo": "animal.jpg"
+    },
+    {
+      "id": "2",
+      "title": "Culture: Expo de peinture",
+      "publisher": "Arts & Co",
+      "date": "2025-11-07",
+      "excerpt": "L’exposition annuelle de peinture contemporaine a ouvert ses portes hier soir dans une ambiance chaleureuse, colorée et particulièrement inspirante. Plus de quarante artistes émergents y présentent leurs œuvres, explorant des thématiques variées allant de la fragilité humaine à la mondialisation, en passant par les transformations sociales actuelles. Les visiteurs ont salué l’audace des installations lumineuses, l’originalité des techniques mixtes et le réalisme troublant de certaines toiles hyperréalistes qui suscitent de nombreuses discussions. Plusieurs performances en direct ont également captivé le public, offrant une immersion artistique encore plus profonde. Les organisateurs espèrent que cette nouvelle édition attirera un public encore plus large que les années précédentes, notamment grâce à un programme enrichi d’ateliers, de conférences et de rencontres exclusives avec les artistes. L’événement durera jusqu’à la fin du mois et ambitionne de devenir un rendez-vous incontournable du paysage culturel régional. En complément des expositions principales, des projections vidéo et des expériences interactives permettent aux visiteurs de comprendre le processus créatif des artistes. Des conférences et tables rondes avec des critiques d’art renommés sont également prévues, offrant aux participants l’occasion d’échanger sur les tendances contemporaines et les enjeux sociétaux reflétés dans les œuvres exposées.",
+      "title_en": "Culture: Painting exhibition",
+      "title_de": "Kultur: Gemaeldeausstellung",
+      "publisher_en": "Arts & Co",
+      "publisher_de": "Arts & Co",
+      "excerpt_en": "The annual contemporary painting exhibition has just opened its doors in a warm, colourful atmosphere that immediately immerses visitors in a creative universe. More than forty emerging artists present their work, exploring themes ranging from human fragility and identity to globalisation and current social transformations. The boldness of the light installations, the originality of mixed techniques and the almost photographic realism of certain hyper‑realist canvases are sparking animated conversations in the galleries. Live performances punctuate the evenings and allow the public to see the works being created before their eyes, reinforcing the feeling of being at the heart of the artistic process. Throughout the month, the programme is enriched by workshops, guided tours, conferences and meetings with the artists, with the aim of building a real dialogue between creators and visitors. The organisers hope to make this edition an unmissable event in the regional cultural calendar, capable of attracting new audiences and encouraging long‑term support for contemporary art.",
+      "excerpt_de": "Die jaehrliche Ausstellung fuer zeitgenoessische Malerei hat soeben ihre Tore in einer warmen, farbenfrohen Atmosphaere geoeffnet und versetzt die Besucher sofort in eine kreative Welt. Mehr als vierzig aufstrebende Kuenstler praesentieren dort ihre Werke und greifen Themen wie menschliche Verletzlichkeit, Identitaet, Globalisierung und die aktuellen gesellschaftlichen Umwaelzungen auf. Die Kuendigkeit der Lichtinstallationen, die Originalitaet der Mischtechniken und der fast fotorealistische Charakter mancher Gemaelde loesen in den Raeumen lebhafte Diskussionen aus. Live‑Performances strukturieren die Abende und erlauben dem Publikum, die Entstehung einiger Werke direkt mitzuerleben, was das Gefuehl verstaerkt, mitten im kuenstlerischen Prozess zu stehen. Im Laufe des Monats wird das Programm durch Workshops, Fuehrungen, Vortraege und Begegnungen mit den Kuenstlern ergaenzt, um einen echten Dialog zwischen Schaffenden und Besuchern aufzubauen. Die Organisatoren hoffen, dass diese Ausgabe zu einem festen Bestandteil des regionalen Kulturkalenders wird und neue Zielgruppen fuer die zeitgenoessische Kunst gewinnt.",
+      "photo": "businessman.jpg"
+    },
+    {
+      "id": "3",
+      "title": "Économie: Hausse du pouvoir d'achat",
+      "publisher": "L'Éco Journal",
+      "date": "2025-11-06",
+      "excerpt": "Le gouvernement a annoncé aujourd’hui une revalorisation générale des salaires minimums, une mesure attendue qui devrait avoir des répercussions immédiates sur la consommation intérieure et le moral des ménages. Les experts estiment que cette hausse contribuera à redynamiser plusieurs secteurs fragilisés ces derniers mois, notamment la restauration, le commerce de proximité et certains services. Les syndicats se félicitent d’une avancée qu’ils jugent essentielle dans un contexte marqué par une inflation persistante et une diminution du pouvoir d’achat. Cependant, certains économistes alertent déjà sur le risque d’une hausse parallèle des prix, qui pourrait neutraliser en partie les bénéfices attendus. Les discussions se poursuivront dans les prochaines semaines, notamment autour de mesures complémentaires destinées aux petites entreprises afin d’éviter que cette revalorisation n'entraîne une pression trop forte sur leurs charges. Le débat s’annonce animé au sein des instances politiques et patronales. En outre, les consommateurs devraient observer une augmentation progressive de leur pouvoir d’achat disponible, ce qui pourrait stimuler la demande dans des secteurs tels que l’hôtellerie, le transport et le secteur culturel, tout en encourageant une meilleure répartition des ressources au sein des ménages. Les économistes recommandent néanmoins de surveiller les effets à moyen terme sur l’inflation et le coût de la vie.",
+      "title_en": "Economy: Rising purchasing power",
+      "title_de": "Wirtschaft: Hoehere Kaufkraft",
+      "publisher_en": "Eco Journal",
+      "publisher_de": "Eco Journal",
+      "excerpt_en": "The government has announced a general increase in minimum wages, a long‑awaited measure that should have an immediate impact on household morale and domestic consumption. Trade unions hail this decision as essential in a context marked by persistent inflation and a steady erosion of purchasing power, arguing that it will offer breathing space to the most modest workers. Several sectors that have been weakened in recent months, such as restaurants, local shops and certain services, hope that this additional income will revive activity and stabilise employment. Economists, however, are divided: while some welcome the stimulus effect on demand, others warn of the risk of parallel price rises that could partly cancel out the expected benefits. Discussions are continuing about support for small businesses, which fear an increase in labour costs that is difficult to absorb without help. In the coming months, observers will be closely monitoring the real impact on the cost of living and on the ability of households to regain lasting financial security.",
+      "excerpt_de": "Die Regierung hat eine allgemeine Erhoehung der Mindestloehne angekuendigt, eine lange erwartete Massnahme, die sich unmittelbar auf die Stimmung der Haushalte und den Binnenkonsum auswirken soll. Die Gewerkschaften begruessen diesen Schritt als unverzichtbar in einem Umfeld, das von anhaltender Inflation und einem staetigen Rueckgang der Kaufkraft gepraegt ist, und sehen darin dringend benoetigte Luft fuer die einkommensschwaechsten Beschaeftigten. Mehrere in den letzten Monaten geschwaechte Branchen wie Gastronomie, Einzelhandel und bestimmte Dienstleistungen hoffen, dass die zusaetzlichen Einkommen die Nachfrage ankurbeln und Arbeitsplaetze stabilisieren werden. Oekonomen sind jedoch geteilter Meinung: Waehren einige den Impuls fuer die Nachfrage loben, warnen andere vor moeglichen parallelen Preiserhoehungen, die einen Teil der erwarteten Vorteile wieder zunichtemachen koennten. Zugleich wird ueber Unterstuetzung fuer kleine Unternehmen diskutiert, die sich hoehere Lohnkosten ohne Hilfe nur schwer leisten koennen. In den kommenden Monaten werden Beobachter genau verfolgen, wie sich diese Reform tatsaechlich auf Lebenshaltungskosten und die finanzielle Sicherheit der Haushalte auswirkt.",
+      "photo": "lantern.jpg"
+    },
+    {
+      "id": "4",
+      "title": "Technologie: Nouveau smartphone pliable",
+      "publisher": "TechVision",
+      "date": "2025-11-05",
+      "excerpt": "La marque SynTech vient de dévoiler son nouveau smartphone pliable, considéré par beaucoup comme une révolution dans le secteur mobile et un tournant pour les technologies nomades. Doté d’un écran ultra-résistant, d’un mécanisme de charnière repensé et d’une ergonomie améliorée, l’appareil promet une durabilité accrue même après plusieurs milliers de pliages. Les premiers tests montrent une autonomie impressionnante, permettant une utilisation intensive pendant plus de deux jours sans recharge, un argument fort pour les utilisateurs professionnels. Les innovations logicielles, centrées sur la productivité, le multitâche et l’intégration fluide entre les modes plié et déplié, ont également été largement saluées. Plusieurs journalistes spécialisés estiment qu’il pourrait redéfinir les standards du marché. Le lancement mondial est prévu pour la fin de l’année, et l’engouement croissant du public laisse présager une demande particulièrement forte dès les précommandes. Les analystes anticipent que cette technologie pourrait ouvrir la voie à de nouvelles applications dans les domaines de l’éducation, de la bureautique et du divertissement, tandis que les fabricants concurrents se préparent à adapter leurs modèles afin de rester compétitifs sur le marché très concurrentiel des smartphones pliables.",
+      "title_en": "Technology: New foldable smartphone",
+      "title_de": "Technologie: Neues faltbares Smartphone",
+      "publisher_en": "TechVision",
+      "publisher_de": "TechVision",
+      "excerpt_en": "SynTech has unveiled its new foldable smartphone, presented by many specialists as a real turning point in the mobile sector and in nomadic digital uses. The device features an ultra‑resistant screen, a redesigned hinge mechanism and a more ergonomic format that makes it easy to switch from compact mode to wide tablet‑like mode. According to the first tests, the battery offers more than two days of intensive use, a strong argument for professional users who are constantly on the move. On the software side, the manufacturer is focusing on productivity and multitasking, with applications that adapt intelligently to the folding angle and allow several windows to be displayed side by side. Reviewers already believe that this device could redefine market standards and accelerate the adoption of foldable formats by the general public. The worldwide launch is scheduled for the end of the year and pre‑orders are expected to be strong, while competitors are preparing their own answers so as not to fall behind.",
+      "excerpt_de": "SynTech hat sein neues faltbares Smartphone vorgestellt, das von vielen Fachleuten als echter Wendepunkt im Mobilfunksektor und bei mobilen Digitalanwendungen gesehen wird. Das Geraet bietet ein besonders widerstandsfaehiges Display, einen ueberarbeiteten Scharniermechanismus und ein ergonomisches Format, das den Wechsel zwischen kompaktem Modus und weitem Tablet‑Modus erleichtert. Erste Tests bescheinigen dem Akku eine Nutzungsdauer von mehr als zwei Tagen bei intensiver Verwendung – ein starkes Argument fuer viel reisende Berufstaetige. Auf der Softwareseite setzt der Hersteller auf Produktivitaet und Multitasking, mit Anwendungen, die sich intelligent an den Faltwinkel anpassen und die Anzeige mehrerer Fenster nebeneinander ermoeglichen. Tester sind der Ansicht, dass dieses Geraet neue Standards auf dem Markt setzen und die Verbreitung faltbarer Modelle in der breiten Oeffentlichkeit beschleunigen koennte. Die weltweite Markteinfuehrung ist fuer Ende des Jahres geplant, und es wird mit hohen Vorbestellungen gerechnet, waehrend die Konkurrenz fieberhaft an eigenen Antworten arbeitet, um nicht ins Hintertreffen zu geraten.",
+      "photo": "new-york.jpg"
+    },
+    {
+      "id": "5",
+      "title": "Sport: Victoire historique en football",
+      "publisher": "SportMag",
+      "date": "2025-11-04",
+      "excerpt": "L’équipe nationale a signé hier soir une victoire historique face à son adversaire de longue date, au terme d’un match d’une intensité exceptionnelle. Le but décisif, inscrit en prolongation après plusieurs tentatives infructueuses, a immédiatement déclenché une vague d’euphorie dans les tribunes et sur les réseaux sociaux, où l’événement est devenu viral en quelques minutes. Les joueurs ont salué la ténacité du groupe, mettant en avant la préparation physique et mentale exceptionnelle menée ces dernières semaines. Les supporters, quant à eux, parlent déjà d’un moment inoubliable qui restera gravé dans les mémoires et pourrait marquer un tournant dans l’histoire du football national. Cette victoire place l’équipe en position favorable pour la suite de la compétition internationale, renforçant l’espoir d’un parcours encore plus impressionnant dans les prochains matchs. Les experts sportifs soulignent que cette performance pourrait inspirer une nouvelle génération de joueurs et motiver des initiatives locales pour développer le football dans les régions moins desservies, tout en stimulant la passion des fans à travers le pays.",
+      "title_en": "Sport: Historic football victory",
+      "title_de": "Sport: Historischer Fussball-Sieg",
+      "publisher_en": "SportMag",
+      "publisher_de": "SportMag",
+      "excerpt_en": "The national team signed off on a historic victory last night against its long‑standing rival, at the end of a match of exceptional intensity that kept supporters on the edge of their seats. The decisive goal, scored in extra time after several missed chances, immediately triggered a wave of euphoria in the stands and on social networks, where the images became viral within minutes. Players praised the resilience of the squad and highlighted the physical and mental preparation carried out over the past few weeks. Fans are already talking about a moment that will remain engraved in collective memory and could mark a turning point in the history of the national team. This success puts the squad in a very favourable position for the rest of the international competition and strengthens hopes of an even more impressive run in the coming matches. Coaches and commentators believe that this performance could inspire a new generation of young players and encourage local initiatives to develop football in less‑served regions.",
+      "excerpt_de": "Die Nationalmannschaft hat gestern Abend einen historischen Sieg gegen ihren langjaehrigen Rivalen errungen – nach einem Spiel von aussergewoehnlicher Intensitaet, das die Fans bis zur letzten Minute fesselte. Das entscheidende Tor, in der Verlaengerung nach mehreren ausgelassenen Chancen erzielt, loeste sofort eine Welle der Euphorie auf den Raengen und in den sozialen Netzwerken aus, wo die Bilder innerhalb weniger Minuten viral gingen. Die Spieler betonten die Widerstandskraft der Mannschaft und hoben die intensive physische und mentale Vorbereitung der vergangenen Wochen hervor. Die Fans sprechen bereits von einem Moment, der sich in das kollektive Gedaechtnis einpraegen und einen Wendepunkt in der Geschichte der Auswahl markieren koennte. Dieser Erfolg bringt das Team in eine aeusserst guenstige Ausgangsposition fuer den weiteren Verlauf des internationalen Wettbewerbs und naehrt die Hoffnung auf eine noch beeindruckendere Serie in den kommenden Partien. Trainer und Kommentatoren sind ueberzeugt, dass diese Leistung eine neue Generation junger Spieler inspirieren und lokale Initiativen zur Entwicklung des Fussballs in weniger gut versorgten Regionen anstossen koennte.",
+      "photo": "nyc.jpg"
+    },
+    {
+      "id": "6",
+      "title": "Santé: Une nouvelle étude sur le sommeil",
+      "publisher": "Santé Focus",
+      "date": "2025-11-03",
+      "excerpt": "Une équipe de chercheurs a publié aujourd’hui une étude révélant qu'une sieste quotidienne de vingt minutes suffirait à améliorer significativement la concentration et les performances cognitives. Les résultats montrent également une diminution notable du stress chez les participants ayant adopté ce rituel pendant trois semaines, avec une amélioration mesurable de leur humeur et de leur productivité. Les scientifiques soulignent que l’effet bénéfique dépend toutefois d’une régularité stricte et d’un environnement calme, conditions qui sont parfois difficiles à réunir dans la vie professionnelle moderne. Cette découverte relance le débat sur l’intégration d’espaces de repos dans les entreprises, un concept déjà adopté par certaines firmes étrangères. Plusieurs sociétés envisagent désormais d’expérimenter ces recommandations afin de favoriser le bien-être de leurs employés et réduire les risques liés à la fatigue chronique. Les spécialistes de la santé recommandent également de combiner cette pratique avec une hygiène de vie adaptée, incluant une alimentation équilibrée et une activité physique régulière, afin d’optimiser les effets positifs sur la concentration et la santé mentale.",
+      "title_en": "Health: New study on sleep",
+      "title_de": "Gesundheit: Neue Studie zum Schlaf",
+      "publisher_en": "Health Focus",
+      "publisher_de": "Health Focus",
+      "excerpt_en": "A team of researchers has published a study showing that a daily nap of around twenty minutes would be enough to significantly improve concentration and cognitive performance. Participants who integrated this short rest into their routine for three weeks also reported a notable reduction in stress and a measurable improvement in mood and productivity. According to the scientists, the beneficial effect is closely linked to the regularity of the practice and the quality of the environment, which must be calm and conducive to disconnection from work. These conditions are still difficult to bring together in many companies, where the culture of permanent availability remains very strong. The publication of these results is relaunching the debate on the introduction of dedicated rest areas in the workplace, a concept already adopted by certain pioneering international firms. Several companies are now considering pilot projects to assess the impact of these naps on the well‑being of their employees and on absenteeism. Health specialists recommend combining this practice with a balanced lifestyle to maximise its positive effects on concentration and mental health.",
+      "excerpt_de": "Ein Forscherteam hat eine Studie veroeffentlicht, die zeigt, dass ein taegliches Nickerchen von etwa zwanzig Minuten ausreicht, um Konzentration und kognitive Leistungen deutlich zu verbessern. Teilnehmende, die diese kurze Ruhepause drei Wochen lang in ihren Alltag integriert hatten, berichteten ausserdem von spuerbar geringerem Stress und messbar besserer Stimmung sowie hoeherer Produktivitaet. Nach Angaben der Wissenschaftler haengt der positive Effekt eng mit der Regelmaessigkeit der Praxis und der Qualitaet der Umgebung zusammen, die ruhig sein und eine klare Distanzierung von der Arbeit ermoeglichen muss. Diese Bedingungen sind in vielen Unternehmen noch schwer zu erfuellen, in denen eine Kultur der staendigen Erreichbarkeit vorherrscht. Die Veroeffentlichung der Ergebnisse belebt die Diskussion ueber die Einrichtung spezieller Ruhezonen im Arbeitsumfeld, ein Konzept, das in einigen internationalen Vorreiterfirmen bereits umgesetzt wird. Mehrere Unternehmen denken nun ueber Pilotprojekte nach, um den Einfluss solcher Pausen auf das Wohlbefinden der Beschaeftigten und auf Fehlzeiten zu messen. Gesundheitsexperten empfehlen zudem, diese Praxis mit einem ausgewogenen Lebensstil zu kombinieren, um die positiven Effekte auf Konzentration und psychische Gesundheit zu maximieren.",
+      "photo": "open-book.jpg"
+    },
+    {
+      "id": "7",
+      "title": "Environnement: Reforestation record",
+      "publisher": "Nature & Avenir",
+      "date": "2025-11-02",
+      "excerpt": "Un programme national de reforestation vient de franchir un cap historique avec plus de deux millions d’arbres plantés cette année, un chiffre inédit qui témoigne d’un engagement collectif remarquable. Ce résultat est le fruit d’un effort coordonné entre associations, collectivités locales, écoles, agriculteurs et bénévoles mobilisés dans tout le pays. Les experts considèrent qu'il s’agit d’une étape clé pour lutter contre la dégradation des sols, restaurer certains écosystèmes fragiles et améliorer la biodiversité. Les zones rurales autrefois touchées par la sécheresse montrent déjà des signes encourageants de régénération, notamment grâce au retour de certaines espèces d’oiseaux et d’insectes. Le gouvernement envisage désormais d’étendre ce projet sur plusieurs régions supplémentaires et d’augmenter les financements destinés aux initiatives citoyennes. Cette dynamique pourrait transformer durablement les paysages et renforcer la résilience environnementale du territoire. Les observateurs estiment que cette politique exemplaire pourrait devenir un modèle pour d’autres pays et inspirer de nouvelles stratégies de gestion forestière durable, tout en sensibilisant le public à la préservation de la biodiversité et aux enjeux du changement climatique.",
+      "title_en": "Environment: Record reforestation",
+      "title_de": "Umwelt: Rekordaufforstung",
+      "publisher_en": "Nature & Future",
+      "publisher_de": "Nature & Future",
+      "excerpt_en": "A national reforestation programme has just passed a historic milestone with more than two million trees planted this year, a record figure that illustrates an exceptional collective commitment. The project brings together associations, local authorities, schools, farmers and volunteers, all mobilised to restore forests that have been weakened by drought and repeated heatwaves. The first results are already visible: rural areas that had been severely affected show encouraging signs of regeneration, with the return of certain bird and insect species and better water retention in the soil. Experts see this as a key step in the fight against land degradation and in the preservation of biodiversity. The government is now planning to extend the programme to new regions and to increase funding for citizen initiatives that support planting and long‑term maintenance. Observers believe that this ambitious policy could become a model for other countries and help shape more sustainable forest management strategies in the face of climate change.",
+      "excerpt_de": "Ein nationales Aufforstungsprogramm hat kuerzlich einen historischen Meilenstein erreicht: Mehr als zwei Millionen Baeume wurden in diesem Jahr gepflanzt – ein Rekordwert, der das aussergewoehnliche Engagement zahlreicher Akteure widerspiegelt. Am Projekt beteiligen sich Verbaende, Kommunen, Schulen, Landwirte und Freiwillige, die gemeinsam Waelder wiederherstellen wollen, die durch Duerren und wiederholte Hitzewellen stark beschaedigt wurden. Erste Ergebnisse sind bereits sichtbar: Ländliche Gebiete, die besonders betroffen waren, zeigen ermutigende Anzeichen der Regeneration, mit der Rueckkehr bestimmter Vogel‑ und Insektenarten sowie einer besseren Wasserspeicherung im Boden. Fachleute sehen darin einen entscheidenden Schritt im Kampf gegen Bodendegradation und fuer den Erhalt der Biodiversitaet. Die Regierung plant nun, das Programm auf weitere Regionen auszudehnen und die Foerdermittel fuer buergerliche Initiativen zu erhoehen, die Pflanzaktionen und langfristige Pflege unterstuetzen. Beobachter sind der Meinung, dass diese ambitionierte Politik zu einem Vorbild fuer andere Laender werden und dazu beitragen koennte, nachhaltigere Strategien der Waldbewirtschaftung im Angesicht des Klimawandels zu entwickeln.",
+      "photo": "park.jpg"
+    },
+    {
+      "id": "8",
+      "title": "Voyage: Nouvelle ligne ferroviaire",
+      "publisher": "Travel News",
+      "date": "2025-11-01",
+      "excerpt": "Une nouvelle ligne ferroviaire à grande vitesse reliera désormais Paris à Lisbonne en moins de sept heures, une prouesse technique saluée par les voyageurs et les experts du transport. Les premiers usagers évoquent un confort remarquable grâce à des wagons plus spacieux, des sièges améliorés et une réduction notable des vibrations en pleine vitesse. Les autorités espèrent que cette liaison réduira la dépendance au transport aérien sur cet axe très fréquenté, contribuant ainsi à une diminution des émissions de carbone. Cette initiative s’inscrit dans un plan plus large visant à moderniser les infrastructures ferroviaires européennes et à renforcer la connectivité entre grandes capitales. Les réservations pour les prochains mois affichent déjà complet, signe d’un enthousiasme massif pour ce nouveau moyen de voyager rapidement et durablement. De plus, des services supplémentaires tels que le Wi-Fi, les espaces de travail modulables et des services de restauration améliorés ont été intégrés afin de répondre aux besoins d’un public professionnel et touristique exigeant, assurant ainsi une expérience de voyage confortable et moderne.",
+      "title_en": "Travel: New high-speed rail line",
+      "title_de": "Reise: Neue Hochgeschwindigkeitsbahn",
+      "publisher_en": "Travel News",
+      "publisher_de": "Travel News",
+      "excerpt_en": "A new high‑speed rail line now connects Paris and Lisbon in less than seven hours, a technical achievement welcomed both by regular travellers and by transport experts. The first passengers praise the comfort on board, with more spacious carriages, improved seating and a noticeable reduction in vibrations at full speed. Authorities hope that this connection will reduce dependence on air transport along this very busy corridor and thus contribute to a significant drop in carbon emissions. The project is part of a broader plan to modernise European rail infrastructure and strengthen links between major capitals. Reservations for the coming months are already full, a sign of the enthusiasm generated by this new way of travelling quickly while limiting one’s environmental impact. Additional services such as Wi‑Fi, modular workspaces and upgraded catering have been added to meet the expectations of both business and leisure customers, making the train a credible alternative to the plane on medium‑haul journeys.",
+      "excerpt_de": "Eine neue Hochgeschwindigkeitsstrecke verbindet jetzt Paris und Lissabon in weniger als sieben Stunden – eine technische Leistung, die sowohl von Vielfahrern als auch von Verkehrsexperten begruesst wird. Die ersten Fahrgaeste loben den Komfort an Bord mit geraeumigeren Wagen, verbesserten Sitzen und spuerbar geringeren Vibrationen bei hoher Geschwindigkeit. Die Behoerden hoffen, dass diese Verbindung die Abhaengigkeit vom Flugverkehr auf dieser stark frequentierten Achse verringert und damit zu einer deutlichen Reduktion der CO2‑Emissionen beitraegt. Das Projekt ist Teil eines groesseren Plans zur Modernisierung der europaeischen Bahninfrastruktur und zur Staerkung der Verbindungen zwischen den wichtigsten Hauptstaedten. Die Reservierungen fuer die kommenden Monate sind bereits ausgebucht, was den grossen Zuspruch fuer diese neue Moeglichkeit zeigt, schnell und zugleich umweltbewusster zu reisen. Zusaetzliche Angebote wie WLAN, flexible Arbeitsbereiche und ein erweitertes Gastronomieangebot sollen die Beduerfnisse von Geschaeftsreisenden und Touristen erfuellen und den Zug als echte Alternative zum Flugzeug auf Mittelstrecken etablieren.",
+      "photo": "sunset.jpg"
+    },
+    {
+      "id": "9",
+      "title": "Innovation: IA au service de l'éducation",
+      "publisher": "FutureLab",
+      "date": "2025-10-30",
+      "excerpt": "Une nouvelle plateforme d’apprentissage adaptatif révolutionne la manière dont les élèves interagissent avec leurs cours et progresser dans leurs apprentissages. Grâce à un système d’intelligence artificielle capable d’analyser les progrès en temps réel, les étudiants reçoivent désormais des exercices sur mesure, adaptés à leurs lacunes, leurs forces et leur vitesse d’évolution. Les enseignants disposent quant à eux de tableaux de bord intuitifs permettant de suivre l’évolution globale d’une classe, d’identifier les points de blocage et de personnaliser encore davantage leur pédagogie. Plusieurs établissements pilotes rapportent déjà une hausse notable de la motivation des élèves, qui se sentent mieux accompagnés et plus autonomes. La solution devrait être déployée nationalement au cours de l’année prochaine, ouvrant la voie à une nouvelle ère d’enseignement assisté par la technologie. Les experts pédagogiques soulignent que cette approche personnalisée pourrait transformer l’éducation traditionnelle, réduire le décrochage scolaire et encourager l’innovation dans la conception de programmes scolaires adaptés aux besoins de chaque élève.",
+      "title_en": "Innovation: AI for education",
+      "title_de": "Innovation: KI im Dienst der Bildung",
+      "publisher_en": "FutureLab",
+      "publisher_de": "FutureLab",
+      "excerpt_en": "A new adaptive learning platform is revolutionising the way pupils interact with their lessons and progress through the curriculum. Powered by an artificial intelligence system capable of analysing results in real time, it proposes exercises tailored to each learner's strengths, weaknesses and pace of progress. Teachers have access to intuitive dashboards that allow them to follow the overall evolution of a class, quickly identify areas of difficulty and adjust their teaching methods accordingly. Several pilot schools are already reporting a clear increase in student motivation, who feel better supported and more autonomous in their learning. The solution is expected to be rolled out nationwide over the coming year, opening the door to a new era of technology‑assisted education. Educational experts believe that this personalised approach could transform traditional teaching, reduce school drop‑out rates and encourage the creation of curricula more closely aligned with the needs of each pupil.",
+      "excerpt_de": "Eine neue Plattform fuer adaptives Lernen revolutioniert die Art und Weise, wie Schueler mit ihren Unterrichtsinhalten interagieren und im Lehrplan vorankommen. Ein System kuenstlicher Intelligenz analysiert die Ergebnisse in Echtzeit und schlaegt Aufgaben vor, die genau auf die Staerken, Schwaechen und das Lerntempo jedes einzelnen Lernenden zugeschnitten sind. Lehrkraefte verfuegen ueber uebersichtliche Dashboards, mit denen sie die Entwicklung einer gesamten Klasse verfolgen, Problemfelder schnell erkennen und ihre Paedagogik entsprechend anpassen koennen. Mehrere Pilotschulen berichten bereits von einer deutlichen Steigerung der Motivation, da sich die Schueler besser begleitet und zugleich eigenstaendiger fuehlen. Die Loesung soll im kommenden Jahr landesweit eingefuehrt werden und eine neue Aera technologiegestuetzter Bildung einlaeuten. Paedagogische Experten sind der Ansicht, dass dieser personalisierte Ansatz den traditionellen Unterricht tiefgreifend veraendern, Schulabbrueche verringern und zur Entwicklung von Lehrplaenen beitragen koennte, die staerker an den Beduerfnissen jedes einzelnen Schuelers ausgerichtet sind.",
+      "photo": "sylvester.jpg"
+    },
+    {
+      "id": "10",
+      "title": "Société: Hausse du bénévolat",
+      "publisher": "Le Monde Social",
+      "date": "2025-10-28",
+      "excerpt": "Les associations constatent une augmentation sans précédent du nombre de bénévoles, particulièrement chez les jeunes adultes séduits par l’idée de contribuer à des causes sociales et environnementales. Cette tendance s’explique par une volonté croissante de s'engager concrètement, mais également par une recherche de sens et d’impact positif dans un contexte social complexe. Les responsables associatifs soulignent que cet élan permet de lancer de nouveaux projets qui étaient auparavant en manque de ressources humaines, tout en renforçant la cohésion entre générations. Les bénévoles mettent en avant le sentiment d’utilité, la richesse des rencontres et les compétences acquises lors de ces missions. Ce mouvement pourrait transformer durablement le paysage associatif au cours des prochaines années et encourager la création d’initiatives locales innovantes. En parallèle, les organismes mettent en place des programmes de formation pour mieux intégrer les nouveaux bénévoles et maximiser leur impact, créant ainsi un cercle vertueux où engagement, apprentissage et expérience positive se renforcent mutuellement.",
+      "title_en": "Society: Rise in volunteering",
+      "title_de": "Gesellschaft: Mehr Ehrenamt",
+      "publisher_en": "Social World",
+      "publisher_de": "Social World",
+      "excerpt_en": "Associations are reporting an unprecedented increase in the number of volunteers, particularly among young adults attracted by the idea of contributing to concrete social and environmental causes. This trend reflects a growing desire to get involved in the field and to give more meaning to everyday life in a complex social context. Many organisations are finally able to launch projects that had been on hold for lack of human resources, whether in support for the most vulnerable, environmental protection or neighbourhood solidarity initiatives. Volunteers highlight the feeling of usefulness, the richness of encounters and the skills they acquire during their missions, from project management to communication. This movement could durably transform the associative landscape over the coming years and encourage the emergence of innovative local initiatives. In parallel, structures are setting up training and mentoring programmes to better integrate new volunteers and maximise their impact, creating a virtuous circle in which commitment, learning and positive experience reinforce one another.",
+      "excerpt_de": "Verbaende verzeichnen einen nie dagewesenen Anstieg der Freiwilligenzahl, insbesondere bei jungen Erwachsenen, die sich von der Idee angezogen fuehlen, sich konkret fuer soziale und oekologische Anliegen einzusetzen. Dieser Trend spiegelt den wachsenden Wunsch wider, sich vor Ort zu engagieren und dem Alltag in einem komplexen gesellschaftlichen Umfeld mehr Sinn zu geben. Viele Organisationen koennen nun Projekte starten, die zuvor aus Mangel an personellen Ressourcen auf Eis lagen – sei es Unterstuetzung fuer besonders verletzliche Menschen, Umweltschutz oder nachbarschaftliche Solidaritaetsinitiativen. Freiwillige heben das Gefuehl der Nützlichkeit, die Vielfalt der Begegnungen und die waehrend ihrer Einsaetze erworbenen Faehigkeiten hervor, von Projektmanagement bis Kommunikation. Diese Dynamik koennte in den kommenden Jahren die Vereinslandschaft nachhaltig veraendern und die Entstehung innovativer lokaler Initiativen foerdern. Parallel dazu richten viele Organisationen Schulungs‑ und Mentoringprogramme ein, um neue Freiwillige besser einzubinden und ihre Wirkung zu vergroessern, sodass ein positiver Kreislauf aus Engagement, Lernen und Erfahrung entsteht.",
+      "photo": "wooden-hut.jpg"
+    }
+  ],
   "activities": [
     {
       "id": "1",
@@ -128,7 +445,7 @@
   ],
   "weather": [
     {
-      "id": 1,
+      "id": "1",
       "date": "2025-11-01",
       "condition": "Ensoleillé",
       "condition_en": "Sunny",
@@ -137,7 +454,7 @@
       "max": 17
     },
     {
-      "id": 2,
+      "id": "2",
       "date": "2025-11-02",
       "condition": "Partiellement nuageux",
       "condition_en": "Partly cloudy",
@@ -146,7 +463,7 @@
       "max": 16
     },
     {
-      "id": 3,
+      "id": "3",
       "date": "2025-11-03",
       "condition": "Pluie",
       "condition_en": "Rain",
@@ -155,7 +472,7 @@
       "max": 12
     },
     {
-      "id": 4,
+      "id": "4",
       "date": "2025-11-04",
       "condition": "Pluie",
       "condition_en": "Rain",
@@ -164,7 +481,7 @@
       "max": 11
     },
     {
-      "id": 5,
+      "id": "5",
       "date": "2025-11-05",
       "condition": "Orage",
       "condition_en": "Storm",
@@ -173,7 +490,7 @@
       "max": 13
     },
     {
-      "id": 6,
+      "id": "6",
       "date": "2025-11-06",
       "condition": "Nuageux",
       "condition_en": "Cloudy",
@@ -182,7 +499,7 @@
       "max": 14
     },
     {
-      "id": 7,
+      "id": "7",
       "date": "2025-11-07",
       "condition": "Ensoleillé",
       "condition_en": "Sunny",
@@ -191,7 +508,7 @@
       "max": 18
     },
     {
-      "id": 8,
+      "id": "8",
       "date": "2025-11-08",
       "condition": "Ensoleillé",
       "condition_en": "Sunny",
@@ -200,7 +517,7 @@
       "max": 21
     },
     {
-      "id": 9,
+      "id": "9",
       "date": "2025-11-09",
       "condition": "Nuageux",
       "condition_en": "Cloudy",
@@ -209,7 +526,7 @@
       "max": 18
     },
     {
-      "id": 10,
+      "id": "10",
       "date": "2025-11-10",
       "condition": "Pluie",
       "condition_en": "Rain",
@@ -218,7 +535,7 @@
       "max": 15
     },
     {
-      "id": 11,
+      "id": "11",
       "date": "2025-11-11",
       "condition": "Ensoleillé",
       "condition_en": "Sunny",
@@ -227,7 +544,7 @@
       "max": 16
     },
     {
-      "id": 12,
+      "id": "12",
       "date": "2025-11-12",
       "condition": "Nuageux",
       "condition_en": "Cloudy",
@@ -236,7 +553,7 @@
       "max": 13
     },
     {
-      "id": 13,
+      "id": "13",
       "date": "2025-11-13",
       "condition": "Brouillard",
       "condition_en": "Fog",
@@ -245,7 +562,7 @@
       "max": 10
     },
     {
-      "id": 14,
+      "id": "14",
       "date": "2025-11-14",
       "condition": "Ensoleillé",
       "condition_en": "Sunny",
@@ -254,7 +571,7 @@
       "max": 14
     },
     {
-      "id": 15,
+      "id": "15",
       "date": "2025-11-15",
       "condition": "Pluie",
       "condition_en": "Rain",
@@ -263,7 +580,7 @@
       "max": 12
     },
     {
-      "id": 16,
+      "id": "16",
       "date": "2025-11-16",
       "condition": "Nuageux",
       "condition_en": "Cloudy",
@@ -272,7 +589,7 @@
       "max": 14
     },
     {
-      "id": 17,
+      "id": "17",
       "date": "2025-11-17",
       "condition": "Ensoleillé",
       "condition_en": "Sunny",
@@ -281,7 +598,7 @@
       "max": 15
     },
     {
-      "id": 18,
+      "id": "18",
       "date": "2025-11-18",
       "condition": "Pluie",
       "condition_en": "Rain",
@@ -290,7 +607,7 @@
       "max": 11
     },
     {
-      "id": 19,
+      "id": "19",
       "date": "2025-11-19",
       "condition": "Vent",
       "condition_en": "Windy",
@@ -299,7 +616,7 @@
       "max": 13
     },
     {
-      "id": 20,
+      "id": "20",
       "date": "2025-11-20",
       "condition": "Nuageux",
       "condition_en": "Cloudy",
@@ -308,7 +625,7 @@
       "max": 12
     },
     {
-      "id": 21,
+      "id": "21",
       "date": "2025-11-21",
       "condition": "Ensoleillé",
       "condition_en": "Sunny",
@@ -317,7 +634,7 @@
       "max": 14
     },
     {
-      "id": 22,
+      "id": "22",
       "date": "2025-11-22",
       "condition": "Pluie",
       "condition_en": "Rain",
@@ -326,7 +643,7 @@
       "max": 10
     },
     {
-      "id": 23,
+      "id": "23",
       "date": "2025-11-23",
       "condition": "Ensoleillé",
       "condition_en": "Sunny",
@@ -335,7 +652,7 @@
       "max": 15
     },
     {
-      "id": 24,
+      "id": "24",
       "date": "2025-11-24",
       "condition": "Nuageux",
       "condition_en": "Cloudy",
@@ -344,7 +661,7 @@
       "max": 12
     },
     {
-      "id": 25,
+      "id": "25",
       "date": "2025-11-25",
       "condition": "Pluie",
       "condition_en": "Rain",
@@ -353,7 +670,7 @@
       "max": 9
     },
     {
-      "id": 26,
+      "id": "26",
       "date": "2025-11-26",
       "condition": "Orage",
       "condition_en": "Storm",
@@ -362,7 +679,7 @@
       "max": 11
     },
     {
-      "id": 27,
+      "id": "27",
       "date": "2025-11-27",
       "condition": "Nuageux",
       "condition_en": "Cloudy",
@@ -371,7 +688,7 @@
       "max": 13
     },
     {
-      "id": 28,
+      "id": "28",
       "date": "2025-11-28",
       "condition": "Ensoleillé",
       "condition_en": "Sunny",
@@ -380,7 +697,7 @@
       "max": 15
     },
     {
-      "id": 29,
+      "id": "29",
       "date": "2025-11-29",
       "condition": "Pluie",
       "condition_en": "Rain",
@@ -389,7 +706,7 @@
       "max": 11
     },
     {
-      "id": 30,
+      "id": "30",
       "date": "2025-11-30",
       "condition": "Nuageux",
       "condition_en": "Cloudy",
