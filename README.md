@@ -9,7 +9,6 @@
 
 ```bash
 cd backend
-npm i
 json-server db.json
 ```
 
