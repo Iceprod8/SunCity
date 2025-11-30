@@ -1,4 +1,4 @@
-import { Component, Input, computed, inject } from '@angular/core';
+﻿import { Component, Input, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../features/auth/auth.service';
@@ -17,7 +17,7 @@ type NavLink = { label: string; path: string };
           <p class="text-sm text-slate-600">{{ subtitle }}</p>
         </div>
 
-        <nav class="flex md:hidden items-center gap-3 text-sm text-slate-700" aria-label="Liens de navigation">
+        <nav class="flex md:hidden items-center gap-3 text-sm text-slate-700" aria-label="Liens de navigation" i18n-aria-label="@@nav.linksAria">
           <a *ngFor="let link of links"
              [routerLink]="link.path"
              routerLinkActive="bg-amber-200 text-slate-900 border-amber-200"
@@ -27,7 +27,7 @@ type NavLink = { label: string; path: string };
         </nav>
       </div>
 
-      <nav class="hidden md:flex items-center gap-3 text-sm text-slate-700 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" aria-label="Liens de navigation">
+      <nav class="hidden md:flex items-center gap-3 text-sm text-slate-700 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" aria-label="Liens de navigation" i18n-aria-label="@@nav.linksAria">
         <a *ngFor="let link of links"
            [routerLink]="link.path"
            routerLinkActive="bg-amber-200 text-slate-900 border-amber-200"
@@ -38,18 +38,29 @@ type NavLink = { label: string; path: string };
 
       <div class="flex items-center gap-3 lg:pl-4">
         <div class="flex items-center gap-2">
-          <span class="text-sm font-medium text-slate-900">{{ user()?.username || 'Profil' }}</span>
+          <span class="text-sm font-medium text-slate-900">{{ user()?.username || profileFallback }}</span>
           <div class="w-9 h-9 rounded-full bg-brand-600 text-white grid place-items-center font-semibold">
             {{ initials() || 'SC' }}
           </div>
         </div>
         <a
+          routerLink="/friends"
+          class="w-9 h-9 rounded-full bg-white shadow border border-amber-100 text-slate-700 grid place-items-center hover:text-slate-900"
+          aria-label="Amis">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="9" cy="7" r="4" />
+            <line x1="19" y1="8" x2="19" y2="14" stroke-linecap="round" />
+            <line x1="22" y1="11" x2="16" y2="11" stroke-linecap="round" />
+          </svg>
+        </a>
+        <a
           routerLink="/settings"
           class="w-9 h-9 rounded-full bg-white shadow border border-amber-100 text-slate-700 grid place-items-center hover:text-slate-900"
-          aria-label="Paramètres">
+          aria-label="Paramètres" i18n-aria-label="@@nav.settingsAria">
           &#9881;
         </a>
-        <button class="w-9 h-9 rounded-full bg-white shadow border border-amber-100 text-red-600 grid place-items-center hover:text-red-700" aria-label="Se deconnecter" (click)="logout()">
+        <button class="w-9 h-9 rounded-full bg-white shadow border border-amber-100 text-red-600 grid place-items-center hover:text-red-700" aria-label="Se déconnecter" i18n-aria-label="@@nav.logoutAria" (click)="logout()">
           &#x23FB;
         </button>
       </div>
@@ -62,11 +73,12 @@ export class PageHeaderComponent {
   @Input() title = '';
   @Input() subtitle = '';
 
-  links = [
-    { label: 'Dashboard', path: '/dashboard' },
-    { label: 'Meteo', path: '/weather' },
-    { label: 'Actualites', path: '/news' },
-    { label: 'Activites', path: '/activities' },
+  profileFallback = $localize`:@@nav.profileFallback:Profil`;
+  links: NavLink[] = [
+    { label: $localize`:@@nav.dashboard:Dashboard`, path: '/dashboard' },
+    { label: $localize`:@@nav.weather:Météo`, path: '/weather' },
+    { label: $localize`:@@nav.news:Actualités`, path: '/news' },
+    { label: $localize`:@@nav.activities:Activités`, path: '/activities' },
   ];
 
   user = this.auth.user;
@@ -84,3 +96,4 @@ export class PageHeaderComponent {
     this.auth.logout();
   }
 }
+

@@ -6,6 +6,8 @@ import { WeatherComponent } from './features/weather/weather.component';
 import { ActivitiesComponent } from './features/activities/activities.component';
 import { authGuard } from './features/auth/auth.guard';
 import { SettingsComponent } from './features/settings/settings.component';
+import { NewComponent } from './features/new/new.component';
+import { FriendsComponent } from './features/friends/friends.component';
 
 export const routes: Routes = [
   {
@@ -27,6 +29,11 @@ export const routes: Routes = [
     canActivate: [authGuard]
   },
   {
+    path: 'friends',
+    component: FriendsComponent,
+    canActivate: [authGuard]
+  },
+  {
     path: 'news',
     component: NewsComponent,
     canActivate: [authGuard]
@@ -44,6 +51,11 @@ export const routes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent,
+    canActivate: [authGuard]
+  },
+    {
+    path: 'new/:id',
+    component: NewComponent,
     canActivate: [authGuard]
   },
   { path: '**', redirectTo: 'login' },

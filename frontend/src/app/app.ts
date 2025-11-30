@@ -7,5 +7,5 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.html'
 })
 export class App {
-  protected readonly title = signal('myzone');
+  protected readonly title = signal('SunCity');
 }

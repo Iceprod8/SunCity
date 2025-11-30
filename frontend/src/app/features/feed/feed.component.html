@@ -1,0 +1,156 @@
+<ng-container>
+  <div class="page-container pb-12">
+    <div class="bg-[#f6f1e9] border border-amber-100 rounded-3xl shadow-xl shadow-amber-100/40 p-4 md:p-6 space-y-6">
+      <div *ngIf="inAppNotices.length" class="fixed bottom-4 right-4 z-40 space-y-2">
+        <div
+          *ngFor="let notice of inAppNotices"
+          class="flex items-start gap-3 px-3 py-2 rounded-xl border shadow-lg bg-white/95 max-w-xs"
+          [ngClass]="{
+            'border-amber-200 text-slate-800': notice.level === 'info',
+            'border-red-200 text-red-700': notice.level === 'warn'
+          }">
+          <div class="flex-1">
+            <p class="text-sm">{{ notice.message }}</p>
+          </div>
+          <button
+            class="text-xs text-slate-500 hover:text-slate-700"
+            (click)="dismissNotice(notice.id)"
+            i18n="@@feed.toast.close">
+            fermer
+          </button>
+        </div>
+      </div>
+
+      <div
+        *ngIf="loading"
+        class="bg-white rounded-2xl shadow p-4 border border-amber-100 text-sm text-slate-700"
+        i18n="@@feed.loading">
+        Chargement du fil...
+      </div>
+      <div
+        *ngIf="error"
+        class="bg-white rounded-2xl shadow p-4 border border-amber-100 text-sm text-red-700"
+        i18n="@@feed.error">
+        Impossible de charger le fil. Réessayez.
+      </div>
+
+      <div class="space-y-4" *ngIf="!loading && !error">
+        <div
+          *ngFor="let item of feedItems"
+          class="bg-white rounded-2xl p-5 border border-amber-100 shadow-sm shadow-amber-100/40 space-y-3 cursor-pointer hover:-translate-y-0.5 transition"
+          (click)="openItem(item)">
+          <div class="flex gap-4">
+            <div *ngIf="item.image" class="w-32 h-28 rounded-xl overflow-hidden shrink-0">
+              <img [src]="item.image" class="w-full h-full object-cover" alt="media">
+            </div>
+            <div class="flex-1 space-y-2">
+              <div class="flex items-center gap-2 text-xs">
+                <span class="px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 font-semibold">
+                  {{ item.badge }}
+                </span>
+                <span class="text-slate-500">{{ item.dateLabel }}</span>
+              </div>
+              <h3 class="text-lg font-semibold text-slate-800">{{ item.title }}</h3>
+              <p class="text-xs text-slate-500">{{ item.subtitle }}</p>
+              <p class="text-sm text-slate-700 leading-relaxed">{{ item.description }}</p>
+              <div *ngIf="item.type === 'weather'" class="text-xs text-slate-600">
+                <span class="font-semibold" i18n="@@feed.weatherLabel">Météo</span>
+                <span class="ml-2">{{ item.weatherCondition }}</span>
+                <span class="ml-2 text-slate-500">{{ item.minTemp }}C / {{ item.maxTemp }}C</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3 pt-3 mt-1 border-t border-amber-100">
+            <button
+              (click)="$event.stopPropagation(); toggleLike(item)"
+              class="flex items-center gap-2 px-3 py-2 rounded-full border border-amber-200 bg-white hover:bg-amber-50 transition">
+              <span [class.text-amber-700]="item.liked" [class.text-slate-500]="!item.liked">&#9829;</span>
+              <span class="text-sm font-semibold text-slate-800">{{ item.likes }}</span>
+              <span class="text-xs text-slate-500" i18n="@@feed.likeLabel">J'aime</span>
+            </button>
+
+            <button
+              (click)="$event.stopPropagation(); toggleComments(item)"
+              class="flex items-center gap-2 px-3 py-2 rounded-full border border-amber-200 bg-white hover:bg-amber-50 transition">
+              <span class="text-slate-500">&#128172;</span>
+              <span class="text-xs text-slate-500" i18n="@@feed.commentsCount">
+                {{ item.comments.length || 0 }} commentaire(s)
+              </span>
+            </button>
+
+            <div class="flex flex-wrap items-center gap-2 text-sm">
+              <button
+                (click)="$event.stopPropagation(); toggleSharePanel(item)"
+                class="px-3 py-2 rounded-full bg-amber-100 border border-amber-200 text-amber-800 hover:bg-amber-200 transition">
+                <span i18n="@@feed.share.label">Partager</span>
+              </button>
+              <button
+                (click)="$event.stopPropagation(); share(item, 'link')"
+                class="px-3 py-2 rounded-full bg-white border border-amber-200 text-slate-700 hover:bg-amber-50 transition">
+                <span i18n="@@feed.share.copyLink">Copier le lien</span>
+              </button>
+            </div>
+          </div>
+
+          <div *ngIf="openShareFor === item.id" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40" (click)="$event.stopPropagation()">
+            <div class="w-full max-w-md mx-4 p-4 rounded-2xl bg-white border border-amber-200 shadow-xl space-y-3">
+              <div class="flex items-center justify-between">
+                <h3 class="text-sm font-semibold text-slate-800" i18n="@@feed.share.dialogTitle">Partager cette carte</h3>
+                <button
+                  class="text-xs text-slate-500 hover:text-slate-700"
+                  (click)="$event.stopPropagation(); toggleSharePanel(item)"
+                  i18n="@@feed.share.close">
+                  Fermer
+                </button>
+              </div>
+              <p class="text-xs text-slate-500" i18n="@@feed.share.selectFriendHelp">
+                Choisissez un ami pour lui envoyer ce contenu :
+              </p>
+              <div *ngIf="!friends.length" class="text-xs text-slate-500" i18n="@@feed.share.noFriends">
+                Ajoutez d'abord des amis depuis la page "Amis" pour partager directement.
+              </div>
+              <div class="flex flex-col gap-2 max-h-60 overflow-auto" *ngIf="friends.length">
+                <button
+                  *ngFor="let friend of friends"
+                  (click)="$event.stopPropagation(); shareToFriend(item, friend)"
+                  class="w-full px-3 py-2 rounded-xl bg-amber-50 border border-amber-200 text-xs text-slate-700 hover:bg-amber-100 transition flex items-center justify-between gap-2">
+                  <div class="text-left">
+                    <p class="font-semibold">{{ friend.user?.username || 'Utilisateur' }}</p>
+                    <p class="text-[11px] text-slate-500">{{ friend.user?.email }}</p>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="openComments[item.id]" class="mt-4 space-y-3">
+            <div class="flex gap-2">
+              <input
+                [(ngModel)]="newComment[item.id]"
+                (keyup.enter)="addComment(item)"
+                placeholder="Ajouter un commentaire"
+                i18n-placeholder="@@feed.comment.placeholder"
+                class="flex-1 px-3 py-2 rounded-lg border border-amber-200 bg-white focus:outline-none focus:ring-2 focus:ring-amber-300 text-sm">
+              <button
+                (click)="addComment(item)"
+                class="px-3 py-2 rounded-lg bg-amber-600 text-white hover:bg-amber-700 transition text-sm">
+                <span i18n="@@feed.comment.submit">Publier</span>
+              </button>
+            </div>
+            <div *ngIf="!item.comments.length" class="text-xs text-slate-500" i18n="@@feed.comment.empty">
+              Pas encore de commentaire.
+            </div>
+            <div *ngFor="let comment of item.comments" class="bg-amber-50 border border-amber-100 rounded-xl p-3">
+              <div class="text-xs text-slate-500 mb-1">
+                {{ comment.author }} - {{ comment.at | date:'short' }}
+              </div>
+              <p class="text-sm text-slate-800">{{ comment.text }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</ng-container>

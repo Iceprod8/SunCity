@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import {PageHeaderComponent } from '../../shared/components/page-header.component';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PageHeaderComponent } from '../../shared/components/page-header.component';
+import { Weather } from '../../shared/models/weather.model';
+import { WeatherService } from '../../shared/services/weather.service';
 
 @Component({
   selector: 'app-weather',
@@ -8,6 +10,41 @@ import { CommonModule } from '@angular/common';
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.css'],
 })
-export class WeatherComponent {
+export class WeatherComponent implements OnInit {
+  weather: Weather[] = [];
+  selectedWeather: Weather | null = null;
 
+  constructor(private weatherService: WeatherService) {}
+
+  ngOnInit(): void {
+    this.weatherService.getWeather().subscribe(data => {
+      this.weather = data;
+      const targetDate = '2025-11-30';
+      const defaultDay = data.find(day => (day.date || '').slice(0, 10) === targetDate);
+      this.selectedWeather = defaultDay || data[0] || null;
+    });
+  }
+
+  selectWeather(day: Weather) {
+    this.selectedWeather = day;
+  }
+
+  formattedDate(date: string) {
+    return new Intl.DateTimeFormat('fr-FR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    }).format(new Date(date));
+  }
+
+  conditionIcon(condition?: string) {
+    const value = (condition || '').toLowerCase();
+    if (value.includes('sun')) return '☀️';
+    if (value.includes('partly') || value.includes('cloud')) return '⛅';
+    if (value.includes('rain')) return '🌧️';
+    if (value.includes('storm')) return '⛈️';
+    if (value.includes('wind')) return '💨';
+    if (value.includes('fog')) return '🌫️';
+    return '🌡️';
+  }
 }

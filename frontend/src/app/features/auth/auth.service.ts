@@ -5,7 +5,6 @@ import { tap, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ApiService } from '../../shared/services/api.service';
 import { User } from '../../shared/models/user.model';
-import { AuditService } from '../../shared/services/audit.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -21,8 +20,7 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private api: ApiService,
-    private router: Router,
-    private audit: AuditService
+    private router: Router
   ) {
     this.hydrateFromStorage();
     this.attachActivityListeners();
@@ -35,7 +33,7 @@ export class AuthService {
       .pipe(
         map(users => {
           if (!users.length) {
-            throw new Error('Identifiants invalides');
+            throw new Error($localize`:@@auth.errors.invalidCredentials:Identifiants invalides`);
           }
           return users[0];
         }),
@@ -52,11 +50,6 @@ export class AuthService {
     localStorage.removeItem(this.STORAGE_KEY);
     localStorage.removeItem(this.ACTIVITY_KEY);
     this.stopActivityCheck();
-    if (reason) {
-      this.audit.log('logout', reason);
-    } else {
-      this.audit.log('logout', 'Deconnexion utilisateur');
-    }
     this.router.navigate(['/login']);
   }
 
@@ -71,7 +64,7 @@ export class AuthService {
     }
     const idleTime = Date.now() - lastActivity;
     if (idleTime > this.INACTIVITY_LIMIT_MS) {
-      this.logout('Deconnexion automatique apres 2 jours d\'inactivite');
+      this.logout($localize`:@@auth.logout.auto:Déconnexion automatique après 2 jours d'inactivité`);
       return false;
     }
     return true;
@@ -88,22 +81,21 @@ export class AuthService {
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify(user));
     this.markActivity(true);
     this.startActivityCheck();
-    this.audit.log('login', `Connexion de ${user.email}`);
   }
 
   private hydrateFromStorage() {
     try {
       const raw = localStorage.getItem(this.STORAGE_KEY);
       if (!raw) return;
-      const parsed: User = JSON.parse(raw);
-      if (parsed && parsed.email) {
-        const lastActivity = this.getLastActivity();
-        if (lastActivity && Date.now() - lastActivity > this.INACTIVITY_LIMIT_MS) {
-          this.logout('Session expiree apres inactivite prolongee');
-          return;
-        }
-        this.currentUserSignal.set(parsed);
-        this.markActivity(true);
+        const parsed: User = JSON.parse(raw);
+        if (parsed && parsed.email) {
+          const lastActivity = this.getLastActivity();
+          if (lastActivity && Date.now() - lastActivity > this.INACTIVITY_LIMIT_MS) {
+          this.logout($localize`:@@auth.logout.expired:Session expirée après inactivité prolongée`);
+            return;
+          }
+          this.currentUserSignal.set(parsed);
+          this.markActivity(true);
         this.startActivityCheck();
       }
     } catch {
