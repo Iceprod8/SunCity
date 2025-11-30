@@ -1,0 +1,17 @@
+.my-pagination ::ng-deep .ngx-pagination .current {
+    @apply bg-amber-200 text-slate-900; 
+}
+.my-pagination ::ng-deep .ngx-pagination li a {
+    @apply text-slate-900;
+}
+.my-pagination ::ng-deep .ngx-pagination li a:hover {
+    @apply bg-white;
+}
+
+select option {
+    @apply text-slate-900;
+}
+
+select option:hover, select option:checked {
+    @apply bg-amber-200 text-slate-900 !important;
+}
