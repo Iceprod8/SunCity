@@ -40,7 +40,6 @@ export class NewsService {
       };
     }
 
-    // lang === 'de'
     return {
       ...item,
       title: item.title_de || item.title,

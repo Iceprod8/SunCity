@@ -5,6 +5,7 @@ import { ActivityService } from '../../shared/services/activity.service';
 import { Activity } from '../../shared/models/activity.model';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-activities',
@@ -23,6 +24,24 @@ export class ActivitiesComponent {
   searchQuery: string = '';
 
   activity = inject(ActivityService);
+  private router = inject(Router);
+  private activityTypeImages: Record<string, string> = {
+    parc: 'park.jpg',
+    park: 'park.jpg',
+    monument: 'new-york.jpg',
+    musée: 'open-book.jpg',
+    musee: 'open-book.jpg',
+    restauration: 'businessman.jpg'
+  };
+  private fallbackImages = [
+    'animal.jpg',
+    'lantern.jpg',
+    'sunset.jpg',
+    'wooden-hut.jpg',
+    'nyc.jpg',
+    'open-book.jpg',
+    'park.jpg'
+  ];
 
   ngOnInit() {
     this.getActivites();
@@ -80,5 +99,26 @@ export class ActivitiesComponent {
     }
 
     this.activities = this.sortedActivities;
+  }
+
+  activityImage(activity: Activity) {
+    if ((activity as any).photo) {
+      return `assets/${(activity as any).photo}`;
+    }
+    const key = (activity.type || '').toLowerCase();
+    const byType = this.activityTypeImages[key];
+    if (byType) return `assets/${byType}`;
+    const idx = Math.abs(this.hashId(activity.id)) % this.fallbackImages.length;
+    return `assets/${this.fallbackImages[idx]}`;
+  }
+
+  private hashId(id: string | number) {
+    return String(id)
+      .split('')
+      .reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  }
+
+  openActivity(id: string | number) {
+    this.router.navigate(['/activities', id]);
   }
 }

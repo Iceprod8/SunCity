@@ -11,4 +11,8 @@ export class ActivityService {
     return this.http.get<Activity[]>(this.api.url('/activities'));
   }
 
+  getActivity(id: string | number) {
+    return this.http.get<Activity>(this.api.url(`/activities/${id}`));
+  }
+
 }

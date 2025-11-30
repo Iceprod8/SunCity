@@ -87,8 +87,4 @@ export class EngagementService {
       .post<FeedCommentRecord>(this.api.url('/feedComments'), record)
       .pipe(map(res => ({ id: String(res.id), author: res.author, text: res.text, at: res.at })));
   }
-
-  logShare(itemId: string, channel: string, target?: string): void {
-    // Optionally extend to backend later; for now we ignore persistence for shares.
-  }
 }

@@ -1,56 +1,47 @@
-<ng-container>
+ï»¿<ng-container>
   <div class="page-container pb-12">
     <div class="bg-[#f6f1e9] border border-amber-100 rounded-3xl shadow-xl shadow-amber-100/40 p-4 md:p-6 space-y-6">
       <app-page-header
-        title="Activités"
+        title="ActivitÃ©s"
         i18n-title="@@activities.title"
-        subtitle="Découvrez vos activités à venir."
+        subtitle="DÃ©couvrez vos activitÃ©s Ã  venir."
         i18n-subtitle="@@activities.subtitle"></app-page-header>
 
-      <div class="flex justify-between w-full mb-4">
+      <div class="relative w-full flex justify-between mb-4 news-search">
         <div class="relative w-1/3">
-          <input
-            type="text"
-            [(ngModel)]="searchQuery"
-            (input)="filterActivities()"
-            placeholder="Rechercher une activité..."
-            class="w-full px-4 py-2 rounded-xl border border-amber-200 shadow-sm shadow-amber-100/40 focus:outline-none focus:ring-2 focus:ring-amber-300 transition bg-white pr-10" />
-          <img src="assets/search.svg" class="w-5 h-5 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" alt="search icon">
+          <input type="text" [(ngModel)]="searchQuery" (input)="filterActivities()" placeholder="Rechercher une activitÃ©..." i18n-placeholder="@@activities.search.placeholder"
+            class="w-full px-4 py-2 rounded-xl border border-amber-200 shadow-sm shadow-amber-100/40
+              focus:outline-none focus:ring-2 focus:ring-amber-300 transition bg-white pr-10" />
+          <img src="assets/search.svg" class="news-search-icon w-5 h-5 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+            alt="search icon">
         </div>
         <div class="flex justify-end w-1/3">
-          <select
-            id="sort-select"
-            #sortSelectValue
-            (change)="sortActivities(sortSelectValue.value)"
-            class="w-1/2 p-2 rounded-xl border border-amber-200 shadow-sm shadow-amber-100/40 focus:outline-none focus:ring-2 focus:ring-amber-300 transition bg-white">
-            <option value="">Trier par...</option>
-            <option value="distance-asc">Distance asc</option>
-            <option value="distance-desc">Distance desc</option>
-            <option value="score-asc">Score asc</option>
-            <option value="score-desc">Score desc</option>
-          </select>
+            <select id="sort-select" 
+                  #sortSelectValue (change)="sortActivities(sortSelectValue.value)"
+                  class="w-1/2 p-2 rounded-xl border border-amber-200 shadow-sm shadow-amber-100/40 
+                  focus:outline-none focus:ring-2 focus:ring-amber-300 transition bg-white">
+            
+            <option value="" i18n="@@activities.sort.none">Trier par...</option>
+            <option value="distance-asc" i18n="@@activities.sort.distanceAsc">Distance asc</option>
+            <option value="distance-desc" i18n="@@activities.sort.distanceDesc">Distance desc</option>
+            <option value="score-asc" i18n="@@activities.sort.scoreAsc">Score asc</option>
+            <option value="score-desc" i18n="@@activities.sort.scoreDesc">Score desc</option>
+            </select>
         </div>
       </div>
-
-      <div class="grid gap-4 lg:grid-cols-2">
-        <div
-          *ngFor="let a of activities | paginate: { itemsPerPage: activitiesPerPage, currentPage: page }"
-          class="bg-white rounded-3xl shadow p-5 border border-amber-100">
-          <div class="flex flex-col items-start mb-3">
-            <div class="flex items-center justify-between w-full">
-              <h3 class="text-lg font-semibold text-slate-900">{{ a.name }}</h3>
-              <p class="text-xs text-slate-500">Score {{ a.popularity }}/100</p>
-            </div>
-            <div class="flex items-start w-full">
-              <p class="text-xs text-slate-500">{{ a.type }} · {{ a.distanceKm }} km</p>
-            </div>
-          </div>
+      <div class="grid grid-cols-2 gap-2 text-sm">
+        <div *ngFor="let a of activities | paginate: { itemsPerPage: activitiesPerPage, currentPage: page } "
+          class="news-card grid place-items-center font-medium m-2 bg-white rounded-xl transition hover:-translate-y-0.5 border border-amber-100 shadow-sm cursor-pointer shadow-amber-100/40"
+          (click)="openActivity(a.id)" [title]="a.name">
+          <img [src]="activityImage(a)" class="w-full h-32 object-cover mb-2 rounded-t-md" alt="activity image">
+          <div class="pr-4 pl-4">{{ a.name }}</div>
+          <div class="text-xs text-slate-400 mt-1 pb-4 pr-4 pl-4">{{ a.type }} Â· {{ a.distanceKm }} km</div>
         </div>
       </div>
     </div>
     <pagination-controls
       (pageChange)="pageChangeEvent($event)"
-      class="my-pagination text-center">
+      class="my-pagination text-center mt-6">
     </pagination-controls>
   </div>
 </ng-container>

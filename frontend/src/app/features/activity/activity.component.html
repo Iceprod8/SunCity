@@ -1,0 +1,66 @@
+<ng-container *ngIf="activity; else loading">
+  <div class="page-container pb-12">
+    <div class="bg-[#f6f1e9] border border-amber-100 rounded-3xl shadow-xl shadow-amber-100/40 p-4 md:p-6 space-y-6">
+      <app-page-header
+        title="Activité"
+        i18n-title="@@activities.detail.title"
+        subtitle="Détails et informations pratiques."
+        i18n-subtitle="@@activities.detail.subtitle"></app-page-header>
+
+      <div class="bg-white rounded-3xl shadow pt-5 pb-8 px-8 border border-amber-100 space-y-4 relative">
+        <button
+          (click)="goBack()"
+          class="absolute top-8 left-8 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center shadow-sm text-slate-600 hover:bg-slate-200 hover:text-slate-800 transition"
+          aria-label="Retour"
+          i18n-aria-label="@@activities.detail.backAria">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <div class="text-center mb-3">
+          <h3 class="text-lg font-bold text-slate-700">{{ activity.name }}</h3>
+          <div class="text-xs italic text-slate-400 mt-1">
+            {{ activity.type }} · {{ activity.distanceKm }} km
+          </div>
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-2 items-start">
+          <div class="space-y-3">
+            <div class="flex items-center gap-2 text-sm text-slate-700">
+              <span class="inline-flex w-8 h-8 rounded-full bg-amber-100 text-amber-700 items-center justify-center font-semibold">🏷️</span>
+              <div>
+                <p class="font-semibold text-slate-800" i18n="@@activities.detail.type">Type</p>
+                <p class="text-slate-600">{{ activity.type }}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-slate-700">
+              <span class="inline-flex w-8 h-8 rounded-full bg-amber-100 text-amber-700 items-center justify-center font-semibold">📍</span>
+              <div>
+                <p class="font-semibold text-slate-800" i18n="@@activities.detail.distance">Distance</p>
+                <p class="text-slate-600">{{ activity.distanceKm }} km</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-slate-700">
+              <span class="inline-flex w-8 h-8 rounded-full bg-amber-100 text-amber-700 items-center justify-center font-semibold">⭐</span>
+              <div>
+                <p class="font-semibold text-slate-800" i18n="@@activities.detail.popularity">Popularité</p>
+                <p class="text-slate-600">{{ activity.popularity }}/100</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-amber-50 border border-amber-100 p-4 shadow-sm">
+            <p class="text-sm text-slate-700 leading-relaxed" i18n="@@activities.detail.cta">
+              Préparez votre sortie : vérifiez la météo, partagez avec vos amis et ajoutez l'activité à votre liste !
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <p class="page-container" i18n="@@activities.detail.loading">Chargement de l'activité...</p>
+</ng-template>

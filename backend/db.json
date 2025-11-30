@@ -453,7 +453,8 @@
       "name_en": "Montsouris Park",
       "name_de": "Parc Montsouris",
       "type_en": "Park",
-      "type_de": "Park"
+      "type_de": "Park",
+      "photo": "new-york.jpg"
     },
     {
       "id": "2",
@@ -464,133 +465,152 @@
       "name_en": "Orsay Museum",
       "name_de": "Musée d'Orsay",
       "type_en": "Museum",
-      "type_de": "Museum"
+      "type_de": "Museum",
+      "photo": "open-book.jpg"
     },
     {
       "id": "3",
       "name": "Jardin du Luxembourg",
       "type": "Parc",
       "distanceKm": 2.3,
-      "popularity": 4.7
+      "popularity": 4.7,
+      "photo": "park.jpg"
     },
     {
       "id": "4",
       "name": "Boulangerie Artisanale",
       "type": "Restauration",
       "distanceKm": 0.5,
-      "popularity": 4.5
+      "popularity": 4.5,
+      "photo": "businessman.jpg"
     },
     {
       "id": "5",
       "name": "Arc de Triomphe",
       "type": "Monument",
       "distanceKm": 6.8,
-      "popularity": 4.6
+      "popularity": 4.6,
+      "photo": "nyc.jpg"
     },
     {
       "id": "6",
       "name": "Musée d'Orsay",
       "type": "Musée",
       "distanceKm": 3.2,
-      "popularity": 4.9
+      "popularity": 4.9,
+      "photo": "open-book.jpg"
     },
     {
       "id": "7",
       "name": "Parc des Buttes-Chaumont",
       "type": "Parc",
       "distanceKm": 7.9,
-      "popularity": 4.4
+      "popularity": 4.4,
+      "photo": "park.jpg"
     },
     {
       "id": "8",
       "name": "Restaurant Traditionnel",
       "type": "Restauration",
       "distanceKm": 1.1,
-      "popularity": 4.6
+      "popularity": 4.6,
+      "photo": "wooden-hut.jpg"
     },
     {
       "id": "9",
       "name": "Cathédrale Notre-Dame",
       "type": "Monument",
       "distanceKm": 3.0,
-      "popularity": 4.7
+      "popularity": 4.7,
+      "photo": "sylvester.jpg"
     },
     {
       "id": "10",
       "name": "Centre Pompidou",
       "type": "Musée",
       "distanceKm": 4.1,
-      "popularity": 4.3
+      "popularity": 4.3,
+      "photo": "lantern.jpg"
     },
     {
       "id": "11",
       "name": "Coulée Verte René-Dumont",
       "type": "Parc",
       "distanceKm": 6.0,
-      "popularity": 4.5
+      "popularity": 4.5,
+      "photo": "park.jpg"
     },
     {
       "id": "12",
       "name": "Café de Flore",
       "type": "Restauration",
       "distanceKm": 2.5,
-      "popularity": 4.8
+      "popularity": 4.8,
+      "photo": "sunset.jpg"
     },
     {
       "id": "13",
       "name": "Basilique du Sacré-Cœur",
       "type": "Monument",
       "distanceKm": 8.5,
-      "popularity": 4.8
+      "popularity": 4.8,
+      "photo": "animal.jpg"
     },
     {
       "id": "14",
       "name": "Musée Rodin",
       "type": "Musée",
       "distanceKm": 3.5,
-      "popularity": 4.6
+      "popularity": 4.6,
+      "photo": "open-book.jpg"
     },
     {
       "id": "15",
       "name": "Parc de la Villette",
       "type": "Parc",
       "distanceKm": 9.2,
-      "popularity": 4.2
+      "popularity": 4.2,
+      "photo": "park.jpg"
     },
     {
       "id": "16",
       "name": "Vendeur de Crêpes",
       "type": "Restauration",
       "distanceKm": 0.1,
-      "popularity": 4.9
+      "popularity": 4.9,
+      "photo": "wooden-hut.jpg"
     },
     {
       "id": "17",
       "name": "Hôtel des Invalides",
       "type": "Monument",
       "distanceKm": 3.9,
-      "popularity": 4.5
+      "popularity": 4.5,
+      "photo": "nyc.jpg"
     },
     {
       "id": "18",
       "name": "Musée Picasso",
       "type": "Musée",
       "distanceKm": 5.5,
-      "popularity": 4.4
+      "popularity": 4.4,
+      "photo": "lantern.jpg"
     },
     {
       "id": "19",
       "name": "Parc Montsouris",
       "type": "Parc",
       "distanceKm": 1.8,
-      "popularity": 4.3
+      "popularity": 4.3,
+      "photo": "park.jpg"
     },
     {
       "id": "20",
       "name": "Restaurant Gastronomique",
       "type": "Restauration",
       "distanceKm": 4.0,
-      "popularity": 4.9
+      "popularity": 4.9,
+      "photo": "wooden-hut.jpg"
     }
   ],
   "weather": [
