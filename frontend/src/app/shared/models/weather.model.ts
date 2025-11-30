@@ -2,6 +2,8 @@ export interface Weather {
   id: number;
   date: string;
   condition: string;
+  baseCondition?: string;
+  displayCondition?: string;
   min: number;
   max: number;
   wind: number;
