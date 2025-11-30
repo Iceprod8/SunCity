@@ -1,4 +1,4 @@
-export interface Article {
+export interface New {
   id: number;
   title: string;
   publisher: string;
