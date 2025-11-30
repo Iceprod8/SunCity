@@ -1,4 +1,3 @@
-// Karma configuration for Angular unit tests.
 module.exports = function (config) {
   const isCI = process.env.CI === 'true';
 

@@ -99,7 +99,7 @@ export class AuthService {
         this.startActivityCheck();
       }
     } catch {
-      // ignore malformed storage
+      console.warn('Failed to hydrate user from storage');
     }
   }
 

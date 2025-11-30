@@ -61,6 +61,12 @@
       "email": "nathan@gmail.com",
       "username": "patrick",
       "password": "password"
+    },
+    {
+      "id": "f362",
+      "email": "gina@gina.fr",
+      "username": "Gina",
+      "password": "1234"
     }
   ],
   "friends": [
@@ -440,25 +446,171 @@
   "activities": [
     {
       "id": "1",
-      "name": "Parc Montsouris",
+      "name": "Tour Eiffel",
+      "type": "Monument",
+      "distanceKm": 4.5,
+      "popularity": 4.9,
       "name_en": "Montsouris Park",
       "name_de": "Parc Montsouris",
-      "type": "Parc",
       "type_en": "Park",
       "type_de": "Park",
-      "distanceKm": 1.2,
-      "popularity": 4.7
+      "photo": "new-york.jpg"
     },
     {
       "id": "2",
-      "name": "Musée d'Orsay",
+      "name": "Musée du Louvre",
+      "type": "Musée",
+      "distanceKm": 5.1,
+      "popularity": 4.8,
       "name_en": "Orsay Museum",
       "name_de": "Musée d'Orsay",
-      "type": "Musée",
       "type_en": "Museum",
       "type_de": "Museum",
-      "distanceKm": 3.8,
-      "popularity": 4.9
+      "photo": "open-book.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Jardin du Luxembourg",
+      "type": "Parc",
+      "distanceKm": 2.3,
+      "popularity": 4.7,
+      "photo": "park.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Boulangerie Artisanale",
+      "type": "Restauration",
+      "distanceKm": 0.5,
+      "popularity": 4.5,
+      "photo": "businessman.jpg"
+    },
+    {
+      "id": "5",
+      "name": "Arc de Triomphe",
+      "type": "Monument",
+      "distanceKm": 6.8,
+      "popularity": 4.6,
+      "photo": "nyc.jpg"
+    },
+    {
+      "id": "6",
+      "name": "Musée d'Orsay",
+      "type": "Musée",
+      "distanceKm": 3.2,
+      "popularity": 4.9,
+      "photo": "open-book.jpg"
+    },
+    {
+      "id": "7",
+      "name": "Parc des Buttes-Chaumont",
+      "type": "Parc",
+      "distanceKm": 7.9,
+      "popularity": 4.4,
+      "photo": "park.jpg"
+    },
+    {
+      "id": "8",
+      "name": "Restaurant Traditionnel",
+      "type": "Restauration",
+      "distanceKm": 1.1,
+      "popularity": 4.6,
+      "photo": "wooden-hut.jpg"
+    },
+    {
+      "id": "9",
+      "name": "Cathédrale Notre-Dame",
+      "type": "Monument",
+      "distanceKm": 3.0,
+      "popularity": 4.7,
+      "photo": "sylvester.jpg"
+    },
+    {
+      "id": "10",
+      "name": "Centre Pompidou",
+      "type": "Musée",
+      "distanceKm": 4.1,
+      "popularity": 4.3,
+      "photo": "lantern.jpg"
+    },
+    {
+      "id": "11",
+      "name": "Coulée Verte René-Dumont",
+      "type": "Parc",
+      "distanceKm": 6.0,
+      "popularity": 4.5,
+      "photo": "park.jpg"
+    },
+    {
+      "id": "12",
+      "name": "Café de Flore",
+      "type": "Restauration",
+      "distanceKm": 2.5,
+      "popularity": 4.8,
+      "photo": "sunset.jpg"
+    },
+    {
+      "id": "13",
+      "name": "Basilique du Sacré-Cœur",
+      "type": "Monument",
+      "distanceKm": 8.5,
+      "popularity": 4.8,
+      "photo": "animal.jpg"
+    },
+    {
+      "id": "14",
+      "name": "Musée Rodin",
+      "type": "Musée",
+      "distanceKm": 3.5,
+      "popularity": 4.6,
+      "photo": "open-book.jpg"
+    },
+    {
+      "id": "15",
+      "name": "Parc de la Villette",
+      "type": "Parc",
+      "distanceKm": 9.2,
+      "popularity": 4.2,
+      "photo": "park.jpg"
+    },
+    {
+      "id": "16",
+      "name": "Vendeur de Crêpes",
+      "type": "Restauration",
+      "distanceKm": 0.1,
+      "popularity": 4.9,
+      "photo": "wooden-hut.jpg"
+    },
+    {
+      "id": "17",
+      "name": "Hôtel des Invalides",
+      "type": "Monument",
+      "distanceKm": 3.9,
+      "popularity": 4.5,
+      "photo": "nyc.jpg"
+    },
+    {
+      "id": "18",
+      "name": "Musée Picasso",
+      "type": "Musée",
+      "distanceKm": 5.5,
+      "popularity": 4.4,
+      "photo": "lantern.jpg"
+    },
+    {
+      "id": "19",
+      "name": "Parc Montsouris",
+      "type": "Parc",
+      "distanceKm": 1.8,
+      "popularity": 4.3,
+      "photo": "park.jpg"
+    },
+    {
+      "id": "20",
+      "name": "Restaurant Gastronomique",
+      "type": "Restauration",
+      "distanceKm": 4.0,
+      "popularity": 4.9,
+      "photo": "wooden-hut.jpg"
     }
   ],
   "weather": [
@@ -473,11 +625,41 @@
       "wind": 11,
       "daily_tip": "Profiter d’une journée ensoleillée (9–17°C) ; prévoir une couche légère le matin et l’adapter dans l’après-midi.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 10, "condition": "sunny", "wind": 9 },
-        { "key": "noon", "label": "Midi", "temp": 17, "condition": "sunny", "wind": 11 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 16, "condition": "sunny", "wind": 12 },
-        { "key": "evening", "label": "Soir", "temp": 11, "condition": "clear", "wind": 10 },
-        { "key": "night", "label": "Nuit", "temp": 9, "condition": "clear", "wind": 8 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 10,
+          "condition": "sunny",
+          "wind": 9
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 17,
+          "condition": "sunny",
+          "wind": 11
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 16,
+          "condition": "sunny",
+          "wind": 12
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 11,
+          "condition": "clear",
+          "wind": 10
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 9,
+          "condition": "clear",
+          "wind": 8
+        }
       ]
     },
     {
@@ -491,11 +673,41 @@
       "wind": 14,
       "daily_tip": "Composer avec des éclaircies (8–16°C) ; privilégier une veste légère et conserver une couche supplémentaire à disposition.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 9, "condition": "partly-cloudy", "wind": 12 },
-        { "key": "noon", "label": "Midi", "temp": 16, "condition": "partly-cloudy", "wind": 14 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 15, "condition": "cloudy", "wind": 15 },
-        { "key": "evening", "label": "Soir", "temp": 10, "condition": "cloudy", "wind": 13 },
-        { "key": "night", "label": "Nuit", "temp": 8, "condition": "clear", "wind": 11 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 9,
+          "condition": "partly-cloudy",
+          "wind": 12
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 16,
+          "condition": "partly-cloudy",
+          "wind": 14
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 15,
+          "condition": "cloudy",
+          "wind": 15
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 10,
+          "condition": "cloudy",
+          "wind": 13
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 8,
+          "condition": "clear",
+          "wind": 11
+        }
       ]
     },
     {
@@ -509,11 +721,41 @@
       "wind": 18,
       "daily_tip": "Anticiper des précipitations (7–12°C) ; prévoir un vêtement imperméable et des chaussures adaptées.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 8, "condition": "rain", "wind": 16 },
-        { "key": "noon", "label": "Midi", "temp": 12, "condition": "rain", "wind": 18 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 11, "condition": "rain", "wind": 19 },
-        { "key": "evening", "label": "Soir", "temp": 9, "condition": "cloudy", "wind": 17 },
-        { "key": "night", "label": "Nuit", "temp": 7, "condition": "cloudy", "wind": 15 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 8,
+          "condition": "rain",
+          "wind": 16
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 12,
+          "condition": "rain",
+          "wind": 18
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 11,
+          "condition": "rain",
+          "wind": 19
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 9,
+          "condition": "cloudy",
+          "wind": 17
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 7,
+          "condition": "cloudy",
+          "wind": 15
+        }
       ]
     },
     {
@@ -527,11 +769,41 @@
       "wind": 20,
       "daily_tip": "Prévoir une journée humide et fraîche (6–11°C) ; opter pour des vêtements superposés et limiter l’exposition prolongée.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 7, "condition": "rain", "wind": 18 },
-        { "key": "noon", "label": "Midi", "temp": 11, "condition": "rain", "wind": 20 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 10, "condition": "rain", "wind": 21 },
-        { "key": "evening", "label": "Soir", "temp": 8, "condition": "cloudy", "wind": 19 },
-        { "key": "night", "label": "Nuit", "temp": 6, "condition": "cloudy", "wind": 17 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 7,
+          "condition": "rain",
+          "wind": 18
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 11,
+          "condition": "rain",
+          "wind": 20
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 10,
+          "condition": "rain",
+          "wind": 21
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 8,
+          "condition": "cloudy",
+          "wind": 19
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 6,
+          "condition": "cloudy",
+          "wind": 17
+        }
       ]
     },
     {
@@ -545,11 +817,41 @@
       "wind": 32,
       "daily_tip": "Rester vigilant en raison d’un risque d’orage (8–13°C) ; limiter les déplacements et se tenir informé des alertes.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 9, "condition": "rain", "wind": 30 },
-        { "key": "noon", "label": "Midi", "temp": 13, "condition": "storm", "wind": 32 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 12, "condition": "storm", "wind": 33 },
-        { "key": "evening", "label": "Soir", "temp": 10, "condition": "rain", "wind": 31 },
-        { "key": "night", "label": "Nuit", "temp": 8, "condition": "cloudy", "wind": 29 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 9,
+          "condition": "rain",
+          "wind": 30
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 13,
+          "condition": "storm",
+          "wind": 32
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 12,
+          "condition": "storm",
+          "wind": 33
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 10,
+          "condition": "rain",
+          "wind": 31
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 8,
+          "condition": "cloudy",
+          "wind": 29
+        }
       ]
     },
     {
@@ -563,11 +865,41 @@
       "wind": 17,
       "daily_tip": "Prévoir un temps couvert et frais (9–14°C) ; privilégier une tenue de mi-saison et une protection contre le vent.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 10, "condition": "cloudy", "wind": 15 },
-        { "key": "noon", "label": "Midi", "temp": 14, "condition": "cloudy", "wind": 17 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 13, "condition": "cloudy", "wind": 18 },
-        { "key": "evening", "label": "Soir", "temp": 11, "condition": "cloudy", "wind": 16 },
-        { "key": "night", "label": "Nuit", "temp": 9, "condition": "cloudy", "wind": 14 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 10,
+          "condition": "cloudy",
+          "wind": 15
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 14,
+          "condition": "cloudy",
+          "wind": 17
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 13,
+          "condition": "cloudy",
+          "wind": 18
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 11,
+          "condition": "cloudy",
+          "wind": 16
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 9,
+          "condition": "cloudy",
+          "wind": 14
+        }
       ]
     },
     {
@@ -581,11 +913,41 @@
       "wind": 12,
       "daily_tip": "Profiter d’une journée ensoleillée et modérément douce (10–18°C) ; prévoir une couche légère pour le matin.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 11, "condition": "sunny", "wind": 10 },
-        { "key": "noon", "label": "Midi", "temp": 18, "condition": "sunny", "wind": 12 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 17, "condition": "sunny", "wind": 13 },
-        { "key": "evening", "label": "Soir", "temp": 12, "condition": "clear", "wind": 11 },
-        { "key": "night", "label": "Nuit", "temp": 10, "condition": "clear", "wind": 9 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 11,
+          "condition": "sunny",
+          "wind": 10
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 18,
+          "condition": "sunny",
+          "wind": 12
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 17,
+          "condition": "sunny",
+          "wind": 13
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 12,
+          "condition": "clear",
+          "wind": 11
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 10,
+          "condition": "clear",
+          "wind": 9
+        }
       ]
     },
     {
@@ -599,11 +961,41 @@
       "wind": 10,
       "daily_tip": "Prévoir une journée très douce (12–21°C) ; adopter une tenue légère et se protéger en cas d’exposition prolongée au soleil.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 13, "condition": "sunny", "wind": 8 },
-        { "key": "noon", "label": "Midi", "temp": 21, "condition": "sunny", "wind": 10 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 20, "condition": "sunny", "wind": 11 },
-        { "key": "evening", "label": "Soir", "temp": 15, "condition": "clear", "wind": 9 },
-        { "key": "night", "label": "Nuit", "temp": 12, "condition": "clear", "wind": 7 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 13,
+          "condition": "sunny",
+          "wind": 8
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 21,
+          "condition": "sunny",
+          "wind": 10
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 20,
+          "condition": "sunny",
+          "wind": 11
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 15,
+          "condition": "clear",
+          "wind": 9
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 12,
+          "condition": "clear",
+          "wind": 7
+        }
       ]
     },
     {
@@ -617,11 +1009,41 @@
       "wind": 16,
       "daily_tip": "Prévoir un temps couvert mais relativement doux (10–18°C) ; conserver une couche légère, notamment en cas de vent.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 11, "condition": "cloudy", "wind": 14 },
-        { "key": "noon", "label": "Midi", "temp": 18, "condition": "cloudy", "wind": 16 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 17, "condition": "cloudy", "wind": 17 },
-        { "key": "evening", "label": "Soir", "temp": 12, "condition": "cloudy", "wind": 15 },
-        { "key": "night", "label": "Nuit", "temp": 10, "condition": "cloudy", "wind": 13 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 11,
+          "condition": "cloudy",
+          "wind": 14
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 18,
+          "condition": "cloudy",
+          "wind": 16
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 17,
+          "condition": "cloudy",
+          "wind": 17
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 12,
+          "condition": "cloudy",
+          "wind": 15
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 10,
+          "condition": "cloudy",
+          "wind": 13
+        }
       ]
     },
     {
@@ -635,11 +1057,41 @@
       "wind": 19,
       "daily_tip": "Prévoir un risque de pluie (9–15°C) ; privilégier une protection imperméable et des chaussures fermées.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 10, "condition": "rain", "wind": 17 },
-        { "key": "noon", "label": "Midi", "temp": 15, "condition": "rain", "wind": 19 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 14, "condition": "rain", "wind": 20 },
-        { "key": "evening", "label": "Soir", "temp": 11, "condition": "cloudy", "wind": 18 },
-        { "key": "night", "label": "Nuit", "temp": 9, "condition": "cloudy", "wind": 16 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 10,
+          "condition": "rain",
+          "wind": 17
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 15,
+          "condition": "rain",
+          "wind": 19
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 14,
+          "condition": "rain",
+          "wind": 20
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 11,
+          "condition": "cloudy",
+          "wind": 18
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 9,
+          "condition": "cloudy",
+          "wind": 16
+        }
       ]
     },
     {
@@ -653,11 +1105,41 @@
       "wind": 13,
       "daily_tip": "Prévoir une matinée fraîche et une après-midi plus douce (8–16°C) ; adapter la tenue par couches.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 9, "condition": "sunny", "wind": 11 },
-        { "key": "noon", "label": "Midi", "temp": 16, "condition": "sunny", "wind": 13 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 15, "condition": "sunny", "wind": 14 },
-        { "key": "evening", "label": "Soir", "temp": 10, "condition": "clear", "wind": 12 },
-        { "key": "night", "label": "Nuit", "temp": 8, "condition": "clear", "wind": 10 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 9,
+          "condition": "sunny",
+          "wind": 11
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 16,
+          "condition": "sunny",
+          "wind": 13
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 15,
+          "condition": "sunny",
+          "wind": 14
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 10,
+          "condition": "clear",
+          "wind": 12
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 8,
+          "condition": "clear",
+          "wind": 10
+        }
       ]
     },
     {
@@ -671,11 +1153,41 @@
       "wind": 18,
       "daily_tip": "Prévoir un temps gris et frais (7–13°C) ; opter pour des vêtements superposés et une protection contre le vent.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 8, "condition": "cloudy", "wind": 16 },
-        { "key": "noon", "label": "Midi", "temp": 13, "condition": "cloudy", "wind": 18 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 12, "condition": "cloudy", "wind": 19 },
-        { "key": "evening", "label": "Soir", "temp": 9, "condition": "cloudy", "wind": 17 },
-        { "key": "night", "label": "Nuit", "temp": 7, "condition": "cloudy", "wind": 15 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 8,
+          "condition": "cloudy",
+          "wind": 16
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 13,
+          "condition": "cloudy",
+          "wind": 18
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 12,
+          "condition": "cloudy",
+          "wind": 19
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 9,
+          "condition": "cloudy",
+          "wind": 17
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 7,
+          "condition": "cloudy",
+          "wind": 15
+        }
       ]
     },
     {
@@ -689,11 +1201,41 @@
       "wind": 9,
       "daily_tip": "Prévoir du brouillard et des températures basses (6–10°C) ; accroître la vigilance lors des déplacements et renforcer la visibilité.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 7, "condition": "fog", "wind": 7 },
-        { "key": "noon", "label": "Midi", "temp": 10, "condition": "cloudy", "wind": 9 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 9, "condition": "cloudy", "wind": 10 },
-        { "key": "evening", "label": "Soir", "temp": 8, "condition": "fog", "wind": 8 },
-        { "key": "night", "label": "Nuit", "temp": 6, "condition": "fog", "wind": 6 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 7,
+          "condition": "fog",
+          "wind": 7
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 10,
+          "condition": "cloudy",
+          "wind": 9
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 9,
+          "condition": "cloudy",
+          "wind": 10
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 8,
+          "condition": "fog",
+          "wind": 8
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 6,
+          "condition": "fog",
+          "wind": 6
+        }
       ]
     },
     {
@@ -707,11 +1249,41 @@
       "wind": 12,
       "daily_tip": "Prévoir une journée ensoleillée mais fraîche (7–14°C) ; conserver une veste adaptée, surtout le matin.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 8, "condition": "sunny", "wind": 10 },
-        { "key": "noon", "label": "Midi", "temp": 14, "condition": "sunny", "wind": 12 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 13, "condition": "sunny", "wind": 13 },
-        { "key": "evening", "label": "Soir", "temp": 9, "condition": "clear", "wind": 11 },
-        { "key": "night", "label": "Nuit", "temp": 7, "condition": "clear", "wind": 9 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 8,
+          "condition": "sunny",
+          "wind": 10
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 14,
+          "condition": "sunny",
+          "wind": 12
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 13,
+          "condition": "sunny",
+          "wind": 13
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 9,
+          "condition": "clear",
+          "wind": 11
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 7,
+          "condition": "clear",
+          "wind": 9
+        }
       ]
     },
     {
@@ -725,11 +1297,41 @@
       "wind": 21,
       "daily_tip": "Prévoir des pluies et une sensation de fraîcheur (8–12°C) ; porter une protection imperméable et limiter l’exposition.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 9, "condition": "rain", "wind": 19 },
-        { "key": "noon", "label": "Midi", "temp": 12, "condition": "rain", "wind": 21 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 11, "condition": "rain", "wind": 22 },
-        { "key": "evening", "label": "Soir", "temp": 10, "condition": "cloudy", "wind": 20 },
-        { "key": "night", "label": "Nuit", "temp": 8, "condition": "cloudy", "wind": 18 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 9,
+          "condition": "rain",
+          "wind": 19
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 12,
+          "condition": "rain",
+          "wind": 21
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 11,
+          "condition": "rain",
+          "wind": 22
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 10,
+          "condition": "cloudy",
+          "wind": 20
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 8,
+          "condition": "cloudy",
+          "wind": 18
+        }
       ]
     },
     {
@@ -743,11 +1345,41 @@
       "wind": 15,
       "daily_tip": "Prévoir un temps nuageux et frais (9–14°C) ; privilégier une tenue de mi-saison et une couche coupe-vent si nécessaire.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 10, "condition": "cloudy", "wind": 13 },
-        { "key": "noon", "label": "Midi", "temp": 14, "condition": "cloudy", "wind": 15 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 13, "condition": "cloudy", "wind": 16 },
-        { "key": "evening", "label": "Soir", "temp": 11, "condition": "cloudy", "wind": 14 },
-        { "key": "night", "label": "Nuit", "temp": 9, "condition": "cloudy", "wind": 12 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 10,
+          "condition": "cloudy",
+          "wind": 13
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 14,
+          "condition": "cloudy",
+          "wind": 15
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 13,
+          "condition": "cloudy",
+          "wind": 16
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 11,
+          "condition": "cloudy",
+          "wind": 14
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 9,
+          "condition": "cloudy",
+          "wind": 12
+        }
       ]
     },
     {
@@ -761,11 +1393,41 @@
       "wind": 11,
       "daily_tip": "Prévoir une journée ensoleillée et modérée (8–15°C) ; adapter la tenue, en particulier en matinée.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 9, "condition": "sunny", "wind": 9 },
-        { "key": "noon", "label": "Midi", "temp": 15, "condition": "sunny", "wind": 11 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 14, "condition": "sunny", "wind": 12 },
-        { "key": "evening", "label": "Soir", "temp": 10, "condition": "clear", "wind": 10 },
-        { "key": "night", "label": "Nuit", "temp": 8, "condition": "clear", "wind": 8 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 9,
+          "condition": "sunny",
+          "wind": 9
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 15,
+          "condition": "sunny",
+          "wind": 11
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 14,
+          "condition": "sunny",
+          "wind": 12
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 10,
+          "condition": "clear",
+          "wind": 10
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 8,
+          "condition": "clear",
+          "wind": 8
+        }
       ]
     },
     {
@@ -779,11 +1441,41 @@
       "wind": 22,
       "daily_tip": "Prévoir des précipitations et une baisse des températures (7–11°C) ; porter un vêtement imperméable et des couches chaudes.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 8, "condition": "rain", "wind": 20 },
-        { "key": "noon", "label": "Midi", "temp": 11, "condition": "rain", "wind": 22 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 10, "condition": "rain", "wind": 23 },
-        { "key": "evening", "label": "Soir", "temp": 9, "condition": "cloudy", "wind": 21 },
-        { "key": "night", "label": "Nuit", "temp": 7, "condition": "cloudy", "wind": 19 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 8,
+          "condition": "rain",
+          "wind": 20
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 11,
+          "condition": "rain",
+          "wind": 22
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 10,
+          "condition": "rain",
+          "wind": 23
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 9,
+          "condition": "cloudy",
+          "wind": 21
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 7,
+          "condition": "cloudy",
+          "wind": 19
+        }
       ]
     },
     {
@@ -797,11 +1489,41 @@
       "wind": 35,
       "daily_tip": "Prévoir des conditions venteuses (9–13°C) ; privilégier un vêtement coupe-vent et sécuriser les objets susceptibles d’être déplacés.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 10, "condition": "windy", "wind": 33 },
-        { "key": "noon", "label": "Midi", "temp": 13, "condition": "windy", "wind": 35 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 12, "condition": "windy", "wind": 36 },
-        { "key": "evening", "label": "Soir", "temp": 11, "condition": "cloudy", "wind": 34 },
-        { "key": "night", "label": "Nuit", "temp": 9, "condition": "cloudy", "wind": 32 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 10,
+          "condition": "windy",
+          "wind": 33
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 13,
+          "condition": "windy",
+          "wind": 35
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 12,
+          "condition": "windy",
+          "wind": 36
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 11,
+          "condition": "cloudy",
+          "wind": 34
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 9,
+          "condition": "cloudy",
+          "wind": 32
+        }
       ]
     },
     {
@@ -815,11 +1537,41 @@
       "wind": 17,
       "daily_tip": "Prévoir un temps couvert et frais (8–12°C) ; opter pour une tenue chaude et limiter l’exposition prolongée.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 9, "condition": "cloudy", "wind": 15 },
-        { "key": "noon", "label": "Midi", "temp": 12, "condition": "cloudy", "wind": 17 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 11, "condition": "cloudy", "wind": 18 },
-        { "key": "evening", "label": "Soir", "temp": 10, "condition": "cloudy", "wind": 16 },
-        { "key": "night", "label": "Nuit", "temp": 8, "condition": "cloudy", "wind": 14 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 9,
+          "condition": "cloudy",
+          "wind": 15
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 12,
+          "condition": "cloudy",
+          "wind": 17
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 11,
+          "condition": "cloudy",
+          "wind": 18
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 10,
+          "condition": "cloudy",
+          "wind": 16
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 8,
+          "condition": "cloudy",
+          "wind": 14
+        }
       ]
     },
     {
@@ -833,11 +1585,41 @@
       "wind": 13,
       "daily_tip": "Prévoir une journée ensoleillée mais fraîche (9–14°C) ; conserver une veste légère et adapter la tenue au cours de la journée.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 10, "condition": "sunny", "wind": 11 },
-        { "key": "noon", "label": "Midi", "temp": 14, "condition": "sunny", "wind": 13 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 13, "condition": "sunny", "wind": 14 },
-        { "key": "evening", "label": "Soir", "temp": 11, "condition": "clear", "wind": 12 },
-        { "key": "night", "label": "Nuit", "temp": 9, "condition": "clear", "wind": 10 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 10,
+          "condition": "sunny",
+          "wind": 11
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 14,
+          "condition": "sunny",
+          "wind": 13
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 13,
+          "condition": "sunny",
+          "wind": 14
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 11,
+          "condition": "clear",
+          "wind": 12
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 9,
+          "condition": "clear",
+          "wind": 10
+        }
       ]
     },
     {
@@ -851,11 +1633,41 @@
       "wind": 19,
       "daily_tip": "Prévoir de la pluie et un temps froid (7–10°C) ; porter une protection imperméable et réduire les déplacements non essentiels.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 8, "condition": "rain", "wind": 17 },
-        { "key": "noon", "label": "Midi", "temp": 10, "condition": "rain", "wind": 19 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 9, "condition": "rain", "wind": 20 },
-        { "key": "evening", "label": "Soir", "temp": 9, "condition": "cloudy", "wind": 18 },
-        { "key": "night", "label": "Nuit", "temp": 7, "condition": "cloudy", "wind": 16 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 8,
+          "condition": "rain",
+          "wind": 17
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 10,
+          "condition": "rain",
+          "wind": 19
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 9,
+          "condition": "rain",
+          "wind": 20
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 9,
+          "condition": "cloudy",
+          "wind": 18
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 7,
+          "condition": "cloudy",
+          "wind": 16
+        }
       ]
     },
     {
@@ -869,11 +1681,41 @@
       "wind": 12,
       "daily_tip": "Prévoir une journée lumineuse et modérée (8–15°C) ; adapter la tenue par couches et privilégier les sorties en milieu de journée.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 9, "condition": "sunny", "wind": 10 },
-        { "key": "noon", "label": "Midi", "temp": 15, "condition": "sunny", "wind": 12 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 14, "condition": "sunny", "wind": 13 },
-        { "key": "evening", "label": "Soir", "temp": 10, "condition": "clear", "wind": 11 },
-        { "key": "night", "label": "Nuit", "temp": 8, "condition": "clear", "wind": 9 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 9,
+          "condition": "sunny",
+          "wind": 10
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 15,
+          "condition": "sunny",
+          "wind": 12
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 14,
+          "condition": "sunny",
+          "wind": 13
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 10,
+          "condition": "clear",
+          "wind": 11
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 8,
+          "condition": "clear",
+          "wind": 9
+        }
       ]
     },
     {
@@ -887,11 +1729,41 @@
       "wind": 16,
       "daily_tip": "Prévoir un temps nuageux et frais (7–12°C) ; porter une tenue chaude et se protéger du vent.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 8, "condition": "cloudy", "wind": 14 },
-        { "key": "noon", "label": "Midi", "temp": 12, "condition": "cloudy", "wind": 16 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 11, "condition": "cloudy", "wind": 17 },
-        { "key": "evening", "label": "Soir", "temp": 9, "condition": "cloudy", "wind": 15 },
-        { "key": "night", "label": "Nuit", "temp": 7, "condition": "cloudy", "wind": 13 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 8,
+          "condition": "cloudy",
+          "wind": 14
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 12,
+          "condition": "cloudy",
+          "wind": 16
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 11,
+          "condition": "cloudy",
+          "wind": 17
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 9,
+          "condition": "cloudy",
+          "wind": 15
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 7,
+          "condition": "cloudy",
+          "wind": 13
+        }
       ]
     },
     {
@@ -905,11 +1777,41 @@
       "wind": 23,
       "daily_tip": "Prévoir une journée froide et pluvieuse (6–9°C) ; renforcer la protection thermique et privilégier les déplacements abrités.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 7, "condition": "rain", "wind": 21 },
-        { "key": "noon", "label": "Midi", "temp": 9, "condition": "rain", "wind": 23 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 8, "condition": "rain", "wind": 24 },
-        { "key": "evening", "label": "Soir", "temp": 8, "condition": "cloudy", "wind": 22 },
-        { "key": "night", "label": "Nuit", "temp": 6, "condition": "cloudy", "wind": 20 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 7,
+          "condition": "rain",
+          "wind": 21
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 9,
+          "condition": "rain",
+          "wind": 23
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 8,
+          "condition": "rain",
+          "wind": 24
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 8,
+          "condition": "cloudy",
+          "wind": 22
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 6,
+          "condition": "cloudy",
+          "wind": 20
+        }
       ]
     },
     {
@@ -923,11 +1825,41 @@
       "wind": 34,
       "daily_tip": "Prévoir un risque d’orage et des rafales (7–11°C) ; limiter les déplacements, notamment aux heures les plus instables.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 8, "condition": "rain", "wind": 32 },
-        { "key": "noon", "label": "Midi", "temp": 11, "condition": "storm", "wind": 34 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 10, "condition": "storm", "wind": 35 },
-        { "key": "evening", "label": "Soir", "temp": 9, "condition": "rain", "wind": 33 },
-        { "key": "night", "label": "Nuit", "temp": 7, "condition": "cloudy", "wind": 31 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 8,
+          "condition": "rain",
+          "wind": 32
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 11,
+          "condition": "storm",
+          "wind": 34
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 10,
+          "condition": "storm",
+          "wind": 35
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 9,
+          "condition": "rain",
+          "wind": 33
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 7,
+          "condition": "cloudy",
+          "wind": 31
+        }
       ]
     },
     {
@@ -941,11 +1873,41 @@
       "wind": 15,
       "daily_tip": "Prévoir un temps couvert et frais (8–13°C) ; opter pour une tenue de mi-saison et une couche supplémentaire en soirée.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 9, "condition": "cloudy", "wind": 13 },
-        { "key": "noon", "label": "Midi", "temp": 13, "condition": "cloudy", "wind": 15 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 12, "condition": "cloudy", "wind": 16 },
-        { "key": "evening", "label": "Soir", "temp": 10, "condition": "cloudy", "wind": 14 },
-        { "key": "night", "label": "Nuit", "temp": 8, "condition": "cloudy", "wind": 12 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 9,
+          "condition": "cloudy",
+          "wind": 13
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 13,
+          "condition": "cloudy",
+          "wind": 15
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 12,
+          "condition": "cloudy",
+          "wind": 16
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 10,
+          "condition": "cloudy",
+          "wind": 14
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 8,
+          "condition": "cloudy",
+          "wind": 12
+        }
       ]
     },
     {
@@ -959,11 +1921,41 @@
       "wind": 11,
       "daily_tip": "Prévoir une journée ensoleillée et modérée (9–15°C) ; conserver une veste le matin et ajuster la tenue ensuite.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 10, "condition": "sunny", "wind": 9 },
-        { "key": "noon", "label": "Midi", "temp": 15, "condition": "sunny", "wind": 11 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 14, "condition": "sunny", "wind": 12 },
-        { "key": "evening", "label": "Soir", "temp": 11, "condition": "clear", "wind": 10 },
-        { "key": "night", "label": "Nuit", "temp": 9, "condition": "clear", "wind": 8 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 10,
+          "condition": "sunny",
+          "wind": 9
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 15,
+          "condition": "sunny",
+          "wind": 11
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 14,
+          "condition": "sunny",
+          "wind": 12
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 11,
+          "condition": "clear",
+          "wind": 10
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 9,
+          "condition": "clear",
+          "wind": 8
+        }
       ]
     },
     {
@@ -977,11 +1969,41 @@
       "wind": 20,
       "daily_tip": "Prévoir de la pluie et un temps frais (7–11°C) ; porter une protection imperméable et des chaussures adaptées.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 8, "condition": "rain", "wind": 18 },
-        { "key": "noon", "label": "Midi", "temp": 11, "condition": "rain", "wind": 20 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 10, "condition": "rain", "wind": 21 },
-        { "key": "evening", "label": "Soir", "temp": 9, "condition": "cloudy", "wind": 19 },
-        { "key": "night", "label": "Nuit", "temp": 7, "condition": "cloudy", "wind": 17 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 8,
+          "condition": "rain",
+          "wind": 18
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 11,
+          "condition": "rain",
+          "wind": 20
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 10,
+          "condition": "rain",
+          "wind": 21
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 9,
+          "condition": "cloudy",
+          "wind": 19
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 7,
+          "condition": "cloudy",
+          "wind": 17
+        }
       ]
     },
     {
@@ -995,11 +2017,41 @@
       "wind": 14,
       "daily_tip": "Prévoir un temps froid et couvert (6–10°C) ; porter un manteau chaud et limiter les sorties prolongées.",
       "periods": [
-        { "key": "morning", "label": "Matin", "temp": 7, "condition": "cloudy", "wind": 12 },
-        { "key": "noon", "label": "Midi", "temp": 10, "condition": "cloudy", "wind": 14 },
-        { "key": "afternoon", "label": "Après-midi", "temp": 9, "condition": "cloudy", "wind": 15 },
-        { "key": "evening", "label": "Soir", "temp": 8, "condition": "cloudy", "wind": 13 },
-        { "key": "night", "label": "Nuit", "temp": 6, "condition": "cloudy", "wind": 11 }
+        {
+          "key": "morning",
+          "label": "Matin",
+          "temp": 7,
+          "condition": "cloudy",
+          "wind": 12
+        },
+        {
+          "key": "noon",
+          "label": "Midi",
+          "temp": 10,
+          "condition": "cloudy",
+          "wind": 14
+        },
+        {
+          "key": "afternoon",
+          "label": "Après-midi",
+          "temp": 9,
+          "condition": "cloudy",
+          "wind": 15
+        },
+        {
+          "key": "evening",
+          "label": "Soir",
+          "temp": 8,
+          "condition": "cloudy",
+          "wind": 13
+        },
+        {
+          "key": "night",
+          "label": "Nuit",
+          "temp": 6,
+          "condition": "cloudy",
+          "wind": 11
+        }
       ]
     }
   ]

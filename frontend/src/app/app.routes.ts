@@ -8,6 +8,7 @@ import { authGuard } from './features/auth/auth.guard';
 import { SettingsComponent } from './features/settings/settings.component';
 import { NewComponent } from './features/new/new.component';
 import { FriendsComponent } from './features/friends/friends.component';
+import { ActivityComponent } from './features/activity/activity.component';
 
 export const routes: Routes = [
   {
@@ -43,7 +44,12 @@ export const routes: Routes = [
     component: WeatherComponent,
     canActivate: [authGuard]
   },
-      {
+  {
+    path: 'activities/:id',
+    component: ActivityComponent,
+    canActivate: [authGuard]
+  },
+  {
     path: 'activities',
     component: ActivitiesComponent,
     canActivate: [authGuard]

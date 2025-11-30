@@ -4,16 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { forkJoin } from 'rxjs';
 import { NewsService } from '../../shared/services/news.service';
 import { WeatherService } from '../../shared/services/weather.service';
+import { ActivityService } from '../../shared/services/activity.service';
 import { EngagementService } from '../../shared/services/engagement.service';
 import { New } from '../../shared/models/new.model';
 import { Weather } from '../../shared/models/weather.model';
+import { Activity } from '../../shared/models/activity.model';
 import { AuthService } from '../auth/auth.service';
 import { FeedComment } from '../../shared/models/engagement.model';
 import { Friend } from '../../shared/models/friend.model';
 import { FriendService } from '../../shared/services/friend.service';
 import { Router } from '@angular/router';
 
-type FeedType = 'news' | 'weather';
+type FeedType = 'news' | 'weather' | 'activity';
 
 interface FeedItem {
   id: string;
@@ -31,7 +33,10 @@ interface FeedItem {
   weatherCondition?: string;
   minTemp?: number;
   maxTemp?: number;
-  payload: New | Weather;
+  activityType?: string;
+  activityDistanceKm?: number;
+  activityScore?: number;
+  payload: New | Weather | Activity;
 }
 
 interface Notice {
@@ -55,6 +60,7 @@ interface SnapshotState {
 export class FeedComponent implements OnInit {
   private newsService = inject(NewsService);
   private weatherService = inject(WeatherService);
+  private activityService = inject(ActivityService);
   private engagement = inject(EngagementService);
   private auth = inject(AuthService);
   private friendService = inject(FriendService);
@@ -81,10 +87,11 @@ export class FeedComponent implements OnInit {
     this.loading = true;
     forkJoin({
       news: this.newsService.getNews(),
-      weather: this.weatherService.getWeather()
+      weather: this.weatherService.getWeather(),
+      activities: this.activityService.getActivities()
     }).subscribe({
-      next: ({ news, weather }) => {
-        this.buildFeed(news, weather);
+      next: ({ news, weather, activities }) => {
+        this.buildFeed(news, weather, activities);
         this.loadEngagement();
         this.loading = false;
         this.error = false;
@@ -138,9 +145,6 @@ export class FeedComponent implements OnInit {
           text: item.description || item.subtitle,
           url
         })
-        .then(() => {
-          this.engagement.logShare(item.id, 'system');
-        })
         .catch(() =>
           this.pushNotice(
             $localize`:@@feed.notice.shareCancelled:Partage annulé ou non supporté.`,
@@ -154,7 +158,6 @@ export class FeedComponent implements OnInit {
       navigator.clipboard
         .writeText(url)
         .then(() => {
-          this.engagement.logShare(item.id, 'link');
           this.pushNotice(
             $localize`:@@feed.notice.linkCopied:Lien copié dans le presse-papiers.`,
             'info'
@@ -181,7 +184,6 @@ export class FeedComponent implements OnInit {
   shareToFriend(item: FeedItem, friend: Friend) {
     const friendId = String(friend.friendUserId);
     const friendLabel = friend.user?.username || friendId;
-    this.engagement.logShare(item.id, 'friend', friendLabel);
     this.pushNotice(
       $localize`:@@feed.notice.shareToFriend:Partage envoyé à ${friendLabel}.`,
       'info'
@@ -202,10 +204,13 @@ export class FeedComponent implements OnInit {
     this.inAppNotices = this.inAppNotices.filter(n => n.id !== id);
   }
 
-  private buildFeed(news: New[], weather: Weather[]) {
+  private buildFeed(news: New[], weather: Weather[], activities: Activity[]) {
     const newsItems = news.map(item => this.toNewsItem(item));
     const weatherItems = weather.slice(0, 5).map(item => this.toWeatherItem(item));
-    this.feedItems = [...newsItems, ...weatherItems].sort((a, b) => b.timestamp - a.timestamp);
+    const activityItems = activities.slice(0, 6).map((a, index) => this.toActivityItem(a, index));
+    this.feedItems = [...newsItems, ...weatherItems, ...activityItems].sort(
+      (a, b) => b.timestamp - a.timestamp
+    );
   }
 
   private toNewsItem(item: New): FeedItem {
@@ -263,6 +268,34 @@ export class FeedComponent implements OnInit {
     };
   }
 
+  private toActivityItem(item: Activity, index: number): FeedItem {
+    const id = `activity-${item.id}`;
+    const distanceLabel = `${item.distanceKm} km`;
+    const scoreLabel = `${item.popularity}/100`;
+    const typeLabel = item.type;
+    const subtitle = `${typeLabel} · ${distanceLabel}`;
+
+    return {
+      id,
+      type: 'activity',
+      title: item.name,
+      subtitle,
+      description: $localize`:@@feed.activity.description:Activité à proximité - ${typeLabel} (${distanceLabel}, score ${scoreLabel})`,
+      image: item.photo ? `assets/${item.photo}` : undefined,
+      badge: $localize`:@@feed.badge.activity:Activité`,
+      dateLabel: $localize`:@@feed.activity.dateLabel:Aujourd'hui`,
+      // léger décalage pour garder un ordre stable
+      timestamp: Date.now() - index * 1000,
+      likes: 0,
+      liked: false,
+      comments: [],
+      activityType: item.type,
+      activityDistanceKm: item.distanceKm,
+      activityScore: item.popularity,
+      payload: item
+    };
+  }
+
   private handleChangeNotifications(news: New[], weather: Weather[]) {
     const snapshot = this.loadSnapshot();
     const isFirstHydration = !snapshot.newsIds.length && !Object.keys(snapshot.weatherByDate).length;
@@ -306,6 +339,9 @@ export class FeedComponent implements OnInit {
     if (item.type === 'news' && 'id' in item.payload) {
       return `${base}/new/${(item.payload as New).id}`;
     }
+    if (item.type === 'activity' && 'id' in item.payload) {
+      return `${base}/activities/${(item.payload as Activity).id}`;
+    }
     return `${base}/dashboard`;
   }
 
@@ -313,6 +349,9 @@ export class FeedComponent implements OnInit {
     if (item.type === 'news') {
       const news = item.payload as New;
       this.router.navigate(['/new', news.id]);
+    } else if (item.type === 'activity') {
+      const activity = item.payload as Activity;
+      this.router.navigate(['/activities', activity.id]);
     }
   }
 
